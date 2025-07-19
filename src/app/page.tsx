@@ -1,56 +1,82 @@
 import Image from "next/image";
+import { ArrowDown, Languages } from "lucide-react";
+import HighlightedText from "@/components/ui/HighlightedText";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
+    <div className="flex flex-col justify-between items-center justify-items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)]">
+      <header className="flex flex-row w-full justify-end items-center gap-10">
+        <ol className="flex flex-row gap-6 font-bold">
+          <li>
+            <a href="journey">Journey</a>
           </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+          <li>
+            <a href="stack">Stack</a>
+          </li>
+          <li>
+            <a href="projects">Projects</a>
+          </li>
+          <li>
+            <a href="contact">Contact</a>
           </li>
         </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <button className="flex flex-row gap-2 items-center bg-blue-500/20 rounded-md p-2 cursor-pointer hover:bg-blue-500/30 transition-all duration-300">
+          <Languages />
+          <span className="text-sm">EN</span>
+        </button>
+      </header>
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full md:px-60">
+        <section className="flex flex-row gap-20 items-center justify-between w-full">
+          <div className="flex-2 flex flex-col gap-2">
+            <h1 className="text-6xl font-bold">
+              <span className="text-lg font-normal ">Hello, I&apos;m</span>{" "}
+              <br />
+              <span className="text-white italic">Miguel Azevedo </span>👋
+              <hr className="w-40 border-b-4 border-primary mt-1" />
+            </h1>
+
+            <p className="text-lg">
+              I&apos;m a <HighlightedText>developer</HighlightedText> passionate
+              about creating meaningful digital experiences. I currently lead{" "}
+              <HighlightedText>front-end projects</HighlightedText> focused on{" "}
+              <HighlightedText>usability</HighlightedText> and{" "}
+              <HighlightedText>accessibility</HighlightedText> for{" "}
+              <HighlightedText>public service platforms</HighlightedText>. My
+              work aims to{" "}
+              <HighlightedText>simplify complex processes</HighlightedText> and
+              improve <HighlightedText>access</HighlightedText> through{" "}
+              <HighlightedText>intuitive interfaces</HighlightedText>. I value{" "}
+              <HighlightedText>clean design</HighlightedText>,{" "}
+              <HighlightedText>real-world impact</HighlightedText>, and{" "}
+              <HighlightedText>purposeful technology</HighlightedText>.
+            </p>
+
+            <button className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex flex-row gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300">
+              <span>Download CV</span>
+              <ArrowDown />
+            </button>
+          </div>
+
+          <div className="flex-2">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              className="h-90 w-full rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem]  border-2 border-red-500"
+              src="/next.svg"
+              alt="Next.js logo"
+              width={180}
+              height={38}
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm">
+              <span>Coding right now</span>
+              <div className="gap-2 w-fit rounded-full bg-emerald-200/10 p-[0.25rem] flex flex-row items-center justify-center">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
