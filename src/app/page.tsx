@@ -27,7 +27,7 @@ export default function Home() {
         </button>
       </header>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full md:px-60">
-        <section className="flex flex-row gap-20 items-center justify-between w-full">
+        <section className="flex flex-col xl:flex-row gap-20 items-center justify-between w-full">
           <div className="flex-2 flex flex-col gap-2">
             <h1 className="text-6xl font-bold">
               <span className="text-lg font-normal ">Hello, I&apos;m</span>{" "}
