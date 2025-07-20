@@ -4,6 +4,9 @@ import HighlightedText from "@/components/ui/HighlightedText";
 import Link from "next/link";
 import { IsCodingStatus } from "@/components/ui/IsCodingStatus";
 import Title from "@/components/ui/Title";
+import Section from "@/components/ui/Section";
+import Timeline from "@/components/ui/Timeline";
+import { timelineEvents } from "@/constants/timeline";
 
 export default function Home() {
   return (
@@ -32,13 +35,10 @@ export default function Home() {
           <span className="text-sm">EN</span>
         </button>
       </header>
-      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full md:px-60 ">
-        <section
-          className="flex flex-col xl:flex-row gap-20 items-center justify-between w-full lg:h-[80vh]"
-          about="about-me"
-        >
-          <div className="flex-2 flex flex-col gap-2">
-            <Title.Root isMainTitle>
+      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full px-10 md:px-20 lg:px-42 xl:px-60">
+        <Section.Root className="xl:flex-row flex-wrap" about="about-me">
+          <Section.Content className="flex-2 flex flex-col gap-2 lg:min-w-[32rem]">
+            <Title.Root>
               <Title.Content>
                 <span className="text-lg font-normal">Hello, I&apos;m</span>{" "}
                 <br />
@@ -71,9 +71,9 @@ export default function Home() {
               <span>Download CV</span>
               <ArrowDown aria-hidden="true" />
             </a>
-          </div>
+          </Section.Content>
 
-          <div className="flex-2 w-[20rem] max-w-[32rem]">
+          <Section.Content className="flex-2 w-[20rem] max-w-[32rem] lg:min-w-[32rem]">
             <div className="flex h-90 overflow-hidden items-center justify-center  rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary">
               <Image
                 className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
@@ -86,45 +86,81 @@ export default function Home() {
               />
             </div>
             <IsCodingStatus />
-          </div>
-        </section>
+          </Section.Content>
+        </Section.Root>
 
-        <section
-          className="flex flex-col gap-20 items-center justify-between w-full lg:h-[80vh]"
-          about="my-journey"
-        >
+        <Section.Root about="my-journey">
           <Title.Root>
             <Title.Content>
               <Title.Sub>My journey so far...</Title.Sub>
             </Title.Content>
-            <Title.UnderlineRow color="secondary" />
+            <Title.UnderlineRow color="primary" />
           </Title.Root>
 
-          <div className="relative flex flex-col items-center">
-            <div className="w-1 h-[30rem] bg-gradient-to-b from-primary via-primary to-transparent" />
+          <Timeline.Root>
+            <Timeline.Line />
 
-            <div className="absolute top-16 -left-[0.4rem] -mt-2">
-              <div className="flex flex-row items-center justify-between gap-2 w-[25rem]">
-                <div className="w-4 h-4 rounded-full bg-secondary/90" />
+            {timelineEvents.map((event, index) => {
+              const isLeft = index % 2 === 0;
+              const topSpacing = 8 + index * 36;
 
-                <div className="flex-1 w-full h-[0.2rem] bg-white relative" />
+              return (
+                <Timeline.Event
+                  key={index}
+                  position={isLeft ? "left" : "right"}
+                  top={`top-${topSpacing}`}
+                >
+                  <Timeline.EventContent>
+                    {isLeft ? (
+                      <>
+                        <Timeline.EventDot />
+                        <Timeline.EventLine>
+                          <Timeline.EventYear className="absolute bottom-2">
+                            {event.year}
 
-                <span className="text-sm absolute bottom-4 left-20">2018</span>
+                            {event.event_status && (
+                              <>
+                                <br />
+                                <span className="text-sm text-gray-500">
+                                  {event.event_status}
+                                </span>
+                              </>
+                            )}
+                          </Timeline.EventYear>
+                        </Timeline.EventLine>
 
-                <span className="text-sm w-[14rem] text-center">
-                  Android App Development for Health and Pregnant Women
-                </span>
-              </div>
-            </div>
+                        <Timeline.EventDescription className="text-left">
+                          {event.description}
+                        </Timeline.EventDescription>
+                      </>
+                    ) : (
+                      <>
+                        <Timeline.EventDescription className="text-right">
+                          {event.description}
+                        </Timeline.EventDescription>
+                        <Timeline.EventLine>
+                          <Timeline.EventYear className="absolute bottom-2 ">
+                            {event.year}
 
-            <div className="absolute top-32 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
-            <div className="absolute top-48 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
-            <div className="absolute top-64 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
-            <div className="absolute top-80 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
-            <div className="absolute top-96 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
-            <div className="absolute top-192 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
-          </div>
-        </section>
+                            {event.event_status && (
+                              <>
+                                <br />
+                                <span className="text-sm text-gray-500">
+                                  {event.event_status}
+                                </span>
+                              </>
+                            )}
+                          </Timeline.EventYear>
+                        </Timeline.EventLine>
+                        <Timeline.EventDot />
+                      </>
+                    )}
+                  </Timeline.EventContent>
+                </Timeline.Event>
+              );
+            })}
+          </Timeline.Root>
+        </Section.Root>
       </main>
 
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

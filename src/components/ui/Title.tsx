@@ -3,7 +3,6 @@ const TitleRoot = ({
   ...props
 }: {
   children: React.ReactNode;
-  isMainTitle?: boolean;
   className?: string;
 }) => {
   return (
