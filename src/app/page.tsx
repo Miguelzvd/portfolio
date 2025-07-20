@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { ArrowDown, Languages } from "lucide-react";
 import HighlightedText from "@/components/ui/HighlightedText";
+import Link from "next/link";
+import { IsCodingStatus } from "@/components/ui/IsCodingStatus";
+import Title from "@/components/ui/Title";
 
 export default function Home() {
   return (
@@ -8,33 +11,41 @@ export default function Home() {
       <header className="flex flex-row w-full justify-end items-center gap-10">
         <ol className="flex flex-row gap-6 font-bold">
           <li>
-            <a href="journey">Journey</a>
+            <Link href="journey">Journey</Link>
           </li>
           <li>
-            <a href="stack">Stack</a>
+            <Link href="stack">Stack</Link>
           </li>
           <li>
-            <a href="projects">Projects</a>
+            <Link href="projects">Projects</Link>
           </li>
           <li>
-            <a href="contact">Contact</a>
+            <Link href="contact">Contact</Link>
           </li>
         </ol>
 
-        <button className="flex flex-row gap-2 items-center bg-blue-500/20 rounded-md p-2 cursor-pointer hover:bg-blue-500/30 transition-all duration-300">
-          <Languages />
+        <button
+          aria-label="Change language"
+          className="flex flex-row gap-2 items-center bg-blue-500/20 rounded-md p-2 cursor-pointer hover:bg-blue-500/30 transition-all duration-300"
+        >
+          <Languages aria-hidden="true" />
           <span className="text-sm">EN</span>
         </button>
       </header>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full md:px-60">
-        <section className="flex flex-col xl:flex-row gap-20 items-center justify-between w-full">
+      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full md:px-60 ">
+        <section
+          className="flex flex-col xl:flex-row gap-20 items-center justify-between w-full lg:h-[80vh]"
+          about="about-me"
+        >
           <div className="flex-2 flex flex-col gap-2">
-            <h1 className="text-6xl font-bold">
-              <span className="text-lg font-normal ">Hello, I&apos;m</span>{" "}
-              <br />
-              <span className="text-white italic">Miguel Azevedo </span>👋
-              <hr className="w-40 border-b-4 border-primary mt-1" />
-            </h1>
+            <Title.Root isMainTitle>
+              <Title.Content>
+                <span className="text-lg font-normal">Hello, I&apos;m</span>{" "}
+                <br />
+                <Title.Main>Miguel Azevedo 👋</Title.Main>
+              </Title.Content>
+              <Title.UnderlineRow color="primary" />
+            </Title.Root>
 
             <p className="text-lg">
               I&apos;m a <HighlightedText>developer</HighlightedText> passionate
@@ -52,27 +63,66 @@ export default function Home() {
               <HighlightedText>purposeful technology</HighlightedText>.
             </p>
 
-            <button className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex flex-row gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300">
+            <a
+              href="/files/Edilson_Miguel_De_Azevedo_Filho_EN.pdf"
+              download="Edilson_Miguel_De_Azevedo_Filho_EN.pdf"
+              className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex flex-row gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300"
+            >
               <span>Download CV</span>
-              <ArrowDown />
-            </button>
+              <ArrowDown aria-hidden="true" />
+            </a>
           </div>
 
-          <div className="flex-2">
-            <Image
-              className="h-90 w-full rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem]  border-2 border-red-500"
-              src="/next.svg"
-              alt="Next.js logo"
-              width={180}
-              height={38}
-              priority
-            />
-            <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm">
-              <span>Coding right now</span>
-              <div className="gap-2 w-fit rounded-full bg-emerald-200/10 p-[0.25rem] flex flex-row items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="flex-2 w-[20rem] max-w-[32rem]">
+            <div className="flex h-90 overflow-hidden items-center justify-center  rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary">
+              <Image
+                className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
+                src="/images/profile.jpg"
+                alt="My profile picture"
+                quality={100}
+                width={400}
+                height={400}
+                priority
+              />
+            </div>
+            <IsCodingStatus />
+          </div>
+        </section>
+
+        <section
+          className="flex flex-col gap-20 items-center justify-between w-full lg:h-[80vh]"
+          about="my-journey"
+        >
+          <Title.Root>
+            <Title.Content>
+              <Title.Sub>My journey so far...</Title.Sub>
+            </Title.Content>
+            <Title.UnderlineRow color="secondary" />
+          </Title.Root>
+
+          <div className="relative flex flex-col items-center">
+            <div className="w-1 h-[30rem] bg-gradient-to-b from-primary via-primary to-transparent" />
+
+            <div className="absolute top-16 -left-[0.4rem] -mt-2">
+              <div className="flex flex-row items-center justify-between gap-2 w-[25rem]">
+                <div className="w-4 h-4 rounded-full bg-secondary/90" />
+
+                <div className="flex-1 w-full h-[0.2rem] bg-white relative" />
+
+                <span className="text-sm absolute bottom-4 left-20">2018</span>
+
+                <span className="text-sm w-[14rem] text-center">
+                  Android App Development for Health and Pregnant Women
+                </span>
               </div>
             </div>
+
+            <div className="absolute top-32 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
+            <div className="absolute top-48 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
+            <div className="absolute top-64 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
+            <div className="absolute top-80 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
+            <div className="absolute top-96 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
+            <div className="absolute top-192 w-4 h-4 bg-secondary/90 rounded-full -mt-2" />
           </div>
         </section>
       </main>
@@ -108,6 +158,7 @@ export default function Home() {
           />
           Examples
         </a>
+
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
