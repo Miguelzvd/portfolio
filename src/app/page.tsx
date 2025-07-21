@@ -94,7 +94,7 @@ export default function Home() {
             <Title.Content>
               <Title.Sub>My journey so far...</Title.Sub>
             </Title.Content>
-            <Title.UnderlineRow color="primary" />
+            <Title.UnderlineRow color="secondary" />
           </Title.Root>
 
           <Timeline.Root>
@@ -102,13 +102,13 @@ export default function Home() {
 
             {timelineEvents.map((event, index) => {
               const isLeft = index % 2 === 0;
-              const topSpacing = 8 + index * 36;
+              const topSpacing = 2 + index * 4;
 
               return (
                 <Timeline.Event
                   key={index}
                   position={isLeft ? "left" : "right"}
-                  top={`top-${topSpacing}`}
+                  top={`${topSpacing}`}
                 >
                   <Timeline.EventContent>
                     {isLeft ? (

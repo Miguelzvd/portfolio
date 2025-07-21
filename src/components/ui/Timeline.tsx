@@ -35,15 +35,16 @@ const TimelineEvent = ({
   children: React.ReactNode;
   className?: string;
   position?: "left" | "right";
-  top: string;
+  top?: string;
 } & HTMLAttributes<HTMLDivElement>) => {
   const isLeft = position === "left";
 
   return (
     <div
-      className={`absolute ${top} ${
+      className={`absolute ${
         isLeft ? "-left-[0.4rem]" : "-right-[0.4rem]"
       } -mt-2 ${className}`}
+      style={{ top: `${top}rem` }}
     >
       {children}
     </div>

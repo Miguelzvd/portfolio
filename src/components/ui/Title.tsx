@@ -58,12 +58,12 @@ const TitleUnderlineRow = ({
   color = "primary",
   ...props
 }: {
-  color?: string;
+  color?: "primary" | "secondary";
   className?: string;
 }) => {
   return (
     <div
-      className={`w-40 border-b-4 border-${color} mt-1 ${props.className}`}
+      className={`w-40 border-b-4 ${color === "primary" ? "border-primary" : "border-secondary"} mt-1 ${props.className}`}
       {...props}
     />
   );
