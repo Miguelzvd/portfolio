@@ -4,10 +4,9 @@ import HighlightedText from "@/components/ui/HighlightedText";
 import { IsCodingStatus } from "@/components/ui/IsCodingStatus";
 import Title from "@/components/ui/Title";
 import Section from "@/components/ui/Section";
-import Timeline from "@/components/ui/Timeline";
-import { timelineEvents } from "@/constants/timeline";
 import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { Header } from "@/components/ui/Header";
+import { MyJourney } from "@/components/ui/MyJouney";
 
 export default function Home() {
   return (
@@ -78,69 +77,9 @@ export default function Home() {
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
 
-          <Timeline.Root>
-            <Timeline.Line />
-
-            {timelineEvents.map((event, index) => {
-              const isLeft = index % 2 === 0;
-              const topSpacing = 2 + index * 4;
-
-              return (
-                <Timeline.Event
-                  key={index}
-                  position={isLeft ? "left" : "right"}
-                  top={`${topSpacing}`}
-                >
-                  <Timeline.EventContent>
-                    {isLeft ? (
-                      <>
-                        <Timeline.EventDot />
-                        <Timeline.EventLine>
-                          <Timeline.EventYear className="absolute bottom-2">
-                            {event.year}
-
-                            {event.event_status && (
-                              <>
-                                <br />
-                                <span className="text-sm text-gray-500">
-                                  {event.event_status}
-                                </span>
-                              </>
-                            )}
-                          </Timeline.EventYear>
-                        </Timeline.EventLine>
-
-                        <Timeline.EventDescription className="text-left">
-                          {event.description}
-                        </Timeline.EventDescription>
-                      </>
-                    ) : (
-                      <>
-                        <Timeline.EventDescription className="text-right">
-                          {event.description}
-                        </Timeline.EventDescription>
-                        <Timeline.EventLine>
-                          <Timeline.EventYear className="absolute bottom-2 ">
-                            {event.year}
-
-                            {event.event_status && (
-                              <>
-                                <br />
-                                <span className="text-sm text-gray-500">
-                                  {event.event_status}
-                                </span>
-                              </>
-                            )}
-                          </Timeline.EventYear>
-                        </Timeline.EventLine>
-                        <Timeline.EventDot />
-                      </>
-                    )}
-                  </Timeline.EventContent>
-                </Timeline.Event>
-              );
-            })}
-          </Timeline.Root>
+          <Section.Content>
+            <MyJourney />
+          </Section.Content>
         </Section.Root>
 
         <Section.Root about="my-stack">
