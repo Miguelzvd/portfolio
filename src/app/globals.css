@@ -16,6 +16,7 @@
   --color-secondary: #feca3e;
   --color-gray: #d0d0d0;
   --color-dark: #141414;
+  --color-dark-gray: #262626;
 }
 
 @media (prefers-color-scheme: dark) {

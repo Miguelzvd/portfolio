@@ -46,7 +46,7 @@ const Spotlight = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-10 transition duration-300"
+      className="pointer-events-none fixed inset-0 z-[20] transition duration-300"
       style={{
         background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(28, 133, 229, 0.3), transparent 30%)`,
       }}

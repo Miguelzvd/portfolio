@@ -1,48 +1,29 @@
 import Image from "next/image";
-import { ArrowDown, Languages } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import HighlightedText from "@/components/ui/HighlightedText";
-import Link from "next/link";
 import { IsCodingStatus } from "@/components/ui/IsCodingStatus";
 import Title from "@/components/ui/Title";
 import Section from "@/components/ui/Section";
 import Timeline from "@/components/ui/Timeline";
 import { timelineEvents } from "@/constants/timeline";
+import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
+import { Header } from "@/components/ui/Header";
 
 export default function Home() {
   return (
     <div className="flex flex-col justify-between items-center justify-items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)]">
-      <header className="flex flex-row w-full justify-end items-center gap-10">
-        <ol className="flex flex-row gap-6 font-bold">
-          <li>
-            <Link href="journey">Journey</Link>
-          </li>
-          <li>
-            <Link href="stack">Stack</Link>
-          </li>
-          <li>
-            <Link href="projects">Projects</Link>
-          </li>
-          <li>
-            <Link href="contact">Contact</Link>
-          </li>
-        </ol>
+      <Header />
 
-        <button
-          aria-label="Change language"
-          className="flex flex-row gap-2 items-center bg-blue-500/20 rounded-md p-2 cursor-pointer hover:bg-blue-500/30 transition-all duration-300"
-        >
-          <Languages aria-hidden="true" />
-          <span className="text-sm">EN</span>
-        </button>
-      </header>
       <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full px-10 md:px-20 lg:px-42 xl:px-60">
         <Section.Root className="xl:flex-row flex-wrap" about="about-me">
           <Section.Content className="flex-2 flex flex-col gap-2 lg:min-w-[32rem]">
             <Title.Root>
-              <Title.Content>
+              <Title.Content className="">
                 <span className="text-lg font-normal">Hello, I&apos;m</span>{" "}
                 <br />
-                <Title.Main>Miguel Azevedo 👋</Title.Main>
+                <Title.Main>
+                  Miguel <span className="whitespace-nowrap">Azevedo👋</span>
+                </Title.Main>
               </Title.Content>
               <Title.UnderlineRow color="primary" />
             </Title.Root>
@@ -160,6 +141,30 @@ export default function Home() {
               );
             })}
           </Timeline.Root>
+        </Section.Root>
+
+        <Section.Root about="my-stack">
+          <Title.Root>
+            <Title.Content>
+              <Title.Sub>My stack</Title.Sub>
+            </Title.Content>
+            <Title.UnderlineRow color="primary" />
+          </Title.Root>
+
+          <StackCardsGrid />
+        </Section.Root>
+
+        <Section.Root about="My projects">
+          <Title.Root>
+            <Title.Content>
+              <Title.Sub>My projects</Title.Sub>
+            </Title.Content>
+            <Title.UnderlineRow color="secondary" />
+          </Title.Root>
+
+          <Section.Content>
+            <div className="h-40 w-40 bg-dark-gray"></div>
+          </Section.Content>
         </Section.Root>
       </main>
 
