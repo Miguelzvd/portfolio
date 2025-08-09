@@ -178,7 +178,7 @@ export default function Home() {
         </div>
         <nav className="flex gap-6 text-lg">
           <a
-            className="flex items-center gap-2 hover:underline text-primary"
+            className="hover:underline text-primary"
             href="https://nextjs.org/learn"
             target="_blank"
             rel="noopener noreferrer"
@@ -187,7 +187,7 @@ export default function Home() {
           </a>
 
           <a
-            className="flex items-center gap-2 hover:underline text-secondary"
+            className="hover:underline text-secondary"
             href="https://nextjs.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -196,7 +196,7 @@ export default function Home() {
           </a>
 
           <a
-            className="flex items-center gap-2 hover:underline text-primary"
+            className="hover:underline text-primary"
             href="https://vercel.com/templates"
             target="_blank"
             rel="noopener noreferrer"
@@ -205,7 +205,7 @@ export default function Home() {
           </a>
 
           <a
-            className="flex items-center gap-2 hover:underline text-secondary"
+            className="hover:underline text-secondary"
             href="https://nextjs.org"
             target="_blank"
             rel="noopener noreferrer"

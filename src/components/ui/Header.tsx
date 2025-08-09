@@ -5,16 +5,16 @@ export const Header = () => {
     <header className="flex flex-row w-full justify-end items-center gap-10">
       <ol className="flex flex-row gap-6 font-bold">
         <li>
-          <a href="#my-journey">Journey</a>
+          <a href="#my-journey" className="hover:underline">Journey</a>
         </li>
         <li>
-          <a href="#my-stack">Stack</a>
+          <a href="#my-stack" className="hover:underline">Stack</a>
         </li>
         <li>
-          <a href="#my-projects">Projects</a>
+          <a href="#my-projects" className="hover:underline">Projects</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact" className="hover:underline">Contact</a>
         </li>
       </ol>
 
