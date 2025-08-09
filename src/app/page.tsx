@@ -80,7 +80,7 @@ export default function Home() {
             </Title.Content>
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
-            <MyJourneySection />
+          <MyJourneySection />
         </Section.Root>
 
         <Section.Root about="my-stack">
@@ -103,7 +103,7 @@ export default function Home() {
           <ProjectCardsGrid />
         </Section.Root>
 
-        <Section.Root about="my-projects" className="gap-8">
+        <Section.Root about="my-projects" className="gap-8 lg:min-h-[20rem]">
           <Title.Root>
             <Title.Content>
               <Title.Sub>Lets work together!</Title.Sub>
@@ -156,40 +156,46 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <nav className="flex gap-6">
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-around w-full">
+        <div className="flex flex-col">
+          <span>Designed & Developed by:</span>
+          <span>Miguel Azevedo</span>
+        </div>
+        <nav className="flex gap-6 text-lg">
           <a
-            className="flex items-center gap-2 hover:underline"
+            className="flex items-center gap-2 hover:underline text-primary"
             href="https://nextjs.org/learn"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image aria-hidden src="/file.svg" alt="" width={16} height={16} />{" "}
-            Learn
+            Email
           </a>
+
           <a
-            className="flex items-center gap-2 hover:underline"
-            href="https://vercel.com/templates"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt=""
-              width={16}
-              height={16}
-            />{" "}
-            Examples
-          </a>
-          <a
-            className="flex items-center gap-2 hover:underline"
+            className="flex items-center gap-2 hover:underline text-secondary"
             href="https://nextjs.org"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image aria-hidden src="/globe.svg" alt="" width={16} height={16} />{" "}
-            Go to nextjs.org →
+            Linkedin
+          </a>
+
+          <a
+            className="flex items-center gap-2 hover:underline text-primary"
+            href="https://vercel.com/templates"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+
+          <a
+            className="flex items-center gap-2 hover:underline text-secondary"
+            href="https://nextjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discord
           </a>
         </nav>
       </footer>
