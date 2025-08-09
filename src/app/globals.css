@@ -49,7 +49,7 @@ body {
   );
   animation: rotate-gradient 6s linear infinite;
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 @keyframes rotate-gradient {
@@ -61,17 +61,8 @@ body {
   }
 }
 
-@keyframes rotate-gradient-fast {
-  0% {
-    --gradient-angle: 0deg;
-  }
-  100% {
-    --gradient-angle: 359deg;
-  }
-}
-
 .gradient-rotate:hover {
-  animation: rotate-gradient-fast 2s linear infinite;
+  animation: rotate-gradient 2s linear infinite;
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(28, 133, 229, 0.3);
 }
@@ -97,6 +88,6 @@ body {
   animation: inherit;
 }
 
-.gradient-rotate::before::hover {
+.gradient-rotate:hover::before {
   opacity: 0.7;
 }
