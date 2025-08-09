@@ -12,11 +12,15 @@ import { StackCardsSection } from "@/components/ui/StackCardsSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60">
       <Header />
 
-      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full px-6 md:px-20 lg:px-40 xl:px-60">
-        <Section.Root className="xl:flex-row flex-wrap" about="about-me">
+      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full px-6">
+        <Section.Root
+          className="xl:flex-row flex-wrap"
+          about="about-me"
+          id="about-me"
+        >
           <Section.Content className="flex-2 flex flex-col gap-2 lg:min-w-[32rem]">
             <Title.Root>
               <Title.Content>
@@ -73,7 +77,7 @@ export default function Home() {
           </Section.Content>
         </Section.Root>
 
-        <Section.Root about="my-journey">
+        <Section.Root about="my-journey" id="my-journey">
           <Title.Root>
             <Title.Content>
               <Title.Sub>My journey so far...</Title.Sub>
@@ -83,7 +87,7 @@ export default function Home() {
           <MyJourneySection />
         </Section.Root>
 
-        <Section.Root about="my-stack">
+        <Section.Root about="my-stack" id="my-stack">
           <Title.Root>
             <Title.Content>
               <Title.Sub>My stack</Title.Sub>
@@ -93,7 +97,11 @@ export default function Home() {
           <StackCardsSection />
         </Section.Root>
 
-        <Section.Root about="my-projects">
+        <Section.Root
+          about="my-projects"
+          id="my-projects"
+          className="gap-8 lg:min-h-[80vh]"
+        >
           <Title.Root>
             <Title.Content>
               <Title.Sub>My projects</Title.Sub>
@@ -103,7 +111,11 @@ export default function Home() {
           <ProjectCardsGrid />
         </Section.Root>
 
-        <Section.Root about="my-projects" className="gap-8 lg:min-h-[20rem]">
+        <Section.Root
+          className="gap-8 lg:min-h-[50vh]"
+          about="contact"
+          id="contact"
+        >
           <Title.Root>
             <Title.Content>
               <Title.Sub>Lets work together!</Title.Sub>

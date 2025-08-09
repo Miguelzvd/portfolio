@@ -1,21 +1,20 @@
 import { Languages } from "lucide-react";
-import Link from "next/link";
 
 export const Header = () => {
   return (
     <header className="flex flex-row w-full justify-end items-center gap-10">
       <ol className="flex flex-row gap-6 font-bold">
         <li>
-          <Link href="journey">Journey</Link>
+          <a href="#my-journey">Journey</a>
         </li>
         <li>
-          <Link href="stack">Stack</Link>
+          <a href="#my-stack">Stack</a>
         </li>
         <li>
-          <Link href="projects">Projects</Link>
+          <a href="#my-projects">Projects</a>
         </li>
         <li>
-          <Link href="contact">Contact</Link>
+          <a href="#contact">Contact</a>
         </li>
       </ol>
 

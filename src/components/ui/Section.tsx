@@ -4,14 +4,16 @@ import { twMerge } from "tailwind-merge";
 const SectionRoot = ({
   children,
   className,
+  ...rest
 }: {
   children: React.ReactNode;
   className?: string;
 } & HTMLAttributes<HTMLDivElement>) => {
   return (
     <section
+      {...rest}
       className={twMerge(
-        "flex flex-col gap-20 items-center justify-center w-full lg:min-h-[80vh] h-fit",
+        "flex flex-col gap-20 items-center justify-center w-full lg:min-h-[95vh] h-fit",
         className
       )}
     >
@@ -23,12 +25,15 @@ const SectionRoot = ({
 const SectionContent = ({
   children,
   className,
+  ...rest
 }: {
   children: React.ReactNode;
   className?: string;
 }) => {
   return (
-    <div className={`flex-2 flex flex-col gap-2 ${className}`}>{children}</div>
+    <div className={`flex-2 flex flex-col gap-2 ${className}`} {...rest}>
+      {children}
+    </div>
   );
 };
 

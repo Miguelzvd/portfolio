@@ -32,6 +32,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* CTA Button Animation */
 
 @property --gradient-angle {
