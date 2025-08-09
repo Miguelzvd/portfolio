@@ -52,7 +52,7 @@ const stacks = [
   },
 ];
 
-export const StackCardsGrid = () => {
+export const StackCardsSection = () => {
   return (
     <Section.Content className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-30">
       {stacks.map(({ src, alt, description, shadow }, index) => (

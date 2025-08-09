@@ -4,11 +4,11 @@ import HighlightedText from "@/components/ui/HighlightedText";
 import { IsCodingStatus } from "@/components/ui/IsCodingStatus";
 import Title from "@/components/ui/Title";
 import Section from "@/components/ui/Section";
-import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { Header } from "@/components/ui/Header";
-import { MyJourney } from "@/components/ui/MyJouney";
+import { MyJourneySection } from "@/components/ui/MyJourneySection";
 import { ProjectCardsGrid } from "@/components/ui/ProjectCardsGrid";
 import { FaDiscord } from "react-icons/fa";
+import { StackCardsSection } from "@/components/ui/StackCardsSection";
 
 export default function Home() {
   return (
@@ -80,9 +80,7 @@ export default function Home() {
             </Title.Content>
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
-          <Section.Content>
-            <MyJourney />
-          </Section.Content>
+            <MyJourneySection />
         </Section.Root>
 
         <Section.Root about="my-stack">
@@ -92,7 +90,7 @@ export default function Home() {
             </Title.Content>
             <Title.UnderlineRow color="primary" />
           </Title.Root>
-          <StackCardsGrid />
+          <StackCardsSection />
         </Section.Root>
 
         <Section.Root about="my-projects">
@@ -117,7 +115,7 @@ export default function Home() {
           </Title.Root>
 
           <Section.Content className="gap-4">
-            <button className="relative rounded-sm text-white py-[0.6rem] px-[0.1rem] bg-gradient-to-r from-primary to-secondary cursor-pointer">
+            <button className="relative rounded-sm text-white py-[0.6rem] px-[0.1rem] cursor-pointer gradient-rotate">
               <span className="h-full w-full bg-dark rounded-sm py-[0.5rem] px-[1rem] text-2xl">
                 Contact me
               </span>
@@ -126,21 +124,29 @@ export default function Home() {
             <div className="flex flex-row justify-between">
               <a
                 className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
-                href=""
+                href="https://github.com/Miguelzvd"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
               >
                 <Github color="black" />
               </a>
 
               <a
                 className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
-                href=""
+                href="#"
+                rel="noopener noreferrer"
+                aria-label="Discord Profile"
               >
                 <FaDiscord color="black" size={30} />
               </a>
 
               <a
                 className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
-                href=""
+                href="https://www.linkedin.com/in/miguel-azevedo-dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Linkedin Profile"
               >
                 <Linkedin color="black" />
               </a>
