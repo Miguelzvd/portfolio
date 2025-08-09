@@ -9,10 +9,13 @@ import { MyJourneySection } from "@/components/ui/MyJourneySection";
 import { ProjectCardsGrid } from "@/components/ui/ProjectCardsGrid";
 import { FaDiscord } from "react-icons/fa";
 import { StackCardsSection } from "@/components/ui/StackCardsSection";
+import { BackToTopButton } from "@/components/ui/BackToTopButton";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60">
+    <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
+      <BackToTopButton />
+
       <Header />
 
       <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full px-6">
