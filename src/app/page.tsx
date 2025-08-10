@@ -65,7 +65,6 @@ export default function Home() {
           </Section.Content>
 
           <Section.Content className="flex-2 w-[20rem] max-w-[32rem] lg:min-w-[32rem] justify-center items-center">
-
             <div className="flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary">
               <Image
                 className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
@@ -132,7 +131,7 @@ export default function Home() {
 
           <Section.Content className="gap-4">
             <button className="relative rounded-sm text-white py-[0.6rem] px-[0.1rem] cursor-pointer gradient-rotate">
-              <span className="h-full w-full bg-dark rounded-sm py-[0.5rem] px-[1rem] text-2xl">
+              <span className="h-full w-full bg-dark rounded-sm py-2 px-4 text-2xl">
                 Contact me
               </span>
             </button>

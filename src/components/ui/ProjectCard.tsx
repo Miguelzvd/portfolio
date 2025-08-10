@@ -78,7 +78,7 @@ const ProjectCardMainSection = ({
 }: ProjectCardMainSectionProps) => {
   return (
     <div
-      className={twMerge("flex flex-col h-full gap-0", className)}
+      className={twMerge("flex flex-col h-full gap-1 flex-wrap", className)}
       {...props}
     >
       {children}
