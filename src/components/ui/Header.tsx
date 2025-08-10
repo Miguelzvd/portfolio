@@ -22,7 +22,7 @@ export const Header = () => {
       <header className="flex flex-row w-full justify-end items-center gap-4 sm:gap-10 relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="fixed left-12 sm:hidden p-2 rounded-md hover:bg-gray-700 transition-colors z-50"
+          className="fixed left-5 sm:hidden p-2 rounded-md hover:bg-gray-700 transition-colors z-50 bg-amber-50/10"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
