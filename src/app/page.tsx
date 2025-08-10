@@ -20,23 +20,23 @@ export default function Home() {
 
       <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full px-6">
         <Section.Root
-          className="xl:flex-row flex-wrap"
+          className="xl:flex-row flex-wrap "
           about="about-me"
           id="about-me"
         >
-          <Section.Content className="flex-2 flex flex-col gap-2 lg:min-w-[32rem]">
+          <Section.Content className="flex-2 flex flex-col gap-2 w-full lg:min-w-[32rem]">
             <Title.Root>
               <Title.Content>
                 <span className="text-lg font-normal">Hello, I&apos;m</span>
                 <br />
-                <Title.Main>
+                <Title.Main className="text-5xl md:text-6xl font-bold">
                   Miguel <span className="whitespace-nowrap">Azevedo👋</span>
                 </Title.Main>
               </Title.Content>
               <Title.UnderlineRow color="primary" />
             </Title.Root>
 
-            <p className="text-lg">
+            <p className="text-lg w-full">
               I&apos;m a <HighlightedText>developer</HighlightedText> passionate
               about creating meaningful digital experiences. I currently lead{" "}
               <HighlightedText>front-end projects</HighlightedText> focused on
@@ -171,42 +171,37 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-around w-full">
+      <footer className="row-start-3 flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap items-center justify-center sm:justify-around w-full text-center sm:text-left">
         <div className="flex flex-col">
-          <span>Designed & Developed by:</span>
-          <span>Miguel Azevedo</span>
+          <span className="text-sm sm:text-base">Designed & Developed by:</span>
+          <span className="font-semibold">Miguel Azevedo</span>
         </div>
-        <nav className="flex gap-6 text-lg">
+        <nav className="flex flex-wrap gap-4 sm:gap-6 text-sm sm:text-lg justify-center">
           <a
             className="hover:underline text-primary"
-            href="https://nextjs.org/learn"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:your-email@example.com"
           >
             Email
           </a>
-
           <a
             className="hover:underline text-secondary"
-            href="https://nextjs.org"
+            href="https://www.linkedin.com/in/miguel-azevedo-dev/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Linkedin
           </a>
-
           <a
             className="hover:underline text-primary"
-            href="https://vercel.com/templates"
+            href="https://github.com/Miguelzvd"
             target="_blank"
             rel="noopener noreferrer"
           >
             Github
           </a>
-
           <a
             className="hover:underline text-secondary"
-            href="https://nextjs.org"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
           >

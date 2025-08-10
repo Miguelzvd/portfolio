@@ -4,21 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 import Section from "./Section";
-
-const projects = [
-  {
-    title: "Jovem Potiguar",
-    image: "/images/projects/jovem_potiguar.png",
-    stacks: [
-      { src: "/images/stacks/reactjs.png", alt: "ReactJS" },
-      { src: "/images/stacks/chakra.png", alt: "Chakra UI" },
-      { src: "/images/stacks/django.png", alt: "Django" },
-    ],
-    link: "https://jovempotiguar.sine.rn.gov.br/",
-    description:
-      "Project developed for Jovem Potiguar, a non-governmental organization that promotes gender equality and equal opportunities for children and adolescents. The project consists of a website that allows children and adolescents to be registered, evaluated, and referred to the organization. The website also allows the organization to register, evaluate, and be referred to children and adolescents. The project was developed using the following technologies: Next.js, Chakra UI, ReactJS, Django.",
-  },
-];
+import { projects } from "@/constants/projects";
 
 export const ProjectCardsGrid = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);

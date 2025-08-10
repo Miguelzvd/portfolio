@@ -1,54 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const Spotlight = () => {
   const [mousePosition, setMousePosition] = useState<{
     x: number;
     y: number;
   } | null>(null);
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== "undefined" ? window.innerWidth > 768 : true
-  );
+  const isDesktop = useMediaQuery("(min-width: 769px)");
 
-  useEffect(() => {
-    let animationFrameId: number;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      animationFrameId = requestAnimationFrame(() => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-    };
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    requestAnimationFrame(() => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    });
   }, []);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 769px)");
+    if (!isDesktop) return;
 
-    const handleChange = () => setIsDesktop(mediaQuery.matches);
-
-    mediaQuery.addEventListener("change", handleChange);
-    handleChange();
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isDesktop, handleMouseMove]);
 
   if (!isDesktop || !mousePosition) return null;
 
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[20] transition duration-300"
+      className="pointer-events-none fixed inset-0 z-20 transition-opacity duration-300"
       style={{
-        background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(28, 133, 229, 0.3), transparent 30%)`,
+        background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(28, 133, 229, 0.15), transparent 40%)`,
       }}
     />
   );
