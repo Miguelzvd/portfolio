@@ -64,7 +64,7 @@ export default function Home() {
             </a>
           </Section.Content>
 
-          <Section.Content className="flex-2 w-[18rem] max-w-[32rem] lg:min-w-[32rem] justify-center items-center">
+          <Section.Content className="flex-2 w-[20rem] max-w-[32rem] lg:min-w-[32rem] justify-center items-center">
 
             <div className="flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary">
               <Image
