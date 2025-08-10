@@ -35,7 +35,7 @@ export const ProjectCardsGrid = () => {
             <ProjectCard.MainSection>
               <ProjectCard.Title text={project.title} />
 
-              <ProjectCard.MainContent className="relative w-full aspect-video">
+              <ProjectCard.MainContent className="relative w-full aspect-video hover:scale-110 transition-all duration-400 ease-in-out">
                 <Image
                   className="object-cover rounded-md"
                   src={project.image}
@@ -49,7 +49,8 @@ export const ProjectCardsGrid = () => {
             </ProjectCard.MainSection>
 
             <ProjectCard.Content>
-              <ProjectCard.Link href={project.link} text="Link" />
+              <ProjectCard.Link href={project.link} text="Link" target="_blank" />
+
               <ProjectCard.Button
                 text={
                   isExpanded

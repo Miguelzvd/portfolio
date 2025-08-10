@@ -176,13 +176,14 @@ interface ProjectCardLinkProps extends HTMLAttributes<HTMLAnchorElement> {
   href: string;
   text: string;
   className?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 const ProjectCardLink = ({
   href,
   text,
   className,
-  ...props
+  ...rest
 }: ProjectCardLinkProps) => {
   return (
     <a
@@ -191,7 +192,7 @@ const ProjectCardLink = ({
         "border border-gray-300 rounded-sm w-fit flex flex-row justify-start items-center py-0 pl-1 pr-2",
         className
       )}
-      {...props}
+      {...rest}
     >
       <Link height={"1rem"} />
       <span className="text-sm">{text}</span>
