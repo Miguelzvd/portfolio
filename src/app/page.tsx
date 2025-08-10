@@ -20,7 +20,7 @@ export default function Home() {
 
       <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full">
         <Section.Root
-          className="xl:flex-row flex-wrap "
+          className="xl:flex-row flex-wrap min-h-[80vh]"
           about="about-me"
           id="about-me"
         >
@@ -115,7 +115,7 @@ export default function Home() {
         </Section.Root>
 
         <Section.Root
-          className="gap-8 lg:min-h-[50vh]"
+          className="gap-8 min-h-[50vh] lg:min-h-[50vh]"
           about="contact"
           id="contact"
         >

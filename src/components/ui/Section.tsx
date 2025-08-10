@@ -13,7 +13,7 @@ const SectionRoot = ({
     <section
       {...rest}
       className={twMerge(
-        "flex flex-col gap-20 items-center justify-center w-full lg:min-h-[95vh] h-fit",
+        "flex flex-col gap-20 items-center justify-center w-full min-h-[90vh] h-fit",
         className
       )}
     >

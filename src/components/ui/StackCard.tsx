@@ -9,7 +9,7 @@ const StackCardRoot = ({
 }) => {
   return (
     <div
-      className={`flex flex-col justify-center items-center gap-2 w-40 h-40 ${className} bg-dark-gray rounded-md p-4 relative`}
+      className={`flex flex-col justify-center items-center gap-2 w-30 h-30 md:w-35 md:h-35 xl:w-40 xl:h-40 ${className} bg-dark-gray rounded-md p-4 relative`}
     >
       {children}
     </div>
@@ -31,7 +31,7 @@ const StackCardDescription = ({
 const StackCardImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <Image
-      className="w-20 h-20 object-contain"
+      className="w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 object-contain"
       src={src}
       alt={alt}
       width={100}
