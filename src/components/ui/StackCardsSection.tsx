@@ -3,49 +3,49 @@ import { StackCard } from "./StackCard";
 
 const stacks = [
   {
-    src: "/images/stacks/next.png",
+    src: "/images/Stacks/next.png",
     alt: "Next logo",
     description: "Next",
     shadow: "bg-white/90",
   },
   {
-    src: "/images/stacks/reactjs.png",
+    src: "/images/Stacks/reactjs.png",
     alt: "React logo",
     description: "React",
     shadow: "bg-cyan-600",
   },
   {
-    src: "/images/stacks/tailwind.png",
+    src: "/images/Stacks/tailwind.png",
     alt: "Tailwind logo",
     description: "Tailwind",
     shadow: "bg-cyan-700",
   },
   {
-    src: "/images/stacks/chakra.png",
+    src: "/images/Stacks/chakra.png",
     alt: "Chakra logo",
     description: "Chakra",
     shadow: "bg-teal-600",
   },
   {
-    src: "/images/stacks/nodejs.png",
+    src: "/images/Stacks/nodejs.png",
     alt: "Node logo",
     description: "Node",
     shadow: "bg-lime-600",
   },
   {
-    src: "/images/stacks/django.png",
+    src: "/images/Stacks/django.png",
     alt: "Django logo",
     description: "Django",
     shadow: "bg-green-800",
   },
   {
-    src: "/images/stacks/mysql.png",
+    src: "/images/Stacks/mysql.png",
     alt: "MySQL logo",
     description: "MySQL",
     shadow: "bg-cyan-700",
   },
   {
-    src: "/images/stacks/postgresql.png",
+    src: "/images/Stacks/postgresql.png",
     alt: "Postgresql logo",
     description: "Postgresql",
     shadow: "bg-cyan-700",
