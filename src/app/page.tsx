@@ -90,7 +90,7 @@ export default function Home() {
           <MyJourneySection />
         </Section.Root>
 
-        <Section.Root about="my-stack" id="my-stack">
+        <Section.Root about="my-stack" id="my-stack" className="min-h-[100vh]">
           <Title.Root>
             <Title.Content>
               <Title.Sub>My stack</Title.Sub>
