@@ -41,9 +41,13 @@ export const ProjectCardsGrid = () => {
                   src={project.image}
                   alt={project.title}
                   fill
-                  quality={100}
+                  quality={75}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   loading="lazy"
+                  onError={(e) => {
+                    console.error('Image failed to load:', project.image);
+                    e.currentTarget.src = '/images/placeholder.png'; // Adicione uma imagem placeholder
+                  }}
                 />
               </ProjectCard.MainContent>
             </ProjectCard.MainSection>
