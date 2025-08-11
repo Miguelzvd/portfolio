@@ -3,10 +3,10 @@
 import { timelineEvents } from "@/constants/timeline";
 import Timeline from "./Timeline";
 import Section from "./Section";
-import { useIsDesktop } from "@/hooks/useMediaQuery";
+import { useBreakpoints } from "@/hooks/useMediaQuery";
 
 export const MyJourneySection = () => {
-  const isDesktop = useIsDesktop();
+  const { isDesktop } = useBreakpoints();
 
   const DesktopTimeline = () => (
     <Timeline.Root>
@@ -85,7 +85,7 @@ export const MyJourneySection = () => {
               <div className="w-0.5 h-16 bg-primary/50 mt-2" />
             )}
           </div>
-          
+
           {/* Content */}
           <div className="flex-1 pb-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
@@ -98,15 +98,11 @@ export const MyJourneySection = () => {
                 )}
               </span>
             </div>
-            
-            <h3 className="text-base font-medium mb-1">
-              {event.description}
-            </h3>
-            
+
+            <h3 className="text-base font-medium mb-1">{event.description}</h3>
+
             {event.context && (
-              <p className="text-sm text-gray-600">
-                {event.context}
-              </p>
+              <p className="text-sm text-gray-600">{event.context}</p>
             )}
           </div>
         </div>

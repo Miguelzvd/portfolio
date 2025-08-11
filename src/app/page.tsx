@@ -100,11 +100,7 @@ export default function Home() {
           <StackCardsSection />
         </Section.Root>
 
-        <Section.Root
-          about="my-projects"
-          id="my-projects"
-          className="gap-8 lg:min-h-[80vh]"
-        >
+        <Section.Root about="my-projects" id="my-projects">
           <Title.Root>
             <Title.Content>
               <Title.Sub>My projects</Title.Sub>
@@ -115,7 +111,7 @@ export default function Home() {
         </Section.Root>
 
         <Section.Root
-          className="gap-8 min-h-[50vh] lg:min-h-[50vh]"
+          className="min-h-[50vh] lg:min-h-[50vh]"
           about="contact"
           id="contact"
         >
