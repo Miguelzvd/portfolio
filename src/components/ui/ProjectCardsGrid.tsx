@@ -14,12 +14,15 @@ export const ProjectCardsGrid = () => {
   };
 
   return (
-    <Section.Content className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+    <Section.Content className="grid grid-cols-1 sm:grid-cols-2 gap-10">
       {projects.map((project, projectIndex) => {
         const isExpanded = expandedProject === projectIndex;
 
         return (
-          <ProjectCard.Root key={project.id || project.title || projectIndex}>
+          <ProjectCard.Root
+            key={project.id || project.title || projectIndex}
+            className="md:hover:scale-110 transition-all duration-400 ease-in-out"
+          >
             <ProjectCard.HeaderSection>
               <ProjectCard.Title text="Stack" />
               <ProjectCard.Content>
@@ -35,7 +38,7 @@ export const ProjectCardsGrid = () => {
             <ProjectCard.MainSection>
               <ProjectCard.Title text={project.title} />
 
-              <ProjectCard.MainContent className="relative w-full aspect-video hover:scale-110 transition-all duration-400 ease-in-out">
+              <ProjectCard.MainContent className="relative w-full aspect-video">
                 <Image
                   className="object-cover rounded-md"
                   src={project.image}
@@ -45,21 +48,23 @@ export const ProjectCardsGrid = () => {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   loading="lazy"
                   onError={(e) => {
-                    console.error('Image failed to load:', project.image);
-                    e.currentTarget.src = '/images/placeholder.png'; // Adicione uma imagem placeholder
+                    console.error("Image failed to load:", project.image);
+                    e.currentTarget.src = "/images/placeholder.png";
                   }}
                 />
               </ProjectCard.MainContent>
             </ProjectCard.MainSection>
 
             <ProjectCard.Content>
-              <ProjectCard.Link href={project.link} text="Link" target="_blank" />
+              <ProjectCard.Link
+                href={project.link}
+                text="Link"
+                target="_blank"
+              />
 
               <ProjectCard.Button
                 text={
-                  isExpanded
-                    ? "- About the project"
-                    : "+ About the project"
+                  isExpanded ? "- About the project" : "+ About the project"
                 }
                 onClick={() => handleToggleExpand(projectIndex)}
                 aria-expanded={isExpanded}

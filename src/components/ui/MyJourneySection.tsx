@@ -75,19 +75,19 @@ export const MyJourneySection = () => {
   );
 
   const MobileTimeline = () => (
-    <div className="space-y-6">
+    <div className="space-y-2">
       {timelineEvents.map((event, index) => (
         <div key={index} className="flex items-start gap-4">
           {/* Dot and line */}
           <div className="flex flex-col items-center">
             <div className="w-4 h-4 rounded-full bg-secondary/90 flex-shrink-0" />
             {index < timelineEvents.length - 1 && (
-              <div className="w-0.5 h-16 bg-primary/50 mt-2" />
+              <div className="w-0.5 h-20 bg-primary/50 mt-2" />
             )}
           </div>
 
           {/* Content */}
-          <div className="flex-1 pb-4">
+          <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
               <span className="text-sm font-medium text-primary">
                 {event.year}

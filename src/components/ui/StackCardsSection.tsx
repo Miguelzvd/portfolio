@@ -54,7 +54,7 @@ const stacks = [
 
 export const StackCardsSection = () => {
   return (
-    <Section.Content className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-30">
+    <Section.Content className="grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 wrap-anywhere">
       {stacks.map(({ src, alt, description, shadow }, index) => (
         <StackCard.Root key={index}>
           <StackCard.Image src={src} alt={alt} />
