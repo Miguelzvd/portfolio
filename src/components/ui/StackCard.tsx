@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
 const StackCardRoot = ({
   children,
@@ -28,7 +28,11 @@ const StackCardDescription = ({
   );
 };
 
-const StackCardImage = ({ src, alt }: { src: string; alt: string }) => {
+const StackCardImage = ({
+  src,
+  alt,
+  ...rest
+}: { src: string; alt: string } & Partial<ImageProps>) => {
   return (
     <Image
       className="w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 object-contain"
@@ -36,10 +40,10 @@ const StackCardImage = ({ src, alt }: { src: string; alt: string }) => {
       alt={alt}
       width={100}
       height={100}
+      {...rest}
     />
   );
 };
-
 const StackCardShadow = ({ classname }: { classname: string }) => {
   return (
     <div
