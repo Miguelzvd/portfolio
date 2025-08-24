@@ -54,7 +54,7 @@ export default function Home() {
             </p>
 
             <a
-              href="/files/Edilson_Miguel_De_Azevedo_Filho_EN.pdf"
+              href="/files/Miguel_Azevedo_CV_EN.pdf"
               download="Edilson_Miguel_De_Azevedo_Filho_EN.pdf"
               aria-label="Download CV"
               className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300"
