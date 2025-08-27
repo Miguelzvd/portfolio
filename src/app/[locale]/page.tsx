@@ -47,18 +47,20 @@ export default async function Home() {
             <p className="text-lg w-full">
               {t("subtitle")} <HighlightedText>{t("title")}</HighlightedText>{" "}
               {t("passionateAbout")}{" "}
-              <HighlightedText>{t("frontendProjects")}</HighlightedText> {t("focusedOn")}
+              <HighlightedText>{t("frontendProjects")}</HighlightedText>{" "}
+              {t("focusedOn")}
               <HighlightedText> {t("usability")}</HighlightedText> {t("and")}{" "}
-              <HighlightedText> {t("accessibility")}</HighlightedText> {t("for")}{" "}
-              <HighlightedText>{t("publicService")}</HighlightedText>.{" "}
-              {t("workAims")} {t("to")}{" "}
-              <HighlightedText>{t("simplifyProcesses")}</HighlightedText> {t("and")}{" "}
-              {t("improveAccess")}{" "}
+              <HighlightedText> {t("accessibility")}</HighlightedText>{" "}
+              {t("for")} <HighlightedText>{t("publicService")}</HighlightedText>
+              . {t("workAims")} {t("to")}{" "}
+              <HighlightedText>{t("simplifyProcesses")}</HighlightedText>{" "}
+              {t("and")} {t("improveAccess")}{" "}
               <HighlightedText>{t("access")}</HighlightedText> {t("through")}{" "}
               <HighlightedText>{t("intuitiveInterfaces")}</HighlightedText>.{" "}
               {t("iValue")}{" "}
               <HighlightedText>{t("cleanDesign")}</HighlightedText>,{" "}
-              <HighlightedText>{t("realWorldImpact")}</HighlightedText>, {t("and")}{" "}
+              <HighlightedText>{t("realWorldImpact")}</HighlightedText>,{" "}
+              {t("and")}{" "}
               <HighlightedText>{t("purposefulTechnology")}</HighlightedText>.
             </p>
 
