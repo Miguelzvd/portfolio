@@ -54,7 +54,7 @@ export const Header = () => {
         <button
           onClick={handleLanguageChange}
           aria-label="Change language"
-          className="flex items-center gap-2 bg-blue-500/20 rounded-md p-2 hover:bg-blue-500/30 transition-colors z-50 relative"
+          className="flex items-center gap-2 bg-blue-500/20 rounded-md p-2 hover:bg-blue-500/30 transition-colors z-50 relative cursor-pointer"
         >
           <Languages size={16} />
           <span className="text-sm">{currentLocale.toUpperCase()}</span>
