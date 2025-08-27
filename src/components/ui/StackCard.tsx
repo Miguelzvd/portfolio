@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import { IconType } from 'react-icons';
 
 const StackCardRoot = ({
   children,
@@ -28,19 +28,19 @@ const StackCardDescription = ({
   );
 };
 
-const StackCardImage = ({
-  src,
+const StackCardIcon = ({
+  icon: Icon,
   alt,
-  ...rest
-}: { src: string; alt: string } & Partial<ImageProps>) => {
+  className,
+}: {
+  icon: IconType;
+  alt: string;
+  className?: string;
+}) => {
   return (
-    <Image
-      className="w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 object-contain"
-      src={src}
-      alt={alt}
-      width={100}
-      height={100}
-      {...rest}
+    <Icon
+      className={`w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 ${className}`}
+      aria-label={alt}
     />
   );
 };
@@ -55,6 +55,6 @@ const StackCardShadow = ({ classname }: { classname: string }) => {
 export const StackCard = {
   Root: StackCardRoot,
   Description: StackCardDescription,
-  Image: StackCardImage,
+  Icon: StackCardIcon,
   Shadow: StackCardShadow,
 };
