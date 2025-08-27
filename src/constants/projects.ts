@@ -1,3 +1,12 @@
+import { 
+  SiReact,
+  SiChakraui,
+  SiDjango,
+  SiTailwindcss,
+  SiDocker
+} from 'react-icons/si';
+import { IconType } from 'react-icons';
+
 export interface Project {
   id: string;
   title: string;
@@ -9,9 +18,10 @@ export interface Project {
 }
 
 export interface Stack {
-  src: string;
+  icon: IconType;
   alt: string;
   name: string;
+  color: string;
 }
 
 export const getProjects = (t: (key: string) => string): Project[] => [
@@ -21,19 +31,28 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     image: "/images/projects/jovem_potiguar.png",
     stacks: [
       {
-        src: "/images/stacks/reactjs.png",
+        icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
+        color: "text-black",
       },
       {
-        src: "/images/stacks/chakra.png",
+        icon: SiChakraui,
         alt: "Chakra UI",
         name: "Chakra UI",
+        color: "text-black",
       },
       {
-        src: "/images/stacks/django.png",
+        icon: SiDjango,
         alt: "Django",
         name: "Django",
+        color: "text-black",
+      },
+      {
+        icon: SiDocker,
+        alt: "Docker",
+        name: "Docker",
+        color: "text-black",
       },
     ],
     link: "https://jovempotiguar.sine.rn.gov.br/",
@@ -45,14 +64,16 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     image: "/images/projects/cine_vault.png",
     stacks: [
       {
-        src: "/images/stacks/reactjs.png",
+        icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
+        color: "text-black",
       },
       {
-        src: "/images/stacks/tailwind.png",
+        icon: SiTailwindcss,
         alt: "Tailwind CSS",
         name: "Tailwind CSS",
+        color: "text-black",
       },
     ],
     link: "https://cine-vault-prod.vercel.app/",
@@ -67,19 +88,22 @@ export const projects: Project[] = [
     image: "/images/projects/jovem_potiguar.png",
     stacks: [
       {
-        src: "/images/stacks/reactjs.png",
+        icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
+        color: "text-black",
       },
       {
-        src: "/images/stacks/chakra.png",
+        icon: SiChakraui,
         alt: "Chakra UI",
         name: "Chakra UI",
+        color: "text-black",
       },
       {
-        src: "/images/stacks/django.png",
+        icon: SiDjango,
         alt: "Django",
         name: "Django",
+        color: "text-black",
       },
     ],
     link: "https://jovempotiguar.sine.rn.gov.br/",
@@ -91,14 +115,16 @@ export const projects: Project[] = [
     image: "/images/projects/cine_vault.png",
     stacks: [
       {
-        src: "/images/stacks/reactjs.png",
+        icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
+        color: "text-black",
       },
       {
-        src: "/images/stacks/tailwind.png",
+        icon: SiTailwindcss,
         alt: "Tailwind CSS",
         name: "Tailwind CSS",
+        color: "text-black",
       },
     ],
     link: "https://cine-vault-prod.vercel.app/",

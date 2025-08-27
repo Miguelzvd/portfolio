@@ -30,9 +30,11 @@ export const ProjectCardsGrid = () => {
               <ProjectCard.Title text={t("stack")} />
               <ProjectCard.Content>
                 {project.stacks.map((stack, stackIndex) => (
-                  <ProjectCard.StackImage
+                  <ProjectCard.StackIcon
                     key={stack.name || stackIndex}
-                    {...stack}
+                    icon={stack.icon}
+                    alt={stack.alt}
+                    color={stack.color}
                   />
                 ))}
               </ProjectCard.Content>

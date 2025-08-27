@@ -1,7 +1,7 @@
 import { Link } from "lucide-react";
-import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { HTMLAttributes } from "react";
+import { IconType } from "react-icons";
 
 interface ProjectCardRootProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -109,28 +109,24 @@ const ProjectCardMainContent = ({
   );
 };
 
-interface ProjectCardStackImageProps {
-  src: string;
+interface ProjectCardStackIconProps {
+  icon: IconType;
   alt: string;
-  invert?: boolean;
+  color?: string;
   className?: string;
 }
 
-const ProjectCardStackImage = ({
-  src,
+const ProjectCardStackIcon = ({
+  icon: Icon,
   alt,
-  invert,
+  color,
   className,
-}: ProjectCardStackImageProps) => {
+}: ProjectCardStackIconProps) => {
   return (
     <ProjectCardMiniStackCard className={className}>
-      <Image
-        className={twMerge("object-contain", invert && "invert")}
-        src={src}
-        alt={alt}
-        width={100}
-        height={100}
-        unoptimized
+      <Icon
+        className={twMerge("w-6 h-6", color)}
+        aria-label={alt}
       />
     </ProjectCardMiniStackCard>
   );
@@ -238,7 +234,7 @@ export const ProjectCard = {
   MainSection: ProjectCardMainSection,
   MainContent: ProjectCardMainContent,
   Content: ProjectCardContent,
-  StackImage: ProjectCardStackImage,
+  StackIcon: ProjectCardStackIcon,
   Link: ProjectCardLink,
   Button: ProjectCardButton,
 };
