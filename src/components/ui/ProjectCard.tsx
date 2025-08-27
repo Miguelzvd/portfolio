@@ -124,10 +124,7 @@ const ProjectCardStackIcon = ({
 }: ProjectCardStackIconProps) => {
   return (
     <ProjectCardMiniStackCard className={className}>
-      <Icon
-        className={twMerge("w-6 h-6", color)}
-        aria-label={alt}
-      />
+      <Icon className={twMerge("w-6 h-6", color)} aria-label={alt} />
     </ProjectCardMiniStackCard>
   );
 };

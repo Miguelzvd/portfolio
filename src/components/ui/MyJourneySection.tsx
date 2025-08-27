@@ -3,13 +3,19 @@
 import { getTimelineEvents } from "@/constants/timeline";
 import Timeline from "./Timeline";
 import Section from "./Section";
-import { useBreakpoints } from "@/hooks/useMediaQuery";
+import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export const MyJourneySection = () => {
-  const { isDesktop } = useBreakpoints();
+  const isDesktop = useIsDesktop();
   const t = useTranslations("Timeline");
   const timelineEvents = getTimelineEvents(t);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, [mounted]);
 
   const DesktopTimeline = () => (
     <Timeline.Root>
@@ -112,6 +118,42 @@ export const MyJourneySection = () => {
       ))}
     </div>
   );
+
+  const TimelineSkeleton = () => (
+    <div className="space-y-8">
+      {[...Array(4)].map((_, index) => (
+        <div key={index} className="flex items-start space-x-4">
+          {/* Círculo do timeline */}
+          <div className="flex-shrink-0 w-4 h-4 bg-gray-500 rounded-full animate-pulse mt-1" />
+
+          {/* Conteúdo */}
+          <div className="flex-1 space-y-2">
+            {/* Data */}
+            <div className="h-4 bg-gray-500 rounded animate-pulse w-24" />
+
+            {/* Título */}
+            <div className="h-5 bg-gray-500 rounded animate-pulse w-3/4" />
+
+            {/* Descrição */}
+            <div className="space-y-1">
+              <div className="h-4 bg-gray-400 rounded animate-pulse w-full" />
+              <div className="h-4 bg-gray-400 rounded animate-pulse w-2/3" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  if (!mounted) {
+    return (
+      <Section.Content className="w-[70%]">
+        <div className="min-h-[400px] py-8 w-full">
+          <TimelineSkeleton />
+        </div>
+      </Section.Content>
+    );
+  }
 
   return (
     <Section.Content>

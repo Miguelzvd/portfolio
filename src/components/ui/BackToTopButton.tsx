@@ -9,7 +9,7 @@ export const BackToTopButton = () => {
 
   useEffect(() => {
     setMounted(true);
-    
+
     const toggleVisibility = () => {
       if (window.scrollY > 10) {
         setIsVisible(true);
@@ -20,7 +20,7 @@ export const BackToTopButton = () => {
 
     // Check initial scroll position
     toggleVisibility();
-    
+
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);

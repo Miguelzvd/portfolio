@@ -8,7 +8,7 @@ export function useMediaQuery(query: string): boolean {
     setMounted(true);
     const media = window.matchMedia(query);
     setMatches(media.matches);
-    
+
     const listener = () => setMatches(media.matches);
     media.addEventListener("change", listener);
     return () => media.removeEventListener("change", listener);
@@ -16,7 +16,7 @@ export function useMediaQuery(query: string): boolean {
 
   // Return false during SSR to match initial state
   if (!mounted) return false;
-  
+
   return matches;
 }
 

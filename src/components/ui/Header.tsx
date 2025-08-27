@@ -7,20 +7,20 @@ import { usePathname, useRouter } from "@/i18n/routing";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const t = useTranslations('Header');
+  const t = useTranslations("Header");
   const pathname = usePathname();
   const router = useRouter();
   const currentLocale = useLocale();
 
   const menuItems = [
-    { href: "#my-journey", label: t('journey') },
-    { href: "#my-stack", label: t('stack') },
-    { href: "#my-projects", label: t('projects') },
-    { href: "#contact", label: t('contact') },
+    { href: "#my-journey", label: t("journey") },
+    { href: "#my-stack", label: t("stack") },
+    { href: "#my-projects", label: t("projects") },
+    { href: "#contact", label: t("contact") },
   ];
-  
+
   const handleLanguageChange = () => {
-    const newLocale = currentLocale === 'en' ? 'pt' : 'en';
+    const newLocale = currentLocale === "en" ? "pt" : "en";
     router.push(pathname, { locale: newLocale });
   };
 

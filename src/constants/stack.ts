@@ -1,4 +1,4 @@
-import { 
+import {
   SiNextdotjs,
   SiReact,
   SiTailwindcss,
@@ -7,9 +7,9 @@ import {
   SiDjango,
   SiMysql,
   SiPostgresql,
-  SiDocker
-} from 'react-icons/si';
-import { IconType } from 'react-icons';
+  SiDocker,
+} from "react-icons/si";
+import { IconType } from "react-icons";
 
 export interface StackItem {
   icon: IconType;
