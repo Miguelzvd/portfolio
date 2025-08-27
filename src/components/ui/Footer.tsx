@@ -1,9 +1,14 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export const Footer: React.FC = () => {
+  const t = useTranslations('Footer');
   return (
     <footer className="row-start-3 flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap items-center justify-center sm:justify-around w-full text-center sm:text-left">
       <div className="flex flex-col">
-        <span className="text-sm sm:text-base">Designed & Developed by:</span>
-        <span className="font-semibold">Miguel Azevedo</span>
+        <span className="text-sm sm:text-base">{t('designedBy')}</span>
+        <span className="font-semibold">{t('name')}</span>
       </div>
       <nav className="flex flex-wrap gap-4 sm:gap-6 text-sm sm:text-lg justify-center">
         <a

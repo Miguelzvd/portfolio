@@ -2,17 +2,21 @@ import { useState, useEffect } from "react";
 
 export function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
+    setMatches(media.matches);
+    
     const listener = () => setMatches(media.matches);
     media.addEventListener("change", listener);
     return () => media.removeEventListener("change", listener);
-  }, [matches, query]);
+  }, [query]);
 
+  // Return false during SSR to match initial state
+  if (!mounted) return false;
+  
   return matches;
 }
 
@@ -24,8 +28,10 @@ export function useBreakpoints() {
     isLarge: false,
     isXLarge: false,
   });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const queries = {
       mobile: "(max-width: 767px)",
       tablet: "(min-width: 768px) and (max-width: 1023px)",
@@ -70,6 +76,17 @@ export function useBreakpoints() {
       });
     };
   }, []);
+
+  // Return default state during SSR to match initial state
+  if (!mounted) {
+    return {
+      isMobile: false,
+      isTablet: false,
+      isDesktop: false,
+      isLarge: false,
+      isXLarge: false,
+    };
+  }
 
   return breakpoints;
 }

@@ -1,0 +1,63 @@
+{
+  "Header": {
+    "journey": "Jornada",
+    "stack": "Stack",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "Home": {
+    "title": "Desenvolvedor Frontend",
+    "subtitle": "Especializado em",
+    "publicService": "plataformas de serviço público",
+    "workAims": "Meu trabalho visa",
+    "simplifyProcesses": "simplificar processos complexos",
+    "improveAccess": "melhorar o",
+    "access": "acesso",
+    "through": "através de",
+    "intuitiveInterfaces": "interfaces intuitivas",
+    "iValue": "Eu valorizo",
+    "cleanDesign": "design limpo",
+    "realWorldImpact": "impacto no mundo real",
+    "purposefulTechnology": "tecnologia com propósito",
+    "downloadCV": "Baixar CV",
+    "scrollDown": "Role para baixo para explorar"
+  },
+  "Journey": {
+    "title": "Minha Jornada",
+    "subtitle": "Uma linha do tempo do meu crescimento profissional e marcos importantes na minha carreira de desenvolvimento."
+  },
+  "Stack": {
+    "title": "Minha Stack",
+    "subtitle": "Tecnologias e ferramentas que uso para construir aplicações modernas e escaláveis."
+  },
+  "Projects": {
+    "title": "Meus Projetos",
+    "subtitle": "Uma vitrine do meu trabalho recente e contribuições para soluções digitais significativas.",
+    "jovemPotiguarDescription": "O Jovem Potiguar é uma iniciativa do Ministério do Trabalho e Emprego, do Governo do Estado do Rio Grande do Norte e do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte para oferecer cursos de educação inicial e continuada para jovens entre 16 e 29 anos.",
+    "cineVaultDescription": "cine-vault é uma aplicação web projetada para entusiastas de filmes e séries, fornecendo uma maneira fácil e organizada de salvar, acompanhar e gerenciar seu conteúdo favorito. Se você é alguém que sempre esquece de assistir um filme ou série, ou quer acompanhar quais episódios assistiu.",
+    "viewProject": "Ver Projeto"
+  },
+  "Contact": {
+    "title": "Vamos Conectar",
+    "subtitle": "Pronto para colaborar ou discutir oportunidades? Vamos construir algo incrível juntos."
+  },
+  "Footer": {
+    "designedBy": "Projetado e Desenvolvido por:",
+    "name": "Miguel Azevedo"
+  },
+  "Timeline": {
+    "computerEngineering": "Engenharia da Computação",
+    "graduation": "Universidade Potiguar - Graduação",
+    "androidDevelopment": "Desenvolvimento de App Android para Saúde e Gestantes",
+    "universityProject": "Projeto Universitário",
+    "sineSystem": "Sistema Nacional de Emprego (SINE)",
+    "internship": "Estágio",
+    "jovemPotiguarPlatform": "Plataforma Jovem Potiguar",
+    "frontendDeveloper": "Desenvolvedor Frontend na FUNCITERN",
+    "funciterninternalSystems": "Sistemas Internos FUNCITERN",
+    "suasSystem": "Sistema SUAS",
+    "prpSystem": "Sistema PRP",
+    "present": "presente",
+    "inProgress": "em andamento"
+  }
+}

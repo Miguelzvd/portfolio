@@ -11,8 +11,15 @@ import { FaDiscord } from "react-icons/fa";
 import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { BackToTopButton } from "@/components/ui/BackToTopButton";
 import { Footer } from "@/components/ui/Footer";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations('Home');
+  const tJourney = await getTranslations('Journey');
+  const tStack = await getTranslations('Stack');
+  const tProjects = await getTranslations('Projects');
+  const tContact = await getTranslations('Contact');
+  
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
       <BackToTopButton />
@@ -38,20 +45,18 @@ export default function Home() {
             </Title.Root>
 
             <p className="text-lg w-full">
-              I&apos;m a <HighlightedText>developer</HighlightedText> passionate
+              {t('subtitle')} <HighlightedText>{t('title')}</HighlightedText> passionate
               about creating meaningful digital experiences. I currently lead{" "}
               <HighlightedText>front-end projects</HighlightedText> focused on
               <HighlightedText> usability</HighlightedText> and{" "}
-              <HighlightedText> accessibility</HighlightedText> for
-              <HighlightedText> public service platforms</HighlightedText>. My
-              work aims to
-              <HighlightedText> simplify complex processes</HighlightedText> and
-              improve
-              <HighlightedText> access</HighlightedText> through{" "}
-              <HighlightedText> intuitive interfaces</HighlightedText>. I value{" "}
-              <HighlightedText> clean design</HighlightedText>,{" "}
-              <HighlightedText> real-world impact</HighlightedText>, and
-              <HighlightedText> purposeful technology</HighlightedText>.
+              <HighlightedText> accessibility</HighlightedText> for{" "}
+              <HighlightedText>{t('publicService')}</HighlightedText>. {t('workAims')} to{" "}
+              <HighlightedText>{t('simplifyProcesses')}</HighlightedText> and {t('improveAccess')}{" "}
+              <HighlightedText>{t('access')}</HighlightedText> {t('through')}{" "}
+              <HighlightedText>{t('intuitiveInterfaces')}</HighlightedText>. {t('iValue')}{" "}
+              <HighlightedText>{t('cleanDesign')}</HighlightedText>,{" "}
+              <HighlightedText>{t('realWorldImpact')}</HighlightedText>, and{" "}
+              <HighlightedText>{t('purposefulTechnology')}</HighlightedText>.
             </p>
 
             <a
@@ -60,7 +65,7 @@ export default function Home() {
               aria-label="Download CV"
               className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300"
             >
-              <span>Download CV</span>
+              <span>{t('downloadCV')}</span>
               <ArrowDown aria-hidden="true" />
             </a>
           </Section.Content>
@@ -84,7 +89,7 @@ export default function Home() {
         <Section.Root about="my-journey" id="my-journey">
           <Title.Root>
             <Title.Content>
-              <Title.Sub>My journey so far...</Title.Sub>
+              <Title.Sub>{tJourney('title')}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
@@ -94,7 +99,7 @@ export default function Home() {
         <Section.Root about="my-stack" id="my-stack" className="min-h-[100vh]">
           <Title.Root>
             <Title.Content>
-              <Title.Sub>My stack</Title.Sub>
+              <Title.Sub>{tStack('title')}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="primary" />
           </Title.Root>
@@ -104,7 +109,7 @@ export default function Home() {
         <Section.Root about="my-projects" id="my-projects">
           <Title.Root>
             <Title.Content>
-              <Title.Sub>My projects</Title.Sub>
+              <Title.Sub>{tProjects('title')}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
@@ -118,11 +123,11 @@ export default function Home() {
         >
           <Title.Root>
             <Title.Content>
-              <Title.Sub>Lets work together!</Title.Sub>
+              <Title.Sub>{tContact('title')}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="primary" />
             <span className="font-normal">
-              Send me a message and let’s create something.
+              {tContact('subtitle')}
             </span>
           </Title.Root>
 

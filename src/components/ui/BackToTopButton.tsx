@@ -5,16 +5,22 @@ import { ArrowUp } from "lucide-react";
 
 export const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 10) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
+    // Check initial scroll position
+    toggleVisibility();
+    
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
@@ -26,7 +32,8 @@ export const BackToTopButton = () => {
     });
   };
 
-  if (!isVisible) {
+  // Don't render during SSR to avoid hydration mismatch
+  if (!mounted || !isVisible) {
     return null;
   }
 

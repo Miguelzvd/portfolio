@@ -1,14 +1,40 @@
 "use client";
 
-export const IsCodingStatus = () => {
-  const getNowInSaoPaulo = () =>
-    new Date(
-      new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" })
-    );
+import { useState, useEffect } from "react";
 
-  const now = getNowInSaoPaulo();
-  const hour = now.getHours();
-  const minute = now.getMinutes();
+export const IsCodingStatus = () => {
+  const [mounted, setMounted] = useState(false);
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+    const updateTime = () => {
+      const now = new Date(
+        new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" })
+      );
+      setCurrentTime(now);
+    };
+    
+    updateTime();
+    const interval = setInterval(updateTime, 60000); // Update every minute
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  // Don't render during SSR to avoid hydration mismatch
+  if (!mounted || !currentTime) {
+    return (
+      <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm">
+        <span className="text-sm">⏳ Loading status...</span>
+        <div className="gap-2 w-fit rounded-full bg-gray-200/10 p-[0.25rem] flex flex-row items-center justify-center">
+          <div className="w-2 h-2 rounded-full bg-gray-400" />
+        </div>
+      </div>
+    );
+  }
+
+  const hour = currentTime.getHours();
+  const minute = currentTime.getMinutes();
   const totalMinutes = hour * 60 + minute;
 
   const isCoding = totalMinutes >= 8 * 60 && totalMinutes <= 18 * 60;

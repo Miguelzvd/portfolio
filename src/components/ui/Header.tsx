@@ -2,16 +2,27 @@
 
 import { Languages, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/routing";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('Header');
+  const pathname = usePathname();
+  const router = useRouter();
+  const currentLocale = useLocale();
 
   const menuItems = [
-    { href: "#my-journey", label: "Journey" },
-    { href: "#my-stack", label: "Stack" },
-    { href: "#my-projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { href: "#my-journey", label: t('journey') },
+    { href: "#my-stack", label: t('stack') },
+    { href: "#my-projects", label: t('projects') },
+    { href: "#contact", label: t('contact') },
   ];
+  
+  const handleLanguageChange = () => {
+    const newLocale = currentLocale === 'en' ? 'pt' : 'en';
+    router.push(pathname, { locale: newLocale });
+  };
 
   const handleLinkClick = () => {
     setIsOpen(false);
@@ -41,11 +52,12 @@ export const Header = () => {
         </nav>
 
         <button
+          onClick={handleLanguageChange}
           aria-label="Change language"
           className="flex items-center gap-2 bg-blue-500/20 rounded-md p-2 hover:bg-blue-500/30 transition-colors z-50 relative"
         >
           <Languages size={16} />
-          <span className="text-sm">EN</span>
+          <span className="text-sm">{currentLocale.toUpperCase()}</span>
         </button>
       </header>
 

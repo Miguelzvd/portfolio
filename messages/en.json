@@ -1,0 +1,63 @@
+{
+  "Header": {
+    "journey": "Journey",
+    "stack": "Stack",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Home": {
+    "title": "Frontend Developer",
+    "subtitle": "Specialized in",
+    "publicService": "public service platforms",
+    "workAims": "My work aims to",
+    "simplifyProcesses": "simplify complex processes",
+    "improveAccess": "improve",
+    "access": "access",
+    "through": "through",
+    "intuitiveInterfaces": "intuitive interfaces",
+    "iValue": "I value",
+    "cleanDesign": "clean design",
+    "realWorldImpact": "real-world impact",
+    "purposefulTechnology": "purposeful technology",
+    "downloadCV": "Download CV",
+    "scrollDown": "Scroll down to explore"
+  },
+  "Journey": {
+    "title": "My Journey",
+    "subtitle": "A timeline of my professional growth and key milestones in my development career."
+  },
+  "Stack": {
+    "title": "My Stack",
+    "subtitle": "Technologies and tools I use to build modern, scalable applications."
+  },
+  "Projects": {
+    "title": "My Projects",
+    "subtitle": "A showcase of my recent work and contributions to meaningful digital solutions.",
+    "jovemPotiguarDescription": "Jovem Potiguar is an initiative of the Ministry of Labor and Employment, the Government of the State of Rio Grande do Norte and the Federal Institute of Education, Science and Technology of Rio Grande do Norte to offer initial and continuing education courses for young people between 16 and 29 years old.",
+    "cineVaultDescription": "cine-vault is a web application designed for movie and series enthusiasts, providing an easy and organized way to save, track, and manage your favorite content. If you're someone who always forgets to watch a movie or series, or you want to track which episodes you've watched.",
+    "viewProject": "View Project"
+  },
+  "Contact": {
+    "title": "Let's Connect",
+    "subtitle": "Ready to collaborate or discuss opportunities? Let's build something amazing together."
+  },
+  "Footer": {
+    "designedBy": "Designed & Developed by:",
+    "name": "Miguel Azevedo"
+  },
+  "Timeline": {
+    "computerEngineering": "Computer Engineering",
+    "graduation": "Universidade Potiguar - Graduation",
+    "androidDevelopment": "Android App Development for Health and Pregnant Women",
+    "universityProject": "University Project",
+    "sineSystem": "National Employment System (SINE)",
+    "internship": "Internship",
+    "jovemPotiguarPlatform": "Jovem Potiguar Platform",
+    "frontendDeveloper": "Frontend Developer at FUNCITERN",
+    "funciterninternalSystems": "FUNCITERN Internal Systems",
+    "suasSystem": "SUAS System",
+    "prpSystem": "PRP System",
+    "present": "present",
+    "inProgress": "in progress"
+  }
+}
