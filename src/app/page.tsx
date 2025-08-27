@@ -8,8 +8,9 @@ import { Header } from "@/components/ui/Header";
 import { MyJourneySection } from "@/components/ui/MyJourneySection";
 import { ProjectCardsGrid } from "@/components/ui/ProjectCardsGrid";
 import { FaDiscord } from "react-icons/fa";
-import { StackCardsSection } from "@/components/ui/StackCardsSection";
+import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { BackToTopButton } from "@/components/ui/BackToTopButton";
+import { Footer } from "@/components/ui/Footer";
 
 export default function Home() {
   return (
@@ -97,7 +98,7 @@ export default function Home() {
             </Title.Content>
             <Title.UnderlineRow color="primary" />
           </Title.Root>
-          <StackCardsSection />
+          <StackCardsGrid />
         </Section.Root>
 
         <Section.Root about="my-projects" id="my-projects">
@@ -166,45 +167,7 @@ export default function Home() {
         </Section.Root>
       </main>
 
-      {/* FOOTER */}
-      <footer className="row-start-3 flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap items-center justify-center sm:justify-around w-full text-center sm:text-left">
-        <div className="flex flex-col">
-          <span className="text-sm sm:text-base">Designed & Developed by:</span>
-          <span className="font-semibold">Miguel Azevedo</span>
-        </div>
-        <nav className="flex flex-wrap gap-4 sm:gap-6 text-sm sm:text-lg justify-center">
-          <a
-            className="hover:underline text-primary"
-            href="mailto:your-email@example.com"
-          >
-            Email
-          </a>
-          <a
-            className="hover:underline text-secondary"
-            href="https://www.linkedin.com/in/miguel-azevedo-dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Linkedin
-          </a>
-          <a
-            className="hover:underline text-primary"
-            href="https://github.com/Miguelzvd"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </a>
-          <a
-            className="hover:underline text-secondary"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Discord
-          </a>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }
