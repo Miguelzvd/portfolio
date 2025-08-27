@@ -1,12 +1,15 @@
 "use client";
 
-import { timelineEvents } from "@/constants/timeline";
+import { getTimelineEvents } from "@/constants/timeline";
 import Timeline from "./Timeline";
 import Section from "./Section";
 import { useBreakpoints } from "@/hooks/useMediaQuery";
+import { useTranslations } from "next-intl";
 
 export const MyJourneySection = () => {
   const { isDesktop } = useBreakpoints();
+  const t = useTranslations("Timeline");
+  const timelineEvents = getTimelineEvents(t);
 
   const DesktopTimeline = () => (
     <Timeline.Root>

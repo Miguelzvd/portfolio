@@ -6,10 +6,19 @@
     "contact": "Contact"
   },
   "Home": {
+    "greeting": "Hello, I'm",
     "title": "Frontend Developer",
     "subtitle": "Specialized in",
+    "passionateAbout": "passionate about creating meaningful digital experiences. I currently lead",
+    "frontendProjects": "front-end projects",
+    "focusedOn": "focused on",
+    "usability": "usability",
+    "and": "and",
+    "accessibility": "accessibility",
+    "for": "for",
     "publicService": "public service platforms",
-    "workAims": "My work aims to",
+    "workAims": "My work aims",
+    "to": "to",
     "simplifyProcesses": "simplify complex processes",
     "improveAccess": "improve",
     "access": "access",
@@ -33,9 +42,15 @@
   "Projects": {
     "title": "My Projects",
     "subtitle": "A showcase of my recent work and contributions to meaningful digital solutions.",
-    "jovemPotiguarDescription": "Jovem Potiguar is an initiative of the Ministry of Labor and Employment, the Government of the State of Rio Grande do Norte and the Federal Institute of Education, Science and Technology of Rio Grande do Norte to offer initial and continuing education courses for young people between 16 and 29 years old.",
+    "jovemPotiguarDescription": "Jovem Potiguar is an initiative of the Ministry of Labor and Employment, the Government of the State of Rio Grande do Norte and the Federal Institute of Education, Science and Technology of Rio Grande do Norte to offer initial and continuing education courses for young people between 16 and 35 years old, focusing on citizenship development and the promotion of creative life projects.",
     "cineVaultDescription": "cine-vault is a web application designed for movie and series enthusiasts, providing an easy and organized way to save, track, and manage your favorite content. If you're someone who always forgets to watch a movie or series, or you want to track which episodes you've watched.",
-    "viewProject": "View Project"
+    "viewProject": "View Project",
+    "stack": "Stack",
+    "link": "Link",
+    "aboutProject": "About the project",
+    "showAboutProject": "+ About the project",
+    "hideAboutProject": "- About the project",
+    "description": "Description"
   },
   "Contact": {
     "title": "Let's Connect",

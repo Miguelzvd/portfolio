@@ -4,9 +4,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 import Section from "./Section";
-import { projects } from "@/constants/projects";
+import { getProjects } from "@/constants/projects";
+import { useTranslations } from "next-intl";
 
 export const ProjectCardsGrid = () => {
+  const t = useTranslations("Projects");
+  const projects = getProjects(t);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const handleToggleExpand = (index: number) => {
@@ -24,7 +27,7 @@ export const ProjectCardsGrid = () => {
             className="md:hover:scale-110 transition-all duration-400 ease-in-out"
           >
             <ProjectCard.HeaderSection>
-              <ProjectCard.Title text="Stack" />
+              <ProjectCard.Title text={t("stack")} />
               <ProjectCard.Content>
                 {project.stacks.map((stack, stackIndex) => (
                   <ProjectCard.StackImage
@@ -59,13 +62,13 @@ export const ProjectCardsGrid = () => {
             <ProjectCard.Content>
               <ProjectCard.Link
                 href={project.link}
-                text="Link"
+                text={t("link")}
                 target="_blank"
               />
 
               <ProjectCard.Button
                 text={
-                  isExpanded ? "- About the project" : "+ About the project"
+                  isExpanded ? t("hideAboutProject") : t("showAboutProject")
                 }
                 onClick={() => handleToggleExpand(projectIndex)}
                 aria-expanded={isExpanded}
@@ -81,7 +84,7 @@ export const ProjectCardsGrid = () => {
             >
               <div className="min-h-0">
                 <ProjectCard.Content className="border border-white/20 rounded-md px-2 py-2 mt-2 transform transition-all duration-200 ease-in-out">
-                  <ProjectCard.Title text="Description" className="mb-2" />
+                  <ProjectCard.Title text={t("description")} className="mb-2" />
                   <span
                     className={`text-sm text-gray-300 leading-relaxed whitespace-normal break-words block transition-all duration-200 delay-150 ${
                       isExpanded

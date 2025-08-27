@@ -6,10 +6,19 @@
     "contact": "Contato"
   },
   "Home": {
+    "greeting": "Olá, me chamo",
     "title": "Desenvolvedor Frontend",
     "subtitle": "Especializado em",
+    "passionateAbout": "apaixonado por criar experiências digitais significativas. Atualmente lidero",
+    "frontendProjects": "projetos front-end",
+    "focusedOn": "focados em",
+    "usability": "usabilidade",
+    "and": "e",
+    "accessibility": "acessibilidade",
+    "for": "para",
     "publicService": "plataformas de serviço público",
     "workAims": "Meu trabalho visa",
+    "to": "a",
     "simplifyProcesses": "simplificar processos complexos",
     "improveAccess": "melhorar o",
     "access": "acesso",
@@ -33,9 +42,15 @@
   "Projects": {
     "title": "Meus Projetos",
     "subtitle": "Uma vitrine do meu trabalho recente e contribuições para soluções digitais significativas.",
-    "jovemPotiguarDescription": "O Jovem Potiguar é uma iniciativa do Ministério do Trabalho e Emprego, do Governo do Estado do Rio Grande do Norte e do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte para oferecer cursos de educação inicial e continuada para jovens entre 16 e 29 anos.",
+    "jovemPotiguarDescription": "O Jovem Potiguar é uma iniciativa do Ministério do Trabalho e Emprego, do Governo do Estado do Rio Grande do Norte e do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte para oferecer cursos de educação inicial e continuada para jovens entre 16 e 35 anos, focando no desenvolvimento da cidadania e na promoção de projetos de vida criativos.",
     "cineVaultDescription": "cine-vault é uma aplicação web projetada para entusiastas de filmes e séries, fornecendo uma maneira fácil e organizada de salvar, acompanhar e gerenciar seu conteúdo favorito. Se você é alguém que sempre esquece de assistir um filme ou série, ou quer acompanhar quais episódios assistiu.",
-    "viewProject": "Ver Projeto"
+    "viewProject": "Ver Projeto",
+    "stack": "Stack",
+    "link": "Link",
+    "aboutProject": "Sobre o projeto",
+    "showAboutProject": "+ Sobre o projeto",
+    "hideAboutProject": "- Sobre o projeto",
+    "description": "Descrição"
   },
   "Contact": {
     "title": "Vamos Conectar",

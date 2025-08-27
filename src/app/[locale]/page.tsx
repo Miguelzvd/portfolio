@@ -14,12 +14,12 @@ import { Footer } from "@/components/ui/Footer";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
-  const t = await getTranslations('Home');
-  const tJourney = await getTranslations('Journey');
-  const tStack = await getTranslations('Stack');
-  const tProjects = await getTranslations('Projects');
-  const tContact = await getTranslations('Contact');
-  
+  const t = await getTranslations("Home");
+  const tJourney = await getTranslations("Journey");
+  const tStack = await getTranslations("Stack");
+  const tProjects = await getTranslations("Projects");
+  const tContact = await getTranslations("Contact");
+
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
       <BackToTopButton />
@@ -35,7 +35,7 @@ export default async function Home() {
           <Section.Content className="flex-2 flex flex-col gap-2 w-full lg:min-w-[32rem]">
             <Title.Root>
               <Title.Content>
-                <span className="text-lg font-normal">Hello, I&apos;m</span>
+                <span className="text-lg font-normal">{t("greeting")}</span>
                 <br />
                 <Title.Main className="text-5xl md:text-6xl font-bold">
                   Miguel <span className="whitespace-nowrap">Azevedo👋</span>
@@ -45,18 +45,21 @@ export default async function Home() {
             </Title.Root>
 
             <p className="text-lg w-full">
-              {t('subtitle')} <HighlightedText>{t('title')}</HighlightedText> passionate
-              about creating meaningful digital experiences. I currently lead{" "}
-              <HighlightedText>front-end projects</HighlightedText> focused on
-              <HighlightedText> usability</HighlightedText> and{" "}
-              <HighlightedText> accessibility</HighlightedText> for{" "}
-              <HighlightedText>{t('publicService')}</HighlightedText>. {t('workAims')} to{" "}
-              <HighlightedText>{t('simplifyProcesses')}</HighlightedText> and {t('improveAccess')}{" "}
-              <HighlightedText>{t('access')}</HighlightedText> {t('through')}{" "}
-              <HighlightedText>{t('intuitiveInterfaces')}</HighlightedText>. {t('iValue')}{" "}
-              <HighlightedText>{t('cleanDesign')}</HighlightedText>,{" "}
-              <HighlightedText>{t('realWorldImpact')}</HighlightedText>, and{" "}
-              <HighlightedText>{t('purposefulTechnology')}</HighlightedText>.
+              {t("subtitle")} <HighlightedText>{t("title")}</HighlightedText>{" "}
+              {t("passionateAbout")}{" "}
+              <HighlightedText>{t("frontendProjects")}</HighlightedText> {t("focusedOn")}
+              <HighlightedText> {t("usability")}</HighlightedText> {t("and")}{" "}
+              <HighlightedText> {t("accessibility")}</HighlightedText> {t("for")}{" "}
+              <HighlightedText>{t("publicService")}</HighlightedText>.{" "}
+              {t("workAims")} {t("to")}{" "}
+              <HighlightedText>{t("simplifyProcesses")}</HighlightedText> {t("and")}{" "}
+              {t("improveAccess")}{" "}
+              <HighlightedText>{t("access")}</HighlightedText> {t("through")}{" "}
+              <HighlightedText>{t("intuitiveInterfaces")}</HighlightedText>.{" "}
+              {t("iValue")}{" "}
+              <HighlightedText>{t("cleanDesign")}</HighlightedText>,{" "}
+              <HighlightedText>{t("realWorldImpact")}</HighlightedText>, {t("and")}{" "}
+              <HighlightedText>{t("purposefulTechnology")}</HighlightedText>.
             </p>
 
             <a
@@ -65,7 +68,7 @@ export default async function Home() {
               aria-label="Download CV"
               className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300"
             >
-              <span>{t('downloadCV')}</span>
+              <span>{t("downloadCV")}</span>
               <ArrowDown aria-hidden="true" />
             </a>
           </Section.Content>
@@ -89,7 +92,7 @@ export default async function Home() {
         <Section.Root about="my-journey" id="my-journey">
           <Title.Root>
             <Title.Content>
-              <Title.Sub>{tJourney('title')}</Title.Sub>
+              <Title.Sub>{tJourney("title")}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
@@ -99,7 +102,7 @@ export default async function Home() {
         <Section.Root about="my-stack" id="my-stack" className="min-h-[100vh]">
           <Title.Root>
             <Title.Content>
-              <Title.Sub>{tStack('title')}</Title.Sub>
+              <Title.Sub>{tStack("title")}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="primary" />
           </Title.Root>
@@ -109,7 +112,7 @@ export default async function Home() {
         <Section.Root about="my-projects" id="my-projects">
           <Title.Root>
             <Title.Content>
-              <Title.Sub>{tProjects('title')}</Title.Sub>
+              <Title.Sub>{tProjects("title")}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
@@ -123,12 +126,10 @@ export default async function Home() {
         >
           <Title.Root>
             <Title.Content>
-              <Title.Sub>{tContact('title')}</Title.Sub>
+              <Title.Sub>{tContact("title")}</Title.Sub>
             </Title.Content>
             <Title.UnderlineRow color="primary" />
-            <span className="font-normal">
-              {tContact('subtitle')}
-            </span>
+            <span className="font-normal">{tContact("subtitle")}</span>
           </Title.Root>
 
           <Section.Content className="gap-4">
