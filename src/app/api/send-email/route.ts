@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Rate limiting simples em memória (para produção, use Redis ou banco de dados)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutos
-const MAX_REQUESTS = 3; // Máximo 3 emails por IP a cada 15 minutos
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; 
+const MAX_REQUESTS = 3; 
 
-// Função para validar email
 function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -35,7 +33,6 @@ export async function POST(request: NextRequest) {
         }
         userLimit.count++;
       } else {
-        // Reset do contador após o tempo limite
         rateLimitMap.set(clientIP, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
       }
     } else {
@@ -80,7 +77,7 @@ export async function POST(request: NextRequest) {
         <p><strong>Mensagem:</strong></p>
         <p>${sanitizedMessage.replace(/\n/g, '<br>')}</p>
         <hr>
-        <p><small>IP: ${clientIP} | Data: ${new Date().toLocaleString('pt-BR')}</small></p>
+        <p><small>IP: ${clientIP} | Data: ${new Date(Date.now() - 5 * 60 * 60 * 1000).toLocaleString('pt-BR')}</small></p>
       `,
       replyTo: email,
     };
