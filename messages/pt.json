@@ -56,6 +56,27 @@
     "title": "Vamos Conectar",
     "subtitle": "Pronto para colaborar ou discutir oportunidades? Vamos construir algo incrível juntos."
   },
+  "ContactForm": {
+    "buttonText": "Fale comigo",
+    "nameLabel": "Nome",
+    "emailLabel": "E-mail",
+    "messageLabel": "Mensagem",
+    "namePlaceholder": "Seu nome completo",
+    "emailPlaceholder": "seu.email@exemplo.com",
+    "messagePlaceholder": "Escreva sua mensagem aqui...",
+    "sendButton": "Enviar Mensagem",
+    "sendingButton": "Enviando...",
+    "successMessage": "✅ Mensagem enviada com sucesso!",
+    "errorMessage": "❌ Erro ao enviar mensagem. Tente novamente.",
+    "nameMinError": "Nome deve ter pelo menos 2 caracteres",
+    "nameMaxError": "Nome deve ter no máximo 100 caracteres",
+    "nameRegexError": "Nome deve conter apenas letras e espaços",
+    "emailInvalidError": "E-mail inválido",
+    "emailRequiredError": "E-mail é obrigatório",
+    "messageMinError": "Mensagem deve ter pelo menos 3 caracteres",
+    "messageMaxError": "Mensagem deve ter no máximo 1000 caracteres",
+    "required": "*"
+  },
   "IsCodingStatus": {
     "loading": "⏳ Carregando status...",
     "codingNow": "💻 Programando agora",

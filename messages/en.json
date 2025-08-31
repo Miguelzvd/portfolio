@@ -56,6 +56,27 @@
     "title": "Let's Connect",
     "subtitle": "Ready to collaborate or discuss opportunities? Let's build something amazing together."
   },
+  "ContactForm": {
+    "buttonText": "Contact me",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "your.email@example.com",
+    "messagePlaceholder": "Write your message here...",
+    "sendButton": "Send Message",
+    "sendingButton": "Sending...",
+    "successMessage": "✅ Message sent successfully!",
+    "errorMessage": "❌ Error sending message. Please try again.",
+    "nameMinError": "Name must be at least 2 characters",
+    "nameMaxError": "Name must be at most 100 characters",
+    "nameRegexError": "Name must contain only letters and spaces",
+    "emailInvalidError": "Invalid email",
+    "emailRequiredError": "Email is required",
+    "messageMinError": "Message must be at least 3 characters",
+    "messageMaxError": "Message must be at most 1000 characters",
+    "required": "*"
+  },
   "IsCodingStatus": {
     "loading": "⏳ Loading status...",
     "codingNow": "💻 Coding right now",

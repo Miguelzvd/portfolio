@@ -12,7 +12,7 @@ import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { BackToTopButton } from "@/components/ui/BackToTopButton";
 import { Footer } from "@/components/ui/Footer";
 import { getTranslations, getLocale } from "next-intl/server";
-import { ContactButton } from "@/components/ui/ContactButton";
+import { ContactForm } from "@/components/ui/ContactForm";
 
 export default async function Home() {
   const locale = await getLocale();
@@ -174,7 +174,7 @@ export default async function Home() {
                 <Linkedin color="black" />
               </a>
             </div>
-            <ContactButton />
+            <ContactForm />
           </Section.Content>
         </Section.Root>
       </main>
