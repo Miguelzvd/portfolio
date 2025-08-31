@@ -12,6 +12,7 @@ import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { BackToTopButton } from "@/components/ui/BackToTopButton";
 import { Footer } from "@/components/ui/Footer";
 import { getTranslations, getLocale } from "next-intl/server";
+import { ContactButton } from "@/components/ui/ContactButton";
 
 export default async function Home() {
   const locale = await getLocale();
@@ -22,10 +23,12 @@ export default async function Home() {
   const tContact = await getTranslations("Contact");
 
   // Determina o arquivo do CV baseado no idioma
-  const cvFile = locale === 'pt' ? 'Miguel_Azevedo_CV_PT.pdf' : 'Miguel_Azevedo_CV_EN.pdf';
-  const cvDownloadName = locale === 'pt' 
-    ? 'Edilson_Miguel_De_Azevedo_Filho_PT.pdf' 
-    : 'Edilson_Miguel_De_Azevedo_Filho_EN.pdf';
+  const cvFile =
+    locale === "pt" ? "Miguel_Azevedo_CV_PT.pdf" : "Miguel_Azevedo_CV_EN.pdf";
+  const cvDownloadName =
+    locale === "pt"
+      ? "Edilson_Miguel_De_Azevedo_Filho_PT.pdf"
+      : "Edilson_Miguel_De_Azevedo_Filho_EN.pdf";
 
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
@@ -88,7 +91,6 @@ export default async function Home() {
                 className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
                 src="/images/profile.jpg"
                 alt="Profile picture of Miguel Azevedo"
-                quality={100}
                 width={400}
                 height={400}
                 priority
@@ -142,13 +144,7 @@ export default async function Home() {
           </Title.Root>
 
           <Section.Content className="gap-4">
-            <button className="relative rounded-sm text-white py-[0.6rem] px-[0.1rem] cursor-pointer gradient-rotate">
-              <span className="h-full w-full bg-dark rounded-sm py-2 px-4 text-2xl">
-                Contact me
-              </span>
-            </button>
-
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-center gap-2">
               <a
                 className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
                 href="https://github.com/Miguelzvd"
@@ -178,6 +174,7 @@ export default async function Home() {
                 <Linkedin color="black" />
               </a>
             </div>
+            <ContactButton />
           </Section.Content>
         </Section.Root>
       </main>

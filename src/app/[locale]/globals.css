@@ -67,7 +67,7 @@ html {
 
 .gradient-rotate:hover {
   animation: rotate-gradient 2s linear infinite;
-  transform: scale(1.05);
+  transform: scale(1);
   box-shadow: 0 8px 25px rgba(28, 133, 229, 0.3);
 }
 

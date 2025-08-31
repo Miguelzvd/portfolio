@@ -85,14 +85,10 @@ export const ProjectCardsGrid = () => {
               }`}
             >
               <div className="min-h-0">
-                <ProjectCard.Content className="border border-white/20 rounded-md px-2 py-2 mt-2 transform transition-all duration-200 ease-in-out">
+                <ProjectCard.Content className="border border-white/20 rounded-md px-2 py-2 transform transition-all duration-200 ease-in-out">
                   <ProjectCard.Title text={t("description")} className="mb-2" />
                   <span
-                    className={`text-sm text-gray-300 leading-relaxed whitespace-normal break-words block transition-all duration-200 delay-150 ${
-                      isExpanded
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-1"
-                    }`}
+                    className={`text-sm text-gray-300 leading-relaxed whitespace-normal break-words block`}
                   >
                     {project.description}
                   </span>
