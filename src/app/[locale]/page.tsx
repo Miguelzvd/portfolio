@@ -11,14 +11,21 @@ import { FaDiscord } from "react-icons/fa";
 import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
 import { BackToTopButton } from "@/components/ui/BackToTopButton";
 import { Footer } from "@/components/ui/Footer";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 export default async function Home() {
+  const locale = await getLocale();
   const t = await getTranslations("Home");
   const tJourney = await getTranslations("Journey");
   const tStack = await getTranslations("Stack");
   const tProjects = await getTranslations("Projects");
   const tContact = await getTranslations("Contact");
+
+  // Determina o arquivo do CV baseado no idioma
+  const cvFile = locale === 'pt' ? 'Miguel_Azevedo_CV_PT.pdf' : 'Miguel_Azevedo_CV_EN.pdf';
+  const cvDownloadName = locale === 'pt' 
+    ? 'Edilson_Miguel_De_Azevedo_Filho_PT.pdf' 
+    : 'Edilson_Miguel_De_Azevedo_Filho_EN.pdf';
 
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
@@ -65,8 +72,8 @@ export default async function Home() {
             </p>
 
             <a
-              href="/files/Miguel_Azevedo_CV_EN.pdf"
-              download="Edilson_Miguel_De_Azevedo_Filho_EN.pdf"
+              href={`/files/${cvFile}`}
+              download={cvDownloadName}
               aria-label="Download CV"
               className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300"
             >
