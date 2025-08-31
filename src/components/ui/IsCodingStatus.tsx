@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 export const IsCodingStatus = () => {
+  const t = useTranslations("IsCodingStatus");
   const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
 
@@ -16,16 +18,15 @@ export const IsCodingStatus = () => {
     };
     
     updateTime();
-    const interval = setInterval(updateTime, 60000); // Update every minute
+    const interval = setInterval(updateTime, 60000); 
     
     return () => clearInterval(interval);
   }, []);
 
-  // Don't render during SSR to avoid hydration mismatch
   if (!mounted || !currentTime) {
     return (
       <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm">
-        <span className="text-sm">⏳ Loading status...</span>
+        <span className="text-sm">{t("loading")}</span>
         <div className="gap-2 w-fit rounded-full bg-gray-200/10 p-[0.25rem] flex flex-row items-center justify-center">
           <div className="w-2 h-2 rounded-full bg-gray-400" />
         </div>
@@ -40,13 +41,13 @@ export const IsCodingStatus = () => {
   const isCoding = totalMinutes >= 8 * 60 && totalMinutes <= 18 * 60;
 
   const getStatusMessage = () => {
-    if (isCoding) return "💻 Coding right now";
+    if (isCoding) return t("codingNow");
 
-    if (hour >= 6 && hour < 8) return "☕ Warming up...";
-    if (hour >= 18 && hour < 22) return "🌙 Wrapping things up";
-    if (hour > 22 || hour < 6) return "💤 Probably sleeping...";
+    if (hour >= 6 && hour < 8) return t("warmingUp");
+    if (hour >= 18 && hour < 22) return t("wrappingUp");
+    if (hour > 22 || hour < 6) return t("sleeping");
 
-    return "⏳ Taking a short break";
+    return t("shortBreak");
   };
 
   return (

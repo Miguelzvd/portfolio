@@ -56,6 +56,14 @@
     "title": "Let's Connect",
     "subtitle": "Ready to collaborate or discuss opportunities? Let's build something amazing together."
   },
+  "IsCodingStatus": {
+    "loading": "⏳ Loading status...",
+    "codingNow": "💻 Coding right now",
+    "warmingUp": "☕ Warming up...",
+    "wrappingUp": "🌙 Wrapping things up",
+    "sleeping": "💤 Probably sleeping...",
+    "shortBreak": "⏳ Taking a short break"
+  },
   "Footer": {
     "designedBy": "Designed & Developed by:",
     "name": "Miguel Azevedo"

@@ -56,6 +56,14 @@
     "title": "Vamos Conectar",
     "subtitle": "Pronto para colaborar ou discutir oportunidades? Vamos construir algo incrível juntos."
   },
+  "IsCodingStatus": {
+    "loading": "⏳ Carregando status...",
+    "codingNow": "💻 Programando agora",
+    "warmingUp": "☕ Aquecendo...",
+    "wrappingUp": "🌙 Finalizando o dia",
+    "sleeping": "💤 Provavelmente dormindo...",
+    "shortBreak": "⏳ Fazendo uma pausa"
+  },
   "Footer": {
     "designedBy": "Projetado e Desenvolvido por:",
     "name": "Miguel Azevedo"

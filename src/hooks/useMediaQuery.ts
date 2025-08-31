@@ -14,7 +14,6 @@ export function useMediaQuery(query: string): boolean {
     return () => media.removeEventListener("change", listener);
   }, [query]);
 
-  // Return false during SSR to match initial state
   if (!mounted) return false;
 
   return matches;
@@ -77,7 +76,6 @@ export function useBreakpoints() {
     };
   }, []);
 
-  // Return default state during SSR to match initial state
   if (!mounted) {
     return {
       isMobile: false,
