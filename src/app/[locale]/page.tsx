@@ -105,7 +105,6 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tStack("title")}</Title.Sub>
             </Title.Content>
-            <Title.UnderlineRow color="primary" />
           </Title.Root>
           <StackCardsSection />
         </Section.Root>
@@ -115,7 +114,6 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tJourney("title")}</Title.Sub>
             </Title.Content>
-            <Title.UnderlineRow color="secondary" />
           </Title.Root>
           <MyJourneySection />
         </Section.Root>
@@ -125,7 +123,6 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tProjects("title")}</Title.Sub>
             </Title.Content>
-            <Title.UnderlineRow color="secondary" />
           </Title.Root>
           <ProjectCardsGrid />
         </Section.Root>
@@ -139,7 +136,6 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tContact("title")}</Title.Sub>
             </Title.Content>
-            <Title.UnderlineRow color="primary" />
             <span className="font-normal">{tContact("subtitle")}</span>
           </Title.Root>
 

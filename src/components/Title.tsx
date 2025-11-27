@@ -48,7 +48,7 @@ const TitleSub = ({
   className?: string;
 }) => {
   return (
-    <h2 className={`text-4xl font-bold ${props.className}`} {...props}>
+    <h2 className={`text-4xl font-bold text-center ${props.className}`} {...props}>
       {children}
     </h2>
   );
@@ -63,7 +63,7 @@ const TitleUnderlineRow = ({
 }) => {
   return (
     <div
-      className={`w-40 max-w-[60%] border-b-4 ${
+      className={`w-40 max-w-[70%] border-b-4 ${
         color === "primary" ? "border-primary" : "border-secondary"
       } mt-1 ${props.className}`}
       {...props}
