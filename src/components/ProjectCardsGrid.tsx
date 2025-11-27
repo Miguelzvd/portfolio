@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ProjectCard } from "./ProjectCard";
+import { ProjectCard } from "./ui/ProjectCard";
 import Section from "./Section";
 import { getProjects } from "@/constants/projects";
 import { useTranslations } from "next-intl";

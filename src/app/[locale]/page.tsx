@@ -1,18 +1,18 @@
 import Image from "next/image";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
-import HighlightedText from "@/components/ui/HighlightedText";
-import { IsCodingStatus } from "@/components/ui/IsCodingStatus";
-import Title from "@/components/ui/Title";
-import Section from "@/components/ui/Section";
-import { Header } from "@/components/ui/Header";
-import { MyJourneySection } from "@/components/ui/MyJourneySection";
-import { ProjectCardsGrid } from "@/components/ui/ProjectCardsGrid";
+import HighlightedText from "@/components/HighlightedText";
+import { IsCodingStatus } from "@/components/IsCodingStatus";
+import Title from "@/components/Title";
+import Section from "@/components/Section";
+import { Header } from "@/components/Header";
+import { MyJourneySection } from "@/components/MyJourneySection";
+import { ProjectCardsGrid } from "@/components/ProjectCardsGrid";
 import { FaDiscord } from "react-icons/fa";
-import { StackCardsGrid } from "@/components/ui/StackCardsGrid";
-import { BackToTopButton } from "@/components/ui/BackToTopButton";
-import { Footer } from "@/components/ui/Footer";
+import { StackCardsSection } from "@/components/StackCardsSection";
+import { BackToTopButton } from "@/components/BackToTopButton";
+import { Footer } from "@/components/Footer";
 import { getTranslations, getLocale } from "next-intl/server";
-import { ContactForm } from "@/components/ui/ContactForm";
+import { ContactForm } from "@/components/ContactForm";
 
 export default async function Home() {
   const locale = await getLocale();
@@ -100,6 +100,16 @@ export default async function Home() {
           </Section.Content>
         </Section.Root>
 
+        <Section.Root about="my-stack" id="my-stack" className="min-h-[60vh]">
+          <Title.Root>
+            <Title.Content>
+              <Title.Sub>{tStack("title")}</Title.Sub>
+            </Title.Content>
+            <Title.UnderlineRow color="primary" />
+          </Title.Root>
+          <StackCardsSection />
+        </Section.Root>
+
         <Section.Root about="my-journey" id="my-journey">
           <Title.Root>
             <Title.Content>
@@ -108,16 +118,6 @@ export default async function Home() {
             <Title.UnderlineRow color="secondary" />
           </Title.Root>
           <MyJourneySection />
-        </Section.Root>
-
-        <Section.Root about="my-stack" id="my-stack" className="min-h-[100vh]">
-          <Title.Root>
-            <Title.Content>
-              <Title.Sub>{tStack("title")}</Title.Sub>
-            </Title.Content>
-            <Title.UnderlineRow color="primary" />
-          </Title.Root>
-          <StackCardsGrid />
         </Section.Root>
 
         <Section.Root about="my-projects" id="my-projects">
