@@ -2,7 +2,7 @@ import { backStack, frontStack, toolsStack } from "@/constants/stack";
 import Section from "./Section";
 import { StackBadge } from "./StackBadge";
 
-export const StackCardsSection = () => {
+export const StackCardsGroup = () => {
   return (
     <Section.Content className="max-h-fit flex flex-col gap-y-10 w-full items-center">
       <div className="flex flex-col gap-y-2">

@@ -8,7 +8,7 @@ import { Header } from "@/components/Header";
 import { MyJourneySection } from "@/components/MyJourneySection";
 import { ProjectCardsGrid } from "@/components/ProjectCardsGrid";
 import { FaDiscord } from "react-icons/fa";
-import { StackCardsSection } from "@/components/StackCardsSection";
+import { StackCardsGroup } from "@/components/StackCardsGroup";
 import { BackToTopButton } from "@/components/BackToTopButton";
 import { Footer } from "@/components/Footer";
 import { getTranslations, getLocale } from "next-intl/server";
@@ -106,7 +106,7 @@ export default async function Home() {
               <Title.Sub>{tStack("title")}</Title.Sub>
             </Title.Content>
           </Title.Root>
-          <StackCardsSection />
+          <StackCardsGroup />
         </Section.Root>
 
         <Section.Root about="my-journey" id="my-journey">
