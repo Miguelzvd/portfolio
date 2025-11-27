@@ -68,6 +68,20 @@ export const backStack: StackItem[] = [
     color: "text-[#339933]",
   },
   {
+    icon: SiDrizzle,
+    alt: "Drizzle logo",
+    description: "Drizzle",
+    shadow: "bg-amber-600",
+    color: "text-[#C5B358]",
+  },
+  {
+    icon: SiExpress,
+    alt: "Express logo",
+    description: "Express",
+    shadow: "bg-gray-700",
+    color: "text-white",
+  },
+  {
     icon: SiDjango,
     alt: "Django logo",
     description: "Django",
@@ -146,19 +160,5 @@ export const toolsStack: StackItem[] = [
     description: "DigitalOcean",
     shadow: "bg-blue-600",
     color: "text-[#0080FF]",
-  },
-  {
-    icon: SiDrizzle,
-    alt: "Drizzle logo",
-    description: "Drizzle",
-    shadow: "bg-amber-600",
-    color: "text-[#C5B358]",
-  },
-  {
-    icon: SiExpress,
-    alt: "Express logo",
-    description: "Express",
-    shadow: "bg-gray-700",
-    color: "text-white",
   },
 ];
