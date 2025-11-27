@@ -32,15 +32,15 @@
     "scrollDown": "Role para baixo para explorar"
   },
   "Journey": {
-    "title": "Minha Jornada",
+    "title": "Jornada",
     "subtitle": "Uma linha do tempo do meu crescimento profissional e marcos importantes na minha carreira de desenvolvimento."
   },
   "Stack": {
-    "title": "Minha Stack",
+    "title": "Stack",
     "subtitle": "Tecnologias e ferramentas que uso para construir aplicações modernas e escaláveis."
   },
   "Projects": {
-    "title": "Meus Projetos",
+    "title": "Projetos",
     "subtitle": "Uma vitrine do meu trabalho recente e contribuições para soluções digitais significativas.",
     "jovemPotiguarDescription": "O Jovem Potiguar é uma iniciativa do Ministério do Trabalho e Emprego, do Governo do Estado do Rio Grande do Norte e do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte para oferecer cursos de educação inicial e continuada para jovens entre 16 e 35 anos, focando no desenvolvimento da cidadania e na promoção de projetos de vida criativos.",
     "cineVaultDescription": "cine-vault é uma aplicação web projetada para entusiastas de filmes e séries, fornecendo uma maneira fácil e organizada de salvar, acompanhar e gerenciar seu conteúdo favorito. Se você é alguém que sempre esquece de assistir um filme ou série, ou quer acompanhar quais episódios assistiu.",

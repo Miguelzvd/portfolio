@@ -1,4 +1,4 @@
-import { IconType } from 'react-icons';
+import { IconType } from "react-icons";
 
 const StackCardRoot = ({
   children,
@@ -9,7 +9,7 @@ const StackCardRoot = ({
 }) => {
   return (
     <div
-      className={`flex flex-col justify-center items-center gap-2 w-30 h-30 md:w-35 md:h-35 xl:w-40 xl:h-40 ${className} bg-dark-gray rounded-md p-4 relative`}
+      className={`flex flex-row justify-start items-center gap-2 bg-dark-gray rounded-md p-2 pr-1 relative ${className}`}
     >
       {children}
     </div>
@@ -39,7 +39,7 @@ const StackCardIcon = ({
 }) => {
   return (
     <Icon
-      className={`w-12 h-12 md:w-16 md:h-16 xl:w-20 xl:h-20 ${className}`}
+      className={`w-6 h-6 md:w-6 md:h-6 xl:w-6 xl:h-6 ${className}`}
       aria-label={alt}
     />
   );
