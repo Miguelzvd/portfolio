@@ -8,7 +8,7 @@ export const StackCardsGroup = () => {
       <div className="flex flex-col gap-y-2">
         <h3 className="text-2xl text-center">Front - end:</h3>
 
-        <div className="flex flex-row gap-x-4 flex-wrap">
+        <div className="flex flex-row gap-4 flex-wrap justify-center">
           {frontStack.map((item, index) => (
             <StackBadge key={index} item={item} />
           ))}
@@ -18,7 +18,7 @@ export const StackCardsGroup = () => {
       <div className="flex flex-col gap-y-2">
         <h3 className="text-2xl text-center">Back - end:</h3>
 
-        <div className="flex flex-row gap-x-4 flex-wrap ">
+        <div className="flex flex-row gap-4 flex-wrap items-center justify-center">
           {backStack.map((item, index) => (
             <StackBadge key={index} item={item} />
           ))}
@@ -28,7 +28,7 @@ export const StackCardsGroup = () => {
       <div className="flex flex-col gap-y-2">
         <h3 className="text-2xl text-center">Tools:</h3>
 
-        <div className="flex flex-row gap-x-4 flex-wrap">
+        <div className="flex flex-row gap-4 flex-wrap justify-center">
           {toolsStack.map((item, index) => (
             <StackBadge key={index} item={item} />
           ))}
