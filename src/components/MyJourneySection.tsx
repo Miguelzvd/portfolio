@@ -5,22 +5,88 @@ import Timeline from "./Timeline";
 import Section from "./Section";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
+type TimelineEvent =
+  | {
+      year: string;
+      description: string;
+      context: string;
+      event_status?: undefined;
+    }
+  | {
+      year: string;
+      event_status: string;
+      description: string;
+      context: string;
+    };
 
 export const MyJourneySection = () => {
   const isDesktop = useIsDesktop();
   const t = useTranslations("Timeline");
   const timelineEvents = getTimelineEvents(t);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, [mounted]);
+  const LeftContent = ({
+    event,
+    index,
+  }: {
+    event: TimelineEvent;
+    index: number;
+  }) => (
+    <>
+      <Timeline.EventDot index={index} />
+      <Timeline.EventLine index={index}>
+        <Timeline.EventYear className="absolute bottom-2">
+          {event.year}
+
+          {event.event_status && (
+            <>
+              <br />
+              <span className="text-sm text-gray-500">
+                {event.event_status}
+              </span>
+            </>
+          )}
+        </Timeline.EventYear>
+      </Timeline.EventLine>
+
+      <Timeline.EventDescription className="text-left">
+        {event.description}
+      </Timeline.EventDescription>
+    </>
+  );
+
+  const RightContent = ({
+    event,
+    index,
+  }: {
+    event: TimelineEvent;
+    index: number;
+  }) => (
+    <>
+      <Timeline.EventDescription className="text-right">
+        {event.description}
+      </Timeline.EventDescription>
+      <Timeline.EventLine index={index}>
+        <Timeline.EventYear className="absolute bottom-2">
+          {event.year}
+
+          {event.event_status && (
+            <>
+              <br />
+              <span className="text-sm text-gray-500">
+                {event.event_status}
+              </span>
+            </>
+          )}
+        </Timeline.EventYear>
+      </Timeline.EventLine>
+      <Timeline.EventDot index={index} />
+    </>
+  );
 
   const DesktopTimeline = () => {
-    // Calcular duração total da animação baseado no número de eventos
-    const totalDuration = 0.5 + timelineEvents.length * 0.4;
+    const totalDuration = 1 + timelineEvents.length * 0.4;
 
     return (
       <Timeline.Root>
@@ -39,48 +105,9 @@ export const MyJourneySection = () => {
             >
               <Timeline.EventContent>
                 {isLeft ? (
-                  <>
-                    <Timeline.EventDot index={index} />
-                    <Timeline.EventLine index={index}>
-                      <Timeline.EventYear className="absolute bottom-2">
-                        {event.year}
-
-                        {event.event_status && (
-                          <>
-                            <br />
-                            <span className="text-sm text-gray-500">
-                              {event.event_status}
-                            </span>
-                          </>
-                        )}
-                      </Timeline.EventYear>
-                    </Timeline.EventLine>
-
-                    <Timeline.EventDescription className="text-left">
-                      {event.description}
-                    </Timeline.EventDescription>
-                  </>
+                  <LeftContent event={event} index={index} />
                 ) : (
-                  <>
-                    <Timeline.EventDescription className="text-right">
-                      {event.description}
-                    </Timeline.EventDescription>
-                    <Timeline.EventLine index={index}>
-                      <Timeline.EventYear className="absolute bottom-2">
-                        {event.year}
-
-                        {event.event_status && (
-                          <>
-                            <br />
-                            <span className="text-sm text-gray-500">
-                              {event.event_status}
-                            </span>
-                          </>
-                        )}
-                      </Timeline.EventYear>
-                    </Timeline.EventLine>
-                    <Timeline.EventDot index={index} />
-                  </>
+                  <RightContent event={event} index={index} />
                 )}
               </Timeline.EventContent>
             </Timeline.Event>
@@ -169,37 +196,6 @@ export const MyJourneySection = () => {
       </div>
     );
   };
-
-  const TimelineSkeleton = () => (
-    <div className="space-y-8">
-      {[...Array(4)].map((_, index) => (
-        <div key={index} className="flex items-start space-x-4">
-          <div className="flex-shrink-0 w-4 h-4 bg-gray-500 rounded-full animate-pulse mt-1" />
-
-          <div className="flex-1 space-y-2">
-            <div className="h-4 bg-gray-500 rounded animate-pulse w-24" />
-
-            <div className="h-5 bg-gray-500 rounded animate-pulse w-3/4" />
-
-            <div className="space-y-1">
-              <div className="h-4 bg-gray-400 rounded animate-pulse w-full" />
-              <div className="h-4 bg-gray-400 rounded animate-pulse w-2/3" />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-
-  if (!mounted) {
-    return (
-      <Section.Content className="w-[70%]">
-        <div className="min-h-[400px] py-8 w-full">
-          <TimelineSkeleton />
-        </div>
-      </Section.Content>
-    );
-  }
 
   return (
     <Section.Content>
