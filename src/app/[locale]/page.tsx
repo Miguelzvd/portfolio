@@ -1,19 +1,9 @@
-import Image from "next/image";
-import { ArrowDown, Github, Linkedin } from "lucide-react";
-import HighlightedText from "@/components/HighlightedText";
-import { IsCodingStatus } from "@/components/IsCodingStatus";
-import Title from "@/components/Title";
-import Section from "@/components/Section";
 import { Header } from "@/components/Header";
-import { MyJourneySection } from "@/components/MyJourneySection";
-import { ProjectCardsGrid } from "@/components/ProjectCardsGrid";
-import { FaDiscord } from "react-icons/fa";
-import { StackCardsGroup } from "@/components/StackCardsGroup";
 import { BackToTopButton } from "@/components/BackToTopButton";
 import { Footer } from "@/components/Footer";
 import { getTranslations, getLocale } from "next-intl/server";
-import { ContactForm } from "@/components/ContactForm";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { MainSection } from "@/components/MainSection";
 
 export default async function Home() {
   const locale = await getLocale();
@@ -31,6 +21,50 @@ export default async function Home() {
       ? "Edilson_Miguel_De_Azevedo_Filho_PT.pdf"
       : "Edilson_Miguel_De_Azevedo_Filho_EN.pdf";
 
+  // Converter traduções em objetos simples
+  const translations = {
+    greeting: t("greeting"),
+    title: t("title"),
+    subtitle: t("subtitle"),
+    passionateAbout: t("passionateAbout"),
+    frontendProjects: t("frontendProjects"),
+    focusedOn: t("focusedOn"),
+    usability: t("usability"),
+    and: t("and"),
+    accessibility: t("accessibility"),
+    for: t("for"),
+    publicService: t("publicService"),
+    workAims: t("workAims"),
+    to: t("to"),
+    simplifyProcesses: t("simplifyProcesses"),
+    improveAccess: t("improveAccess"),
+    access: t("access"),
+    through: t("through"),
+    intuitiveInterfaces: t("intuitiveInterfaces"),
+    iValue: t("iValue"),
+    cleanDesign: t("cleanDesign"),
+    realWorldImpact: t("realWorldImpact"),
+    purposefulTechnology: t("purposefulTechnology"),
+    downloadCV: t("downloadCV"),
+  };
+
+  const stackTranslations = {
+    title: tStack("title"),
+  };
+
+  const journeyTranslations = {
+    title: tJourney("title"),
+  };
+
+  const projectsTranslations = {
+    title: tProjects("title"),
+  };
+
+  const contactTranslations = {
+    title: tContact("title"),
+    subtitle: tContact("subtitle"),
+  };
+
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
       <AnimatedBackground />
@@ -38,160 +72,15 @@ export default async function Home() {
 
       <Header />
 
-      <main className="flex flex-col gap-16 row-start-2 items-center sm:items-start w-full">
-        <Section.Root
-          className="xl:flex-row flex-wrap min-h-[80vh]"
-          about="about-me"
-          id="about-me"
-        >
-          <Section.Content
-            className="flex-2 flex flex-col gap-2 w-full lg:min-w-[32rem] text-lg animate-fade-in "
-            style={{ animationDelay: "0.2s" }}
-          >
-            <Title.Root className="relative">
-              <Title.Content>
-                <span className="text-lg font-normal">{t("greeting")}</span>
-                <br />
-                <Title.Main className="text-5xl md:text-6xl font-bold">
-                  Miguel <span className="whitespace-nowrap">Azevedo👋</span>
-                </Title.Main>
-              </Title.Content>
-              <Title.UnderlineRow color="primary" />
-            </Title.Root>
-
-            <p>
-              {t("subtitle")} <HighlightedText>{t("title")}</HighlightedText>{" "}
-              {t("passionateAbout")}{" "}
-              <HighlightedText>{t("frontendProjects")}</HighlightedText>{" "}
-              {t("focusedOn")}
-              <HighlightedText> {t("usability")}</HighlightedText> {t("and")}{" "}
-              <HighlightedText> {t("accessibility")}</HighlightedText>{" "}
-              {t("for")} <HighlightedText>{t("publicService")}</HighlightedText>
-              . {t("workAims")} {t("to")}{" "}
-              <HighlightedText>{t("simplifyProcesses")}</HighlightedText>{" "}
-              {t("and")} {t("improveAccess")}{" "}
-              <HighlightedText>{t("access")}</HighlightedText> {t("through")}{" "}
-              <HighlightedText>{t("intuitiveInterfaces")}</HighlightedText>.{" "}
-              {t("iValue")}{" "}
-              <HighlightedText>{t("cleanDesign")}</HighlightedText>,{" "}
-              <HighlightedText>{t("realWorldImpact")}</HighlightedText>,{" "}
-              {t("and")}{" "}
-              <HighlightedText>{t("purposefulTechnology")}</HighlightedText>.
-            </p>
-
-            <a
-              href={`/files/${cvFile}`}
-              download={cvDownloadName}
-              aria-label="Download CV"
-              className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 hover:scale-105 transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <span>{t("downloadCV")}</span>
-              <ArrowDown aria-hidden="true" />
-            </a>
-          </Section.Content>
-
-          <Section.Content className="flex-2 w-full max-w-[32rem] lg:min-w-[32rem]">
-            <div
-              className="flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary animate-fade-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <Image
-                className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
-                src="/images/profile.jpg"
-                alt="Profile picture of Miguel Azevedo"
-                width={400}
-                height={400}
-                priority
-              />
-            </div>
-            <IsCodingStatus />
-          </Section.Content>
-        </Section.Root>
-
-        <Section.Root about="my-stack" id="my-stack" className="min-h-[60vh]">
-          <Title.Root>
-            <Title.Content>
-              <Title.Sub>{tStack("title")}</Title.Sub>
-            </Title.Content>
-            <Title.UnderlineRow color="primary" />
-          </Title.Root>
-          <StackCardsGroup />
-        </Section.Root>
-
-        <Section.Root about="my-journey" id="my-journey">
-          <Title.Root>
-            <Title.Content>
-              <Title.Sub>{tJourney("title")}</Title.Sub>
-            </Title.Content>
-            <Title.UnderlineRow color="secondary" />
-          </Title.Root>
-          <MyJourneySection />
-        </Section.Root>
-
-        <Section.Root about="my-projects" id="my-projects">
-          <Title.Root>
-            <Title.Content>
-              <Title.Sub>{tProjects("title")}</Title.Sub>
-            </Title.Content>
-            <Title.UnderlineRow color="primary" />
-          </Title.Root>
-          <ProjectCardsGrid />
-        </Section.Root>
-
-        <Section.Root
-          className="min-h-[50vh] lg:min-h-[50vh]"
-          about="contact"
-          id="contact"
-        >
-          <Title.Root>
-            <Title.Content>
-              <Title.Sub>{tContact("title")}</Title.Sub>
-            </Title.Content>
-            <Title.UnderlineRow color="secondary" />
-            <span className="font-normal text-lg mt-2">
-              {tContact("subtitle")}
-            </span>
-          </Title.Root>
-
-          <Section.Content className="gap-4">
-            <div
-              className="flex flex-row justify-center gap-2 animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <a
-                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
-                href="https://github.com/Miguelzvd"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-              >
-                <Github color="black" />
-              </a>
-
-              <a
-                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
-                href="#"
-                rel="noopener noreferrer"
-                aria-label="Discord Profile"
-              >
-                <FaDiscord color="black" size={30} />
-              </a>
-
-              <a
-                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
-                href="https://www.linkedin.com/in/miguel-azevedo-dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Linkedin Profile"
-              >
-                <Linkedin color="black" />
-              </a>
-            </div>
-            <ContactForm />
-          </Section.Content>
-        </Section.Root>
-      </main>
+      <MainSection
+        cvFile={cvFile}
+        cvDownloadName={cvDownloadName}
+        translations={translations}
+        stackTranslations={stackTranslations}
+        journeyTranslations={journeyTranslations}
+        projectsTranslations={projectsTranslations}
+        contactTranslations={contactTranslations}
+      />
 
       <Footer />
     </div>
