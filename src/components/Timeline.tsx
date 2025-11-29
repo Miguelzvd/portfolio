@@ -52,7 +52,6 @@ const TimelineEvent = ({
   index?: number;
 } & HTMLAttributes<HTMLDivElement>) => {
   const isLeft = position === "left";
-  // Cada evento aparece em cascata: 0.5s de delay base + 0.4s por índice
   const cascadeDelay = 0.5 + index * 0.4;
 
   return (
@@ -144,7 +143,6 @@ const TimelineEventDot = ({
   className?: string;
   index?: number;
 } & HTMLAttributes<HTMLDivElement>) => {
-  // Bolinha aparece um pouco antes do evento: delay do evento - 0.2s
   const dotDelay = 0.5 + index * 0.4 - 0.2;
 
   return (
@@ -175,7 +173,6 @@ const TimelineEventLine = ({
   children?: React.ReactNode;
   index?: number;
 } & HTMLAttributes<HTMLDivElement>) => {
-  // Linha horizontal aparece junto com a bolinha
   const lineDelay = 0.5 + index * 0.4 - 0.1;
 
   return (

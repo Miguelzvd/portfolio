@@ -2,7 +2,7 @@
 
 import { Github, Linkedin } from "lucide-react";
 import { MyJourneySection } from "@/components/MyJourneySection";
-import { ProjectCardsGrid } from "@/components/ProjectCardsGrid";
+import { ProjectCardsSection } from "@/components/ProjectCardsSection";
 import { FaDiscord } from "react-icons/fa";
 import { StackCardsGroup } from "@/components/StackCardsGroup";
 import { ContactForm } from "@/components/ContactForm";
@@ -60,7 +60,7 @@ export function AnimatedSections({
           </Title.Content>
           <Title.UnderlineRow color="primary" />
         </Title.Root>
-        <ProjectCardsGrid />
+        <ProjectCardsSection />
       </Section.Root>
 
       <Section.Root

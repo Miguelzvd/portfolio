@@ -86,7 +86,7 @@ export const MyJourneySection = () => {
   );
 
   const DesktopTimeline = () => {
-    const totalDuration = 1 + timelineEvents.length * 0.4;
+    const totalDuration = 0.4 + timelineEvents.length * 0.4;
 
     return (
       <Timeline.Root>

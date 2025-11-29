@@ -7,7 +7,7 @@ import Section from "./Section";
 import { getProjects } from "@/constants/projects";
 import { useTranslations } from "next-intl";
 
-export const ProjectCardsGrid = () => {
+export const ProjectCardsSection = () => {
   const t = useTranslations("Projects");
   const projects = getProjects(t);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
