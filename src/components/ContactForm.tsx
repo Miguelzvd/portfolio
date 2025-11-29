@@ -155,7 +155,7 @@ export const ContactForm: React.FC = () => {
 
                 {/* Calendar Card */}
                 <a
-                  href="https://cal.com"
+                  href="https://cal.com/miguel-azevedo/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-4 rounded-lg border border-gray-800 bg-gray-yellow/50 hover:bg-yellow-900/20 hover:border-yellow-500/50 transition-all group"
