@@ -7,11 +7,16 @@ import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { Send, Mail, Calendar } from "lucide-react";
 import { toast } from "sonner";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+  DrawerTitle,
+  DrawerDescription,
+} from "@/components/ui/drawer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { DialogTitle } from "@radix-ui/react-dialog";
 
 const createContactSchema = (t: (key: string) => string) =>
   z.object({
@@ -105,25 +110,28 @@ export const ContactForm: React.FC = () => {
         </button>
       </DrawerTrigger>
 
-      <DrawerContent className="bg-black/30 backdrop-blur-sm border-gray-800 my-6 sm:max-w-[40rem] sm:max-h-[[20rem] sm:min-h-[20rem] px-4 mx-auto">
+      <DrawerContent className="bg-black/30 backdrop-blur-sm border-gray-700 pb-6  sm:max-w-[40rem] sm:max-h-[[20rem] sm:min-h-[20rem] px-4 mx-auto">
+        <DrawerTitle className="mt-6">Contact Options</DrawerTitle>
+        <DrawerDescription>
+          Choose how you would like to get in touch - quick connect or fill out
+          a form
+        </DrawerDescription>
         <div className="mx-auto w-full max-w-xl">
           <Tabs defaultValue="quick" className="w-full p-4">
-            <DialogTitle>
-              <TabsList className="w-full grid grid-cols-2 my-6 gap-2 bg-dark">
-                <TabsTrigger
-                  value="quick"
-                  className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
-                >
-                  Quick connect
-                </TabsTrigger>
-                <TabsTrigger
-                  value="form"
-                  className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
-                >
-                  Fill a form
-                </TabsTrigger>
-              </TabsList>
-            </DialogTitle>
+            <TabsList className="w-full grid grid-cols-2 my-6 gap-2 bg-dark">
+              <TabsTrigger
+                value="quick"
+                className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
+              >
+                Quick connect
+              </TabsTrigger>
+              <TabsTrigger
+                value="form"
+                className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
+              >
+                Fill a form
+              </TabsTrigger>
+            </TabsList>
 
             <TabsContent value="quick">
               <div className="space-y-4">

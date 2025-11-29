@@ -4,6 +4,7 @@ import { Languages, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
+import { motion } from "framer-motion";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,7 +93,7 @@ export const Header = () => {
       >
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
           <h2 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Navigation
+            Miguelzvd.dev
           </h2>
           <button
             onClick={() => setIsOpen(false)}
@@ -106,22 +107,31 @@ export const Header = () => {
         <ul className="space-y-2">
           {menuItems.map((item, index) => (
             <li key={item.href}>
-              <a
+              <motion.a
                 href={item.href}
                 onClick={handleLinkClick}
-                className={`block py-4 px-4 rounded-lg hover:bg-white/10 hover:text-primary 
-                           transition-all duration-300 transform border border-transparent hover:border-primary/30
-                           ${
-                             isOpen
-                               ? "translate-x-0 opacity-100"
-                               : "translate-x-4 opacity-0"
-                           }`}
-                style={{
-                  transitionDelay: isOpen ? `${index * 100 + 100}ms` : "0ms",
+                custom={index}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{
+                  opacity: isOpen ? 1 : 0,
+                  x: isOpen ? 0 : 20,
+                  transition: {
+                    delay: isOpen ? index * 0.08 : 0,
+                    duration: 0.25,
+                    ease: "easeOut",
+                  },
                 }}
+                whileHover={{
+                  background:
+                    "linear-gradient(90deg, rgba(37, 99, 235, 0.12), rgba(96, 165, 250, 0.10))",
+                  borderColor: "rgba(59, 130, 246, 0.35)", // azul primário
+                  color: "rgba(219,234,254,1)", // azul clarinho suave
+                  transition: { duration: 0.18, ease: "easeOut" },
+                }}
+                className="block py-4 px-4 rounded-lg border border-transparent cursor-pointer"
               >
                 <span className="text-lg font-medium">{item.label}</span>
-              </a>
+              </motion.a>
             </li>
           ))}
         </ul>
