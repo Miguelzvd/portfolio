@@ -17,6 +17,7 @@ import {
   SiDigitalocean,
   SiDrizzle,
   SiExpress,
+  SiVite,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -35,6 +36,14 @@ export const frontStack: StackItem[] = [
     description: "Next",
     shadow: "bg-white/90",
     color: "text-white",
+  },
+  {
+    icon: SiVite,
+    alt: "Vite logo",
+    description: "Vite",
+    shadow:
+      "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
+    color: "text-[#FFC62E]",
   },
   {
     icon: SiReact,

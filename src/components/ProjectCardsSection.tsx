@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Section from "./ui/Section";
 import { getProjects } from "@/constants/projects";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { StackBadge } from "./ui/StackBadge";
 
 export const ProjectCardsSection = () => {
@@ -135,7 +135,6 @@ export const ProjectCardsSection = () => {
                   </motion.div>
                 </motion.div>
 
-                {/* CTA Button */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -147,23 +146,10 @@ export const ProjectCardsSection = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 hover:bg-gray-700/50 text-white font-medium transition-all duration-300 group/btn"
                   >
                     <span>{t("viewProject")}</span>
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </motion.a>
-
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center p-3 rounded-sm bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 hover:bg-gray-700/50 text-gray-300 transition-all duration-300"
-                  >
-                    <ExternalLink className="w-5 h-5" />
                   </motion.a>
                 </motion.div>
               </div>

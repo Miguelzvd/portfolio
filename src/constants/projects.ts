@@ -4,6 +4,7 @@ import {
   SiDjango,
   SiTailwindcss,
   SiDocker,
+  SiVite,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -32,6 +33,15 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     title: "Jovem Potiguar",
     image: "/images/projects/jovem_potiguar.png",
     stacks: [
+      {
+        icon: SiVite,
+        alt: "Vite logo",
+        name: "Vite",
+        description: "Vite",
+        shadow:
+          "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
+        color: "text-[#FFC62E]",
+      },
       {
         icon: SiReact,
         alt: "ReactJS",
@@ -101,6 +111,15 @@ export const projects: Project[] = [
     title: "Jovem Potiguar",
     image: "/images/projects/jovem_potiguar.png",
     stacks: [
+      {
+        icon: SiVite,
+        alt: "Vite logo",
+        name: "Vite",
+        description: "Vite",
+        shadow:
+          "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
+        color: "text-[#FFC62E]",
+      },
       {
         icon: SiReact,
         alt: "ReactJS",
