@@ -10,33 +10,6 @@ import Section from "@/components/Section";
 import Title from "@/components/Title";
 
 interface MainSectionProps {
-  cvFile: string;
-  cvDownloadName: string;
-  translations: {
-    greeting: string;
-    title: string;
-    subtitle: string;
-    passionateAbout: string;
-    frontendProjects: string;
-    focusedOn: string;
-    usability: string;
-    and: string;
-    accessibility: string;
-    for: string;
-    publicService: string;
-    workAims: string;
-    to: string;
-    simplifyProcesses: string;
-    improveAccess: string;
-    access: string;
-    through: string;
-    intuitiveInterfaces: string;
-    iValue: string;
-    cleanDesign: string;
-    realWorldImpact: string;
-    purposefulTechnology: string;
-    downloadCV: string;
-  };
   stackTranslations: {
     title: string;
   };
