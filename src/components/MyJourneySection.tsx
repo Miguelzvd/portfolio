@@ -98,6 +98,7 @@ export const MyJourneySection = () => {
 
           return (
             <Timeline.Event
+              className="mt-5"
               key={index}
               position={isLeft ? "left" : "right"}
               top={`${topSpacing}`}
