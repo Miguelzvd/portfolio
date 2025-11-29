@@ -67,7 +67,7 @@ export function AnimatedSections({
       </Section.Root>
 
       <Section.Root
-        className="min-h-[50vh] lg:min-h-[50vh]"
+        className="min-h-[50vh] lg:min-h-[50vh] mt-30"
         about="contact"
         id="contact"
       >
