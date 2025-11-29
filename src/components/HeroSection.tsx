@@ -103,17 +103,23 @@ export default async function HeroSection() {
 
       <Section.Content className="flex-2 w-full max-w-[32rem] lg:min-w-[32rem]">
         <div
-          className="flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary animate-fade-in"
+          className="relative flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary animate-fade-in"
           style={{ animationDelay: "0.3s" }}
         >
           <Image
-            className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
+            className="w-full h-[42rem] object-contain "
             src="/images/profile.jpg"
             alt="Profile picture of Miguel Azevedo"
             width={400}
             height={400}
             priority
           />
+
+          {/* Sombra esquerda */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black/100 via-black/90 to-transparent" />
+
+          {/* Sombra direita */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black/80 via-black/60 to-transparent" />
         </div>
         <IsCodingStatus />
       </Section.Content>
