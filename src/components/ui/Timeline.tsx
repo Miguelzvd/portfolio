@@ -25,16 +25,141 @@ const TimelineLine = ({
   totalDuration?: number;
 } & HTMLAttributes<HTMLDivElement>) => {
   return (
-    <motion.div
-      initial={{ height: 0 }}
-      whileInView={{ height: "30rem" }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{
-        duration: totalDuration,
-        ease: "linear",
-      }}
-      className={`w-1 bg-gradient-to-b from-primary via-primary to-transparent ${className}`}
-    />
+    <div className="relative">
+      <motion.div
+        initial={{ height: 0 }}
+        whileInView={{ height: "30rem" }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{
+          duration: totalDuration,
+          ease: "linear",
+        }}
+        className={`w-1 bg-gradient-to-t from-primary via-primary to-transparent rounded-lg ${className}`}
+      />
+
+      {/* Spark effect that follows the line growth */}
+      <motion.div
+        initial={{ top: 0, opacity: 0 }}
+        whileInView={{
+          top: "30rem",
+          opacity: [0, 1, 1, 0],
+        }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{
+          duration: totalDuration,
+          ease: "linear",
+          opacity: {
+            times: [0, 0.05, 0.95, 1],
+            duration: totalDuration,
+          },
+        }}
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+      >
+        {/* Main electric spark beams */}
+        <div className="relative w-0 h-0">
+          {/* Vertical beam */}
+          <motion.div
+            animate={{
+              scaleY: [1, 1.3, 1],
+              opacity: [0.8, 1, 0.8],
+            }}
+            transition={{
+              duration: 0.3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute w-0.5 h-8 -translate-x-1/2 -translate-y-full bg-gradient-to-t from-primary via-white to-transparent"
+            style={{ filter: "blur(1px)" }}
+          />
+
+          {/* Horizontal beam */}
+          <motion.div
+            animate={{
+              scaleX: [1, 1.3, 1],
+              opacity: [0.8, 1, 0.8],
+            }}
+            transition={{
+              duration: 0.3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.15,
+            }}
+            className="absolute h-0.5 w-8 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-white to-transparent"
+            style={{ filter: "blur(1px)" }}
+          />
+
+          {/* Diagonal beams */}
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [45, 45, 45],
+              opacity: [0.6, 1, 0.6],
+            }}
+            transition={{
+              duration: 0.4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute w-0.5 h-6 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-transparent via-primary to-transparent rotate-45"
+            style={{ filter: "blur(0.5px)" }}
+          />
+
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [-45, -45, -45],
+              opacity: [0.6, 1, 0.6],
+            }}
+            transition={{
+              duration: 0.4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.2,
+            }}
+            className="absolute w-0.5 h-6 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-transparent via-primary to-transparent -rotate-45"
+            style={{ filter: "blur(0.5px)" }}
+          />
+        </div>
+
+        {/* Bright center point */}
+        <div className="absolute w-1 h-1 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-[0_0_8px_2px_rgba(255,255,0,0.8)]
+" />
+
+        {/* Glow effect */}
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.4, 0.7, 0.4],
+          }}
+          transition={{
+            duration: 0.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute w-6 h-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/40 blur-md"
+        />
+
+        {/* Small energy particles */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              scale: [0, 1, 0],
+              opacity: [0, 1, 0],
+              x: Math.cos((i * Math.PI) / 3) * (8 + Math.random() * 4),
+              y: Math.sin((i * Math.PI) / 3) * (8 + Math.random() * 4),
+            }}
+            transition={{
+              duration: 0.5 + Math.random() * 0.3,
+              repeat: Infinity,
+              delay: i * 0.1,
+              ease: "easeOut",
+            }}
+            className="absolute w-0.5 h-0.5 rounded-full bg-white -translate-x-1/2 -translate-y-1/2"
+          />
+        ))}
+      </motion.div>
+    </div>
   );
 };
 
