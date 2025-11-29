@@ -8,12 +8,18 @@ interface StackBadgeProps {
   item: StackItem;
 }
 
+export const variantStyle = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1 },
+};
+
 export const StackBadge = ({ item }: StackBadgeProps) => {
   const { icon: Icon, description, color } = item;
   const IconComponent = Icon;
 
   return (
     <motion.div
+      variants={variantStyle}
       whileHover={{
         scale: 1.1,
         transition: { type: "spring", stiffness: 400, damping: 10 },

@@ -15,11 +15,6 @@ const container = {
   },
 };
 
-const item = {
-  hidden: { opacity: 0, scale: 0.8 },
-  show: { opacity: 1, scale: 1 },
-};
-
 export const StackCardsGroup = () => {
   return (
     <Section.Content className="max-h-fit flex flex-col gap-y-10 w-full items-center">
@@ -41,7 +36,7 @@ export const StackCardsGroup = () => {
           className="flex flex-row gap-4 flex-wrap justify-center"
         >
           {frontStack.map((stackItem, index) => (
-            <motion.div key={index} variants={item}>
+            <motion.div key={index}>
               <StackBadge item={stackItem} />
             </motion.div>
           ))}
@@ -66,7 +61,7 @@ export const StackCardsGroup = () => {
           className="flex flex-row gap-4 flex-wrap items-center justify-center"
         >
           {backStack.map((stackItem, index) => (
-            <motion.div key={index} variants={item}>
+            <motion.div key={index}>
               <StackBadge item={stackItem} />
             </motion.div>
           ))}
@@ -91,7 +86,7 @@ export const StackCardsGroup = () => {
           className="flex flex-row gap-4 flex-wrap justify-center"
         >
           {toolsStack.map((stackItem, index) => (
-            <motion.div key={index} variants={item}>
+            <motion.div key={index}>
               <StackBadge item={stackItem} />
             </motion.div>
           ))}
