@@ -1,7 +1,8 @@
 {
   "Header": {
-    "journey": "Jornada",
+    "about": "Sobre",
     "stack": "Stack",
+    "journey": "Jornada",
     "projects": "Projetos",
     "contact": "Contato"
   },
@@ -32,15 +33,15 @@
     "scrollDown": "Role para baixo para explorar"
   },
   "Journey": {
-    "title": "Minha Jornada",
+    "title": "Jornada",
     "subtitle": "Uma linha do tempo do meu crescimento profissional e marcos importantes na minha carreira de desenvolvimento."
   },
   "Stack": {
-    "title": "Minha Stack",
+    "title": "Stack",
     "subtitle": "Tecnologias e ferramentas que uso para construir aplicações modernas e escaláveis."
   },
   "Projects": {
-    "title": "Meus Projetos",
+    "title": "Projetos",
     "subtitle": "Uma vitrine do meu trabalho recente e contribuições para soluções digitais significativas.",
     "jovemPotiguarDescription": "O Jovem Potiguar é uma iniciativa do Ministério do Trabalho e Emprego, do Governo do Estado do Rio Grande do Norte e do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte para oferecer cursos de educação inicial e continuada para jovens entre 16 e 35 anos, focando no desenvolvimento da cidadania e na promoção de projetos de vida criativos.",
     "cineVaultDescription": "cine-vault é uma aplicação web projetada para entusiastas de filmes e séries, fornecendo uma maneira fácil e organizada de salvar, acompanhar e gerenciar seu conteúdo favorito. Se você é alguém que sempre esquece de assistir um filme ou série, ou quer acompanhar quais episódios assistiu.",
@@ -66,8 +67,9 @@
     "messagePlaceholder": "Escreva sua mensagem aqui...",
     "sendButton": "Enviar Mensagem",
     "sendingButton": "Enviando...",
-    "successMessage": "✅ Mensagem enviada com sucesso!",
-    "errorMessage": "❌ Erro ao enviar mensagem. Tente novamente.",
+    "successMessage": "Mensagem enviada com sucesso!",
+    "errorMessage": "Falha ao enviar mensagem",
+    "errorDescription": "Tente novamente ou entre em contato diretamente.",
     "nameMinError": "Nome deve ter pelo menos 2 caracteres",
     "nameMaxError": "Nome deve ter no máximo 100 caracteres",
     "nameRegexError": "Nome deve conter apenas letras e espaços",
@@ -99,8 +101,8 @@
     "jovemPotiguarPlatform": "Plataforma Jovem Potiguar",
     "frontendDeveloper": "Desenvolvedor Frontend na FUNCITERN",
     "funciterninternalSystems": "Sistemas Internos FUNCITERN",
-    "suasSystem": "Sistema SUAS",
-    "prpSystem": "Sistema PRP",
+    "suasSystem": "Sistema SUAS (Projeto)",
+    "prpSystem": "Sistema PRP (Projeto)",
     "present": "presente",
     "inProgress": "em andamento"
   }

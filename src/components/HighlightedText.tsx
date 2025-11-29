@@ -9,7 +9,7 @@ const HighlightedText = ({
   variant = "primary",
   className = "",
 }: HighlightedTextProps) => {
-  const baseClasses = "font-semibold px-1 rounded";
+  const baseClasses = "font-semibold rounded";
 
   const variantClasses = {
     primary: "text-primary",

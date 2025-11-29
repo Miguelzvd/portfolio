@@ -1,7 +1,8 @@
 {
   "Header": {
-    "journey": "Journey",
+    "about": "About",
     "stack": "Stack",
+    "journey": "Journey",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -32,15 +33,15 @@
     "scrollDown": "Scroll down to explore"
   },
   "Journey": {
-    "title": "My Journey",
+    "title": "Journey",
     "subtitle": "A timeline of my professional growth and key milestones in my development career."
   },
   "Stack": {
-    "title": "My Stack",
+    "title": "Stack",
     "subtitle": "Technologies and tools I use to build modern, scalable applications."
   },
   "Projects": {
-    "title": "My Projects",
+    "title": "Projects",
     "subtitle": "A showcase of my recent work and contributions to meaningful digital solutions.",
     "jovemPotiguarDescription": "Jovem Potiguar is an initiative of the Ministry of Labor and Employment, the Government of the State of Rio Grande do Norte and the Federal Institute of Education, Science and Technology of Rio Grande do Norte to offer initial and continuing education courses for young people between 16 and 35 years old, focusing on citizenship development and the promotion of creative life projects.",
     "cineVaultDescription": "cine-vault is a web application designed for movie and series enthusiasts, providing an easy and organized way to save, track, and manage your favorite content. If you're someone who always forgets to watch a movie or series, or you want to track which episodes you've watched.",
@@ -66,8 +67,9 @@
     "messagePlaceholder": "Write your message here...",
     "sendButton": "Send Message",
     "sendingButton": "Sending...",
-    "successMessage": "✅ Message sent successfully!",
-    "errorMessage": "❌ Error sending message. Please try again.",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Failed to send message",
+    "errorDescription": "Please try again or contact me directly.",
     "nameMinError": "Name must be at least 2 characters",
     "nameMaxError": "Name must be at most 100 characters",
     "nameRegexError": "Name must contain only letters and spaces",
@@ -99,8 +101,8 @@
     "jovemPotiguarPlatform": "Jovem Potiguar Platform",
     "frontendDeveloper": "Frontend Developer at FUNCITERN",
     "funciterninternalSystems": "FUNCITERN Internal Systems",
-    "suasSystem": "SUAS System",
-    "prpSystem": "PRP System",
+    "suasSystem": "SUAS System (Project)",
+    "prpSystem": "PRP System (Project)",
     "present": "present",
     "inProgress": "in progress"
   }

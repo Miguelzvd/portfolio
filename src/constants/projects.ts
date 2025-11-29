@@ -4,6 +4,7 @@ import {
   SiDjango,
   SiTailwindcss,
   SiDocker,
+  SiVite,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -21,7 +22,9 @@ export interface Stack {
   icon: IconType;
   alt: string;
   name: string;
+  description: string;
   color: string;
+  shadow: string;
 }
 
 export const getProjects = (t: (key: string) => string): Project[] => [
@@ -31,28 +34,45 @@ export const getProjects = (t: (key: string) => string): Project[] => [
     image: "/images/projects/jovem_potiguar.png",
     stacks: [
       {
+        icon: SiVite,
+        alt: "Vite logo",
+        name: "Vite",
+        description: "Vite",
+        shadow:
+          "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
+        color: "text-[#FFC62E]",
+      },
+      {
         icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
-        color: "text-black",
+        description: "ReactJS",
+        color: "text-[#61DAFB]",
+        shadow: "bg-cyan-600",
       },
       {
         icon: SiChakraui,
         alt: "Chakra UI",
         name: "Chakra UI",
-        color: "text-black",
+        description: "Chakra UI",
+        color: "text-[#4FD1C7]",
+        shadow: "bg-teal-600",
       },
       {
         icon: SiDjango,
         alt: "Django",
         name: "Django",
-        color: "text-black",
+        description: "Django",
+        color: "text-[#008E5D]",
+        shadow: "bg-green-800",
       },
       {
         icon: SiDocker,
         alt: "Docker",
         name: "Docker",
-        color: "text-black",
+        description: "Docker",
+        color: "text-[#2496ED]",
+        shadow: "bg-[#2496ED]",
       },
     ],
     link: "https://jovempotiguar.sine.rn.gov.br/",
@@ -67,13 +87,17 @@ export const getProjects = (t: (key: string) => string): Project[] => [
         icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
-        color: "text-black",
+        description: "ReactJS",
+        color: "text-[#61DAFB]",
+        shadow: "bg-cyan-600",
       },
       {
         icon: SiTailwindcss,
         alt: "Tailwind CSS",
         name: "Tailwind CSS",
-        color: "text-black",
+        description: "Tailwind CSS",
+        color: "text-[#2298BD]",
+        shadow: "bg-cyan-700",
       },
     ],
     link: "https://cine-vault-prod.vercel.app/",
@@ -88,22 +112,37 @@ export const projects: Project[] = [
     image: "/images/projects/jovem_potiguar.png",
     stacks: [
       {
+        icon: SiVite,
+        alt: "Vite logo",
+        name: "Vite",
+        description: "Vite",
+        shadow:
+          "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
+        color: "text-[#FFC62E]",
+      },
+      {
         icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
-        color: "text-black",
+        description: "ReactJS",
+        color: "text-[#61DAFB]",
+        shadow: "bg-cyan-600",
       },
       {
         icon: SiChakraui,
         alt: "Chakra UI",
         name: "Chakra UI",
-        color: "text-black",
+        description: "Chakra UI",
+        color: "text-[#4FD1C7]",
+        shadow: "bg-teal-600",
       },
       {
         icon: SiDjango,
         alt: "Django",
         name: "Django",
-        color: "text-black",
+        description: "Django",
+        color: "text-[#008E5D]",
+        shadow: "bg-green-800",
       },
     ],
     link: "https://jovempotiguar.sine.rn.gov.br/",
@@ -119,13 +158,17 @@ export const projects: Project[] = [
         icon: SiReact,
         alt: "ReactJS",
         name: "ReactJS",
-        color: "text-black",
+        description: "ReactJS",
+        color: "text-[#61DAFB]",
+        shadow: "bg-cyan-600",
       },
       {
         icon: SiTailwindcss,
         alt: "Tailwind CSS",
         name: "Tailwind CSS",
-        color: "text-black",
+        description: "Tailwind CSS",
+        color: "text-[#2298BD]",
+        shadow: "bg-cyan-700",
       },
     ],
     link: "https://cine-vault-prod.vercel.app/",
