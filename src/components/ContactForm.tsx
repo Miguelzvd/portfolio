@@ -111,11 +111,8 @@ export const ContactForm: React.FC = () => {
       </DrawerTrigger>
 
       <DrawerContent className="bg-black/30 backdrop-blur-sm border-gray-700 pb-6  sm:max-w-[40rem] sm:max-h-[[20rem] sm:min-h-[20rem] px-4 mx-auto">
-        <DrawerTitle className="mt-6">Contact Options</DrawerTitle>
-        <DrawerDescription>
-          Choose how you would like to get in touch - quick connect or fill out
-          a form
-        </DrawerDescription>
+        <DrawerTitle className="mt-6">{t("drawerTitle")}</DrawerTitle>
+        <DrawerDescription>{t("drawerDescription")}</DrawerDescription>
         <div className="mx-auto w-full max-w-xl">
           <Tabs defaultValue="quick" className="w-full p-4">
             <TabsList className="w-full grid grid-cols-2 my-6 gap-2 bg-dark">
@@ -123,13 +120,13 @@ export const ContactForm: React.FC = () => {
                 value="quick"
                 className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
               >
-                Quick connect
+                {t("quickTab")}
               </TabsTrigger>
               <TabsTrigger
                 value="form"
                 className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
               >
-                Fill a form
+                {t("formTab")}
               </TabsTrigger>
             </TabsList>
 
@@ -144,12 +141,14 @@ export const ContactForm: React.FC = () => {
                     <Mail size={24} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-semibold mb-1">Email</h3>
+                    <h3 className="text-white font-semibold mb-1">
+                      {t("emailCardTitle")}
+                    </h3>
                     <p className="text-sm text-gray-300 mb-1">
                       miguelzvd.dev@gmail.com
                     </p>
                     <p className="text-xs text-gray-500">
-                      Send me an email directly
+                      {t("emailCardDescription")}
                     </p>
                   </div>
                 </a>
@@ -166,13 +165,13 @@ export const ContactForm: React.FC = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-white font-semibold mb-1">
-                      Book a Call
+                      {t("bookCallCardTitle")}
                     </h3>
                     <p className="text-sm text-gray-300 mb-1">
-                      Schedule a time slot
+                      {t("bookCallCardSubtitle")}
                     </p>
                     <p className="text-xs text-gray-500">
-                      Book a call on my calendar
+                      {t("bookCallCardDescription")}
                     </p>
                   </div>
                 </a>
@@ -183,7 +182,7 @@ export const ContactForm: React.FC = () => {
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-ping " />
                     <div className="w-2 h-2 rounded-full bg-green-500 absolute" />
                   </div>
-                  Currently available for new opportunities
+                  {t("availabilityStatus")}
                 </div>
               </div>
             </TabsContent>
@@ -197,7 +196,7 @@ export const ContactForm: React.FC = () => {
                       htmlFor="name"
                       className="text-sm font-medium text-gray-300"
                     >
-                      Name
+                      {t("nameLabel")}
                     </label>
                     <Input
                       id="name"
@@ -206,7 +205,7 @@ export const ContactForm: React.FC = () => {
                       className={`border rounded-lg text-white placeholder-gray-500  transition-colors ${
                         errors.name && "border-red-500"
                       }`}
-                      placeholder="Your name"
+                      placeholder={t("namePlaceholder")}
                       disabled={isLoading}
                     />
                     {errors.name && (
@@ -222,7 +221,7 @@ export const ContactForm: React.FC = () => {
                       htmlFor="email"
                       className="text-sm font-medium text-gray-300"
                     >
-                      Email
+                      {t("emailLabel")}
                     </label>
                     <Input
                       id="email"
@@ -231,7 +230,7 @@ export const ContactForm: React.FC = () => {
                       className={`border rounded-lg text-white placeholder-gray-500  transition-colors ${
                         errors.email && "border-red-500"
                       }`}
-                      placeholder="your.email@example.com"
+                      placeholder={t("emailPlaceholder")}
                       disabled={isLoading}
                     />
                     {errors.email && (
@@ -249,7 +248,7 @@ export const ContactForm: React.FC = () => {
                       htmlFor="message"
                       className="text-sm font-medium text-gray-300"
                     >
-                      Message
+                      {t("messageLabel")}
                     </label>
                     <span className="text-xs text-gray-500">
                       {messageLength}/1000
@@ -262,7 +261,7 @@ export const ContactForm: React.FC = () => {
                     className={`rounded-lg text-white placeholder-gray-500  transition-colors resize-none ${
                       errors.message && "border-red-500"
                     }`}
-                    placeholder="What would you like to discuss?"
+                    placeholder={t("messagePlaceholder")}
                     disabled={isLoading}
                   />
                   {errors.message && (
@@ -278,7 +277,7 @@ export const ContactForm: React.FC = () => {
                   className="w-full p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-medium rounded-sm transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={18} />
-                  {isLoading ? t("sendingButton") : "Send message"}
+                  {isLoading ? t("sendingButton") : t("sendButton")}
                 </button>
               </form>
             </TabsContent>
