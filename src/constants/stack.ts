@@ -18,6 +18,7 @@ import {
   SiDrizzle,
   SiExpress,
   SiVite,
+  SiShadcnui,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -65,6 +66,13 @@ export const frontStack: StackItem[] = [
     description: "Chakra",
     shadow: "bg-teal-600",
     color: "text-[#4FD1C7]",
+  },
+  {
+    icon: SiShadcnui,
+    alt: "Shadcn logo",
+    description: "Shadcn UI",
+    shadow: "bg-white",
+    color: "text-white",
   },
 ];
 
