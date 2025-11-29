@@ -97,7 +97,8 @@ export function AnimatedSections({
 
             <a
               className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
-              href="#"
+              href="https://discord.com/users/.miguelzin"
+              target="_blank"
               rel="noopener noreferrer"
               aria-label="Discord Profile"
             >
