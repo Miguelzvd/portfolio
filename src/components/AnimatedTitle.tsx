@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 const TitleRoot = ({
   children,
+  className,
   ...props
 }: {
   children: React.ReactNode;
@@ -15,7 +17,7 @@ const TitleRoot = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className={`font-bold ${props.className}`}
+      className={twMerge("font-bold", className)}
       {...props}
     >
       {children}
@@ -25,6 +27,7 @@ const TitleRoot = ({
 
 const TitleContent = ({
   children,
+  className,
   ...props
 }: {
   children: React.ReactNode;
@@ -39,7 +42,7 @@ const TitleContent = ({
         duration: 0.5,
         ease: [0.25, 0.4, 0.25, 1],
       }}
-      className={`text-4xl font-bold ${props.className}`}
+      className={twMerge("text-4xl font-bold", className)}
       {...props}
     >
       {children}
@@ -49,6 +52,7 @@ const TitleContent = ({
 
 const TitleMain = ({
   children,
+  className,
   ...props
 }: {
   children: React.ReactNode;
@@ -63,7 +67,7 @@ const TitleMain = ({
         duration: 0.6,
         ease: [0.25, 0.4, 0.25, 1],
       }}
-      className={`text-6xl font-bold ${props.className}`}
+      className={twMerge("text-6xl font-bold", className)}
       {...props}
     >
       {children}
@@ -73,6 +77,7 @@ const TitleMain = ({
 
 const TitleSub = ({
   children,
+  className,
   ...props
 }: {
   children: React.ReactNode;
@@ -87,7 +92,7 @@ const TitleSub = ({
         duration: 0.5,
         ease: "easeOut",
       }}
-      className={`text-4xl font-bold text-center ${props.className}`}
+      className={twMerge("text-4xl font-bold text-center", className)}
       {...props}
     >
       {children}
@@ -97,6 +102,7 @@ const TitleSub = ({
 
 const TitleUnderlineRow = ({
   color = "primary",
+  className,
   ...props
 }: {
   color?: "primary" | "secondary";
@@ -104,17 +110,20 @@ const TitleUnderlineRow = ({
 }) => {
   return (
     <motion.div
-      initial={{ width: 0, opacity: 0 }}
-      whileInView={{ width: "10rem", opacity: 1 }}
+      initial={{ scaleX: 0, opacity: 0 }}
+      whileInView={{ scaleX: 1, opacity: 1 }}
       viewport={{ once: true }}
       transition={{
         duration: 0.7,
-        delay: 0.2,
+        delay: 0.3,
         ease: [0.25, 0.4, 0.25, 1],
       }}
-      className={`max-w-[70%] border-b-4 ${
-        color === "primary" ? "border-primary" : "border-secondary"
-      } mt-1 ${props.className}`}
+      className={twMerge(
+        "w-40 max-w-[60%] border-b-4 mt-1",
+        color === "primary" ? "border-primary" : "border-secondary",
+        className
+      )}
+      style={{ transformOrigin: "left" }}
       {...props}
     />
   );

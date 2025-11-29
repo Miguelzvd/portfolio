@@ -7,7 +7,7 @@ import { FaDiscord } from "react-icons/fa";
 import { StackCardsGroup } from "@/components/StackCardsGroup";
 import { ContactForm } from "@/components/ContactForm";
 import Section from "@/components/Section";
-import Title from "@/components/Title";
+import Title from "./AnimatedTitle";
 
 interface MainSectionProps {
   stackTranslations: {
@@ -34,31 +34,34 @@ export function AnimatedSections({
   return (
     <>
       <Section.Root about="my-stack" id="my-stack" className="min-h-[60vh]">
-        <Title.Root>
-          <Title.Content>
-            <Title.Sub>{tStack.title}</Title.Sub>
-          </Title.Content>
-          <Title.UnderlineRow color="primary" />
+        <Title.Root className="flex flex-col items-center">
+          <Title.Sub>
+            {tStack.title}
+
+            <Title.UnderlineRow color="primary" className="w-full" />
+          </Title.Sub>
         </Title.Root>
         <StackCardsGroup />
       </Section.Root>
 
       <Section.Root about="my-journey" id="my-journey">
-        <Title.Root>
-          <Title.Content>
-            <Title.Sub>{tJourney.title}</Title.Sub>
-          </Title.Content>
-          <Title.UnderlineRow color="secondary" />
+        <Title.Root className="flex flex-col items-center">
+          <Title.Sub>
+            {tJourney.title}
+
+            <Title.UnderlineRow color="secondary" className="w-full" />
+          </Title.Sub>
         </Title.Root>
         <MyJourneySection />
       </Section.Root>
 
       <Section.Root about="my-projects" id="my-projects">
-        <Title.Root>
-          <Title.Content>
-            <Title.Sub>{tProjects.title}</Title.Sub>
-          </Title.Content>
-          <Title.UnderlineRow color="primary" />
+        <Title.Root className="flex flex-col items-center">
+          <Title.Sub>
+            {tProjects.title}
+
+            <Title.UnderlineRow color="primary" className="w-full" />
+          </Title.Sub>
         </Title.Root>
         <ProjectCardsSection />
       </Section.Root>
@@ -68,11 +71,12 @@ export function AnimatedSections({
         about="contact"
         id="contact"
       >
-        <Title.Root>
-          <Title.Content>
-            <Title.Sub>{tContact.title}</Title.Sub>
-          </Title.Content>
-          <Title.UnderlineRow color="secondary" />
+        <Title.Root className="flex flex-col items-center">
+          <Title.Sub>
+            {tContact.title}
+
+            <Title.UnderlineRow color="secondary" className="w-full" />
+          </Title.Sub>
           <span className="font-normal text-lg mt-2">{tContact.subtitle}</span>
         </Title.Root>
 
