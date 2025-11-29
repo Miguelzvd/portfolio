@@ -13,6 +13,7 @@ import { BackToTopButton } from "@/components/BackToTopButton";
 import { Footer } from "@/components/Footer";
 import { getTranslations, getLocale } from "next-intl/server";
 import { ContactForm } from "@/components/ContactForm";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 export default async function Home() {
   const locale = await getLocale();
@@ -32,6 +33,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
+      <AnimatedBackground />
       <BackToTopButton />
 
       <Header />
@@ -43,7 +45,7 @@ export default async function Home() {
           id="about-me"
         >
           <Section.Content className="flex-2 flex flex-col gap-2 w-full lg:min-w-[32rem]">
-            <Title.Root>
+            <Title.Root className="relative">
               <Title.Content>
                 <span className="text-lg font-normal">{t("greeting")}</span>
                 <br />
@@ -54,7 +56,10 @@ export default async function Home() {
               <Title.UnderlineRow color="primary" />
             </Title.Root>
 
-            <p className="text-lg w-full">
+            <p
+              className="text-lg w-full animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
               {t("subtitle")} <HighlightedText>{t("title")}</HighlightedText>{" "}
               {t("passionateAbout")}{" "}
               <HighlightedText>{t("frontendProjects")}</HighlightedText>{" "}
@@ -78,7 +83,8 @@ export default async function Home() {
               href={`/files/${cvFile}`}
               download={cvDownloadName}
               aria-label="Download CV"
-              className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 transition-all duration-300"
+              className="bg-white text-black font-semibold px-4 py-2 rounded-md w-fit flex gap-2 items-center cursor-pointer hover:bg-white/80 hover:scale-105 transition-all duration-300 animate-fade-in"
+              style={{ animationDelay: "0.4s" }}
             >
               <span>{t("downloadCV")}</span>
               <ArrowDown aria-hidden="true" />
@@ -86,7 +92,10 @@ export default async function Home() {
           </Section.Content>
 
           <Section.Content className="flex-2 w-full max-w-[32rem] lg:min-w-[32rem]">
-            <div className="flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary">
+            <div
+              className="flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary animate-fade-in"
+              style={{ animationDelay: "0.3s" }}
+            >
               <Image
                 className="w-full h-[42rem] object-contain mask-x-from-60% mask-x-to-90%"
                 src="/images/profile.jpg"
@@ -105,6 +114,7 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tStack("title")}</Title.Sub>
             </Title.Content>
+            <Title.UnderlineRow color="primary" />
           </Title.Root>
           <StackCardsGroup />
         </Section.Root>
@@ -114,6 +124,7 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tJourney("title")}</Title.Sub>
             </Title.Content>
+            <Title.UnderlineRow color="secondary" />
           </Title.Root>
           <MyJourneySection />
         </Section.Root>
@@ -123,6 +134,7 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tProjects("title")}</Title.Sub>
             </Title.Content>
+            <Title.UnderlineRow color="primary" />
           </Title.Root>
           <ProjectCardsGrid />
         </Section.Root>
@@ -136,13 +148,19 @@ export default async function Home() {
             <Title.Content>
               <Title.Sub>{tContact("title")}</Title.Sub>
             </Title.Content>
-            <span className="font-normal">{tContact("subtitle")}</span>
+            <Title.UnderlineRow color="secondary" />
+            <span className="font-normal text-lg mt-2">
+              {tContact("subtitle")}
+            </span>
           </Title.Root>
 
           <Section.Content className="gap-4">
-            <div className="flex flex-row justify-center gap-2">
+            <div
+              className="flex flex-row justify-center gap-2 animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
               <a
-                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
+                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
                 href="https://github.com/Miguelzvd"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -152,7 +170,7 @@ export default async function Home() {
               </a>
 
               <a
-                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
+                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
                 href="#"
                 rel="noopener noreferrer"
                 aria-label="Discord Profile"
@@ -161,7 +179,7 @@ export default async function Home() {
               </a>
 
               <a
-                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer"
+                className="w-12 h-12 bg-white rounded-md p-[0.4rem] flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300"
                 href="https://www.linkedin.com/in/miguel-azevedo-dev/"
                 target="_blank"
                 rel="noopener noreferrer"

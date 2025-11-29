@@ -1,38 +1,101 @@
+"use client";
+
 import { backStack, frontStack, toolsStack } from "@/constants/stack";
 import Section from "./Section";
 import { StackBadge } from "./StackBadge";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1 },
+};
 
 export const StackCardsGroup = () => {
   return (
     <Section.Content className="max-h-fit flex flex-col gap-y-10 w-full items-center">
-      <div className="flex flex-col gap-y-2">
-        <h3 className="text-2xl text-center">Front - end:</h3>
+      <div className="flex flex-col gap-y-4">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl text-center font-semibold"
+        >
+          Front - end
+        </motion.h3>
 
-        <div className="flex flex-row gap-4 flex-wrap justify-center">
-          {frontStack.map((item, index) => (
-            <StackBadge key={index} item={item} />
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-row gap-4 flex-wrap justify-center"
+        >
+          {frontStack.map((stackItem, index) => (
+            <motion.div key={index} variants={item}>
+              <StackBadge item={stackItem} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
-      <div className="flex flex-col gap-y-2">
-        <h3 className="text-2xl text-center">Back - end:</h3>
+      <div className="flex flex-col gap-y-4">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl text-center font-semibold"
+        >
+          Back - end
+        </motion.h3>
 
-        <div className="flex flex-row gap-4 flex-wrap items-center justify-center">
-          {backStack.map((item, index) => (
-            <StackBadge key={index} item={item} />
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-row gap-4 flex-wrap items-center justify-center"
+        >
+          {backStack.map((stackItem, index) => (
+            <motion.div key={index} variants={item}>
+              <StackBadge item={stackItem} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
-      <div className="flex flex-col gap-y-2">
-        <h3 className="text-2xl text-center">Tools:</h3>
+      <div className="flex flex-col gap-y-4">
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl text-center font-semibold"
+        >
+          Tools
+        </motion.h3>
 
-        <div className="flex flex-row gap-4 flex-wrap justify-center">
-          {toolsStack.map((item, index) => (
-            <StackBadge key={index} item={item} />
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-row gap-4 flex-wrap justify-center"
+        >
+          {toolsStack.map((stackItem, index) => (
+            <motion.div key={index} variants={item}>
+              <StackBadge item={stackItem} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </Section.Content>
   );

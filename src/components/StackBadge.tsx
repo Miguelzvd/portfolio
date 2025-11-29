@@ -1,5 +1,8 @@
+"use client";
+
 import { Badge } from "./ui/badge";
 import { StackItem } from "@/constants/stack";
+import { motion } from "framer-motion";
 
 interface StackBadgeProps {
   item: StackItem;
@@ -10,12 +13,20 @@ export const StackBadge = ({ item }: StackBadgeProps) => {
   const IconComponent = Icon;
 
   return (
-    <Badge
-      variant="outline"
-      className="flex items-center justify-start gap-2 px-2 rounded-md py-1 text-sm font-medium transition-all hover:scale-105 cursor-default"
+    <motion.div
+      whileHover={{
+        scale: 1.1,
+        transition: { type: "spring", stiffness: 400, damping: 10 },
+      }}
+      whileTap={{ scale: 0.95 }}
     >
-      <IconComponent className={`${color} min-w-4 min-h-4`} />
-      <span>{description}</span>
-    </Badge>
+      <Badge
+        variant="outline"
+        className="flex items-center justify-start gap-2 px-3 rounded-md py-2 text-sm font-medium cursor-pointer hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all"
+      >
+        <IconComponent className={`${color} min-w-4 min-h-4`} />
+        <span>{description}</span>
+      </Badge>
+    </motion.div>
   );
 };
