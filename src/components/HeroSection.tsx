@@ -115,10 +115,8 @@ export default async function HeroSection() {
             priority
           />
 
-          {/* Sombra esquerda */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black/100 via-black/90 to-transparent" />
 
-          {/* Sombra direita */}
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black/80 via-black/60 to-transparent" />
         </div>
         <IsCodingStatus />
