@@ -1,4 +1,4 @@
-# Miguel.dev Portfolio
+# Miguelzvd.dev Portfolio
 
 A modern and responsive portfolio developed with Next.js, showcasing my journey as a front-end developer specialized in creating meaningful digital experiences for public service platforms.
 

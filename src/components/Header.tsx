@@ -42,7 +42,7 @@ export const Header = () => {
           </button>
 
           <div className="hidden sm:block text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Miguel.dev
+            Miguelzvd.dev
           </div>
 
           <nav className="hidden sm:flex gap-8 font-medium">
