@@ -44,7 +44,10 @@ export default async function Home() {
           about="about-me"
           id="about-me"
         >
-          <Section.Content className="flex-2 flex flex-col gap-2 w-full lg:min-w-[32rem]">
+          <Section.Content
+            className="flex-2 flex flex-col gap-2 w-full lg:min-w-[32rem] text-lg animate-fade-in "
+            style={{ animationDelay: "0.2s" }}
+          >
             <Title.Root className="relative">
               <Title.Content>
                 <span className="text-lg font-normal">{t("greeting")}</span>
@@ -56,10 +59,7 @@ export default async function Home() {
               <Title.UnderlineRow color="primary" />
             </Title.Root>
 
-            <p
-              className="text-lg w-full animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
+            <p>
               {t("subtitle")} <HighlightedText>{t("title")}</HighlightedText>{" "}
               {t("passionateAbout")}{" "}
               <HighlightedText>{t("frontendProjects")}</HighlightedText>{" "}
