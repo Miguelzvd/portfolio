@@ -5,187 +5,278 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
+import { Send, Mail, Calendar } from "lucide-react";
+import { toast } from "sonner";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
-const createContactSchema = (t: (key: string) => string) => z.object({
-  name: z
-    .string()
-    .min(2, t("nameMinError"))
-    .max(100, t("nameMaxError"))
-    .regex(/^[a-zA-ZÀ-ÿ\s]+$/, t("nameRegexError")),
-  email: z
-    .string()
-    .email(t("emailInvalidError"))
-    .min(1, t("emailRequiredError")),
-  message: z
-    .string()
-    .min(3, t("messageMinError"))
-    .max(1000, t("messageMaxError"))
-});
+const createContactSchema = (t: (key: string) => string) =>
+  z.object({
+    name: z
+      .string()
+      .min(2, t("nameMinError"))
+      .max(100, t("nameMaxError"))
+      .regex(/^[a-zA-ZÀ-ÿ\s]+$/, t("nameRegexError")),
+    email: z
+      .string()
+      .email(t("emailInvalidError"))
+      .min(1, t("emailRequiredError")),
+    message: z
+      .string()
+      .min(3, t("messageMinError"))
+      .max(1000, t("messageMaxError")),
+  });
 
 export const ContactForm: React.FC = () => {
   const t = useTranslations("ContactForm");
   const contactSchema = createContactSchema(t);
   type ContactFormData = z.infer<typeof contactSchema>;
-  
-  const [isExpanded, setIsExpanded] = useState(false);
+
+  const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     reset,
-    watch
+    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    mode: "onChange"
+    mode: "onChange",
   });
 
   const watchedFields = watch();
 
   const onSubmit = async (data: ContactFormData) => {
     setIsLoading(true);
-    setStatus("idle");
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
+      const response = await fetch("/api/send-email", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Falha ao enviar email');
+        throw new Error(errorData.error || "Falha ao enviar email");
       }
 
-      setStatus("success");
-      reset();
+      toast.success(t("successMessage"), {
+        description: new Date().toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      });
 
+      reset();
       setTimeout(() => {
-        setIsExpanded(false);
-        setStatus("idle");
-      }, 3000);
+        setOpen(false);
+      }, 1500);
     } catch (error) {
-      console.error('Erro ao enviar email:', error);
-      setStatus("error");
+      console.error("Erro ao enviar email:", error);
+      toast.error(t("errorMessage"), {
+        description: t("errorDescription"),
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
-  const disabled = isLoading || !isValid || !watchedFields.name || !watchedFields.email || !watchedFields.message;
+  const messageLength = watchedFields.message?.length || 0;
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
-      <button
-        className="w-fit relative rounded-sm text-white py-[0.6rem] px-[0.1rem] cursor-pointer gradient-rotate"
-        aria-expanded={isExpanded}
-        onClick={() => {
-          setIsExpanded((pre) => !pre);
-        }}
-      >
-        <span className="h-full w-full bg-dark rounded-sm py-2 px-4 text-2xl">
-          {t("buttonText")}
-        </span>
-      </button>
-      <div
-        className={`grid overflow-hidden transition-all ease-in-out duration-700 ${
-          isExpanded
-            ? "grid-rows-[1fr] opacity-100"
-            : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="min-h-0">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="max-w-[24rem] w-full sm:w-[24rem] m p-6 rounded-lg bg-dark-gray flex flex-col gap-4"
-          >
-            <div className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-white text-sm font-medium">
-                {t("nameLabel")} <span className="text-red-500">{t("required")}</span>
-              </label>
-              <input
-                id="name"
-                type="text"
-                {...register("name")}
-                className={`px-3 py-2 bg-gray-800 border rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
-                  errors.name ? "border-red-500" : "border-gray-600"
-                }`}
-                placeholder={t("namePlaceholder")}
-                disabled={isLoading}
-              />
-              {errors.name && (
-                <span className="text-red-400 text-xs">{errors.name.message}</span>
-              )}
-            </div>
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerTrigger asChild>
+        <button className="w-fit relative rounded-sm text-white py-[0.6rem] px-[0.1rem] cursor-pointer gradient-rotate">
+          <span className="h-full w-full bg-dark rounded-sm py-2 px-4 text-2xl">
+            {t("buttonText")}
+          </span>
+        </button>
+      </DrawerTrigger>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-white text-sm font-medium">
-                {t("emailLabel")} <span className="text-red-500">{t("required")}</span>
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...register("email")}
-                className={`px-3 py-2 bg-gray-800 border rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
-                  errors.email ? "border-red-500" : "border-gray-600"
-                }`}
-                placeholder={t("emailPlaceholder")}
-                disabled={isLoading}
-              />
-              {errors.email && (
-                <span className="text-red-400 text-xs">{errors.email.message}</span>
-              )}
-            </div>
+      <DrawerContent className="bg-black/30 backdrop-blur-sm border-gray-800 my-6 sm:max-w-[40rem] sm:max-h-[[20rem] sm:min-h-[20rem] px-4 mx-auto">
+        <div className="mx-auto w-full max-w-xl">
+          <Tabs defaultValue="quick" className="w-full p-4">
+            <DialogTitle>
+              <TabsList className="w-full grid grid-cols-2 my-6 gap-2 bg-dark">
+                <TabsTrigger
+                  value="quick"
+                  className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
+                >
+                  Quick connect
+                </TabsTrigger>
+                <TabsTrigger
+                  value="form"
+                  className="data-[state=active]:bg-gray-800 data-[state=active]:text-white bg-transparent text-gray-400 hover:text-white rounded-sm"
+                >
+                  Fill a form
+                </TabsTrigger>
+              </TabsList>
+            </DialogTitle>
 
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="message"
-                className="text-white text-sm font-medium"
-              >
-                {t("messageLabel")} <span className="text-red-500">{t("required")}</span>
-              </label>
-              <textarea
-                id="message"
-                {...register("message")}
-                rows={4}
-                className={`px-3 py-2 bg-gray-800 border rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none ${
-                  errors.message ? "border-red-500" : "border-gray-600"
-                }`}
-                placeholder={t("messagePlaceholder")}
-                disabled={isLoading}
-              />
-              {errors.message && (
-                <span className="text-red-400 text-xs">{errors.message.message}</span>
-              )}
-            </div>
+            <TabsContent value="quick">
+              <div className="space-y-4">
+                {/* Email Card */}
+                <a
+                  href="mailto:miguelzvd.dev@gmail.com"
+                  className="flex items-start gap-4 p-4 rounded-lg border border-gray-800 bg-gray-900/50 hover:bg-gray-900 hover:border-blue-500/50 transition-all group"
+                >
+                  <div className="p-2 rounded-lg bg-blue-500/10 text-blue-500 group-hover:bg-blue-500/20 transition-colors">
+                    <Mail size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-white font-semibold mb-1">Email</h3>
+                    <p className="text-sm text-gray-300 mb-1">
+                      miguelzvd.dev@gmail.com
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Send me an email directly
+                    </p>
+                  </div>
+                </a>
 
-            {status === "success" && (
-              <div className="text-green-400 text-sm text-center">
-                {t("successMessage")}
+                {/* Calendar Card */}
+                <a
+                  href="https://cal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-lg border border-gray-800 bg-gray-yellow/50 hover:bg-yellow-900/20 hover:border-yellow-500/50 transition-all group"
+                >
+                  <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500 group-hover:bg-yellow-500/20 transition-colors">
+                    <Calendar size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-white font-semibold mb-1">
+                      Book a Call
+                    </h3>
+                    <p className="text-sm text-gray-300 mb-1">
+                      Schedule a time slot
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Book a call on my calendar
+                    </p>
+                  </div>
+                </a>
+
+                {/* Status */}
+                <div className="flex items-center justify-center gap-2 p-2 rounded-sm text-sm text-green-500 bg-green-500/5 border-green-500/40 border-1">
+                  <div className="flex flex-row relative">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-ping " />
+                    <div className="w-2 h-2 rounded-full bg-green-500 absolute" />
+                  </div>
+                  Currently available for new opportunities
+                </div>
               </div>
-            )}
+            </TabsContent>
 
-            {status === "error" && (
-              <div className="text-red-400 text-sm text-center">
-                {t("errorMessage")}
-              </div>
-            )}
+            <TabsContent value="form">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  {/* Name Input */}
+                  <div className="flex flex-col gap-2">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-medium text-gray-300"
+                    >
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      {...register("name")}
+                      className={`border rounded-lg text-white placeholder-gray-500  transition-colors ${
+                        errors.name && "border-red-500"
+                      }`}
+                      placeholder="Your name"
+                      disabled={isLoading}
+                    />
+                    {errors.name && (
+                      <span className="text-red-400 text-xs">
+                        {errors.name.message}
+                      </span>
+                    )}
+                  </div>
 
-            <button
-              type="submit"
-              disabled={disabled}
-              className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 cursor-pointer"
-            >
-              {isLoading ? t("sendingButton") : t("sendButton")}
-            </button>
-          </form>
+                  {/* Email Input */}
+                  <div className="flex flex-col gap-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium text-gray-300"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      {...register("email")}
+                      className={`border rounded-lg text-white placeholder-gray-500  transition-colors ${
+                        errors.email && "border-red-500"
+                      }`}
+                      placeholder="your.email@example.com"
+                      disabled={isLoading}
+                    />
+                    {errors.email && (
+                      <span className="text-red-400 text-xs">
+                        {errors.email.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Message Input */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between items-center">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium text-gray-300"
+                    >
+                      Message
+                    </label>
+                    <span className="text-xs text-gray-500">
+                      {messageLength}/1000
+                    </span>
+                  </div>
+                  <Textarea
+                    id="message"
+                    {...register("message")}
+                    rows={5}
+                    className={`rounded-lg text-white placeholder-gray-500  transition-colors resize-none ${
+                      errors.message && "border-red-500"
+                    }`}
+                    placeholder="What would you like to discuss?"
+                    disabled={isLoading}
+                  />
+                  {errors.message && (
+                    <span className="text-red-400 text-xs">
+                      {errors.message.message}
+                    </span>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-medium rounded-sm transition-colors flex items-center justify-center gap-2"
+                >
+                  <Send size={18} />
+                  {isLoading ? t("sendingButton") : "Send message"}
+                </button>
+              </form>
+            </TabsContent>
+          </Tabs>
         </div>
-      </div>
-    </div>
+      </DrawerContent>
+    </Drawer>
   );
 };
