@@ -1,8 +1,8 @@
 "use client";
 
 import { getTimelineEvents } from "@/constants/timeline";
-import Timeline from "./Timeline";
-import Section from "./Section";
+import Timeline from "./ui/Timeline";
+import Section from "./ui/Section";
 import { useIsDesktop } from "@/hooks/useMediaQuery";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";

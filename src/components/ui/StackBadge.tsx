@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "./ui/badge";
+import { Badge } from "./badge";
 import { StackItem } from "@/constants/stack";
 import { motion } from "framer-motion";
 

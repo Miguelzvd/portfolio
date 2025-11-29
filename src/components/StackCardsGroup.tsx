@@ -1,8 +1,8 @@
 "use client";
 
 import { backStack, frontStack, toolsStack } from "@/constants/stack";
-import Section from "./Section";
-import { StackBadge } from "./StackBadge";
+import Section from "./ui/Section";
+import { StackBadge } from "./ui/StackBadge";
 import { motion } from "framer-motion";
 
 const container = {
@@ -10,21 +10,21 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const item = {
   hidden: { opacity: 0, scale: 0.8 },
-  show: { opacity: 1, scale: 1 }
+  show: { opacity: 1, scale: 1 },
 };
 
 export const StackCardsGroup = () => {
   return (
     <Section.Content className="max-h-fit flex flex-col gap-y-10 w-full items-center">
       <div className="flex flex-col gap-y-4">
-        <motion.h3 
+        <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -33,7 +33,7 @@ export const StackCardsGroup = () => {
           Front - end
         </motion.h3>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -49,7 +49,7 @@ export const StackCardsGroup = () => {
       </div>
 
       <div className="flex flex-col gap-y-4">
-        <motion.h3 
+        <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,7 +58,7 @@ export const StackCardsGroup = () => {
           Back - end
         </motion.h3>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -74,7 +74,7 @@ export const StackCardsGroup = () => {
       </div>
 
       <div className="flex flex-col gap-y-4">
-        <motion.h3 
+        <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -83,7 +83,7 @@ export const StackCardsGroup = () => {
           Tools
         </motion.h3>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"

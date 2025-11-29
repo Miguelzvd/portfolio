@@ -6,8 +6,8 @@ import { ProjectCardsSection } from "@/components/ProjectCardsSection";
 import { FaDiscord } from "react-icons/fa";
 import { StackCardsGroup } from "@/components/StackCardsGroup";
 import { ContactForm } from "@/components/ContactForm";
-import Section from "@/components/Section";
-import Title from "./AnimatedTitle";
+import Section from "@/components/ui/Section";
+import Title from "./ui/AnimatedTitle";
 
 interface MainSectionProps {
   stackTranslations: {

@@ -1,5 +1,5 @@
-import Section from "./Section";
-import Title from "./Title";
+import Section from "./ui/Section";
+import Title from "./ui/Title";
 import HighlightedText from "@/components/HighlightedText";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ProjectCard } from "./ui/ProjectCard";
-import Section from "./Section";
+import Section from "./ui/Section";
 import { getProjects } from "@/constants/projects";
 import { useTranslations } from "next-intl";
 
