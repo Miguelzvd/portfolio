@@ -13,10 +13,7 @@ export const ProjectCardsSection = () => {
   const projects = getProjects(t);
 
   const gradients = [
-    "from-blue-500/20 via-purple-500/10 to-transparent",
-    "from-purple-500/20 via-pink-500/10 to-transparent",
-    "from-green-500/20 via-cyan-500/10 to-transparent",
-    "from-orange-500/20 via-red-500/10 to-transparent",
+    "from-primary/20 via-secondary/10 to-transparent",
   ];
 
   return (
@@ -55,7 +52,7 @@ export const ProjectCardsSection = () => {
                     className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                   />
 
-                  <div className="relative aspect-video p-6">
+                  <div className="relative aspect-video p-1 sm:p-2">
                     <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl">
                       <Image
                         src={project.image}
