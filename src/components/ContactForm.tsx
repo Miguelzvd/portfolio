@@ -98,8 +98,8 @@ export const ContactForm: React.FC = () => {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <button className="w-fit relative rounded-sm text-white py-[0.6rem] px-[0.1rem] cursor-pointer gradient-rotate">
-          <span className="h-full w-full bg-dark rounded-sm py-2 px-4 text-2xl">
+        <button className="w-fit relative rounded-sm text-white p-[0.15rem] cursor-pointer gradient-rotate overflow-hidden">
+          <span className="flex h-full w-full bg-dark rounded-sm py-2 px-4 text-2xl items-center justify-center">
             {t("buttonText")}
           </span>
         </button>
