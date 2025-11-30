@@ -42,7 +42,7 @@ export const Header = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <div className="hidden sm:block text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <div className="hidden sm:block text-xl font-bold">
             Miguelzvd.dev
           </div>
 

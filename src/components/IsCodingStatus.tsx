@@ -25,7 +25,7 @@ export const IsCodingStatus = () => {
 
   if (!mounted || !currentTime) {
     return (
-      <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm">
+      <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm transition-all duration-300 animate-fade-in">
         <span className="text-sm">{t("loading")}</span>
         <div className="gap-2 w-fit rounded-full bg-gray-200/10 p-[0.25rem] flex flex-row items-center justify-center">
           <div className="w-2 h-2 rounded-full bg-gray-400" />
@@ -51,7 +51,7 @@ export const IsCodingStatus = () => {
   };
 
   return (
-    <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm">
+    <div className="flex flex-row gap-2 items-center justify-center mt-1 text-sm transition-all duration-300 animate-fade-in">
       <span className="text-sm">{getStatusMessage()}</span>
       <div
         className={`gap-2 w-fit rounded-full ${
