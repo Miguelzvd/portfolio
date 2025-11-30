@@ -42,9 +42,7 @@ export const Header = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <div className="hidden sm:block text-xl font-bold">
-            Miguelzvd.dev
-          </div>
+          <div className="hidden sm:block text-xl font-bold">Miguelzvd.dev</div>
 
           <nav className="hidden sm:flex gap-8 font-medium">
             {menuItems.map((item) => (
@@ -92,7 +90,7 @@ export const Header = () => {
                    }`}
       >
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
-          <h2 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-xl font-bold bg-gradient-to-r from-white/30 to-white bg-clip-text text-transparent">
             Miguelzvd.dev
           </h2>
           <button
@@ -124,8 +122,8 @@ export const Header = () => {
                 whileHover={{
                   background:
                     "linear-gradient(90deg, rgba(37, 99, 235, 0.12), rgba(96, 165, 250, 0.10))",
-                  borderColor: "rgba(59, 130, 246, 0.35)", // azul primário
-                  color: "rgba(219,234,254,1)", // azul clarinho suave
+                  borderColor: "rgba(59, 130, 246, 0.35)",
+                  color: "rgba(219,234,254,1)",
                   transition: { duration: 0.18, ease: "easeOut" },
                 }}
                 className="block py-4 px-4 rounded-lg border border-transparent cursor-pointer"

@@ -28,7 +28,7 @@ export const StackBadge = ({ item }: StackBadgeProps) => {
     >
       <Badge
         variant="outline"
-        className="flex items-center justify-start gap-2 px-3 rounded-md py-2 text-sm font-medium cursor-pointer hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all"
+        className="flex items-center bg-card-foreground/2 backdrop-blur-sm justify-start gap-2 px-3 rounded-md py-2 text-sm font-medium cursor-pointer hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all"
       >
         <IconComponent className={`${color} min-w-4 min-h-4`} />
         <span>{description}</span>

@@ -12,9 +12,7 @@ export const ProjectCardsSection = () => {
   const t = useTranslations("Projects");
   const projects = getProjects(t);
 
-  const gradients = [
-    "from-primary/20 via-secondary/10 to-transparent",
-  ];
+  const gradients = ["from-primary/20 via-secondary/10 to-transparent"];
 
   return (
     <Section.Content className="space-y-16">
@@ -35,7 +33,7 @@ export const ProjectCardsSection = () => {
             }}
             className="group"
           >
-            <div className={`flex flex-col lg:flex-row gap-8 items-start `}>
+            <div className={`flex flex-col lg:flex-row gap-8 items-start`}>
               <motion.div
                 initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -66,10 +64,6 @@ export const ProjectCardsSection = () => {
                       <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.3)]" />
                     </div>
                   </div>
-
-                  {/* Decorative elements */}
-                  <div className="absolute top-4 left-4 w-20 h-20 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" />
-                  <div className="absolute bottom-4 right-4 w-32 h-32 bg-gradient-to-tl from-secondary/20 to-transparent rounded-full blur-3xl" />
                 </div>
               </motion.div>
 
