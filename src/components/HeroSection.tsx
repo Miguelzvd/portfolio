@@ -101,7 +101,7 @@ export default async function HeroSection() {
         </a>
       </Section.Content>
 
-      <Section.Content className="flex-2 w-full max-w-[32rem] lg:min-w-[32rem]">
+      <Section.Content className="flex-2 w-full mx-auto max-w-[32rem] lg:min-w-[32rem]">
         <div
           className="relative flex h-90 overflow-hidden items-center justify-center rounded-br-[8rem] rounded-tl-[8rem] rounded-tr-[4rem] rounded-bl-[4rem] border-2 border-primary animate-fade-in"
           style={{ animationDelay: "0.3s" }}
