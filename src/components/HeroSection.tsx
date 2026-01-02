@@ -22,6 +22,7 @@ export default async function HeroSection() {
 
   const translations = {
     greeting: t("greeting"),
+    profession: t("profession"),
     title: t("title"),
     subtitle: t("subtitle"),
     passionateAbout: t("passionateAbout"),
@@ -62,6 +63,7 @@ export default async function HeroSection() {
             </Title.Main>
           </Title.Content>
           <Title.UnderlineRow color="primary" />
+          <span className="italic font-light">{translations.profession}</span>
         </Title.Root>
 
         <p>

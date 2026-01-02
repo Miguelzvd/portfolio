@@ -7,6 +7,7 @@
     "contact": "Contact"
   },
   "Home": {
+    "profession": "Software Engineer",
     "greeting": "Hello, I'm",
     "title": "Frontend Developer",
     "subtitle": "Specialized in",
