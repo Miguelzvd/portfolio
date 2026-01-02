@@ -15,27 +15,28 @@ export const getTimelineEvents = (t: (key: string) => string) => [
     context: t("internship"),
   },
   {
-    year: "2024 - 2025",
-    description: t("jovemPotiguarPlatform"),
-    context: t("frontendDeveloper"),
-  },
-  {
-    year: "2025",
+    year: "2024 - 2026",
     event_status: t("present"),
-    description: t("funciterninternalSystems"),
-    context: "Frontend Developer",
+    description: t("softwareEngineerFuncitern"),
+    context: t("softwareEngineerFuncitern"),
   },
   {
-    year: "2025",
+    year: "2024 - 2025",
+    event_status: t("finished"),
+    description: t("jovemPotiguarPlatform"),
+    context: t("softwareEngineerFuncitern"),
+  },
+  {
+    year: "2025 - 2026",
+    event_status: t("finished"),
+    description: t("prpSystem"),
+    context: t("softwareEngineerFuncitern"),
+  },
+  {
+    year: "2025 - 2026",
     event_status: t("inProgress"),
     description: t("suasSystem"),
-    context: t("frontendDeveloper"),
-  },
-  {
-    year: "2025",
-    event_status: t("inProgress"),
-    description: t("prpSystem"),
-    context: t("frontendDeveloper"),
+    context: t("softwareEngineerFuncitern"),
   },
 ];
 

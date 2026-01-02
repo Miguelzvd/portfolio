@@ -109,12 +109,12 @@
     "universityProject": "Projeto Universitário",
     "sineSystem": "Sistema Nacional de Emprego (SINE)",
     "internship": "Estágio",
-    "jovemPotiguarPlatform": "Plataforma Jovem Potiguar",
-    "frontendDeveloper": "Desenvolvedor Frontend na FUNCITERN",
-    "funciterninternalSystems": "Sistemas Internos FUNCITERN",
+    "softwareEngineerFuncitern": "Engenheiro de Software na FUNCITERN",
+    "jovemPotiguarPlatform": "Plataforma Jovem Potiguar (Projeto)",
     "suasSystem": "Sistema SUAS (Projeto)",
     "prpSystem": "Sistema PRP (Projeto)",
     "present": "presente",
+    "finished": "concuído",
     "inProgress": "em andamento"
   }
 }

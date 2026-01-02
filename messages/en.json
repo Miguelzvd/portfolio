@@ -109,12 +109,12 @@
     "universityProject": "University Project",
     "sineSystem": "National Employment System (SINE)",
     "internship": "Internship",
-    "jovemPotiguarPlatform": "Jovem Potiguar Platform",
-    "frontendDeveloper": "Frontend Developer at FUNCITERN",
-    "funciterninternalSystems": "FUNCITERN Internal Systems",
+    "softwareEngineerFuncitern": "Software Engineer at FUNCITERN",
+    "jovemPotiguarPlatform": "Jovem Potiguar Platform (Project)",
     "suasSystem": "SUAS System (Project)",
     "prpSystem": "PRP System (Project)",
     "present": "present",
+    "finished": "finished",
     "inProgress": "in progress"
   }
 }
