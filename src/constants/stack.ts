@@ -19,7 +19,7 @@ import {
   SiExpress,
   SiVite,
   SiShadcnui,
-  SiGithub,
+  SiSpring,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -100,6 +100,13 @@ export const backStack: StackItem[] = [
     color: "text-white",
   },
   {
+    icon: SiSpring,
+    alt: "Spring Boot logo",
+    description: "Spring Boot",
+    shadow: "bg-green-600",
+    color: "text-[#77BC1F]",
+  },
+  {
     icon: SiDjango,
     alt: "Django logo",
     description: "Django",
@@ -131,48 +138,6 @@ export const backStack: StackItem[] = [
 
 export const toolsStack: StackItem[] = [
   {
-    icon: SiGit,
-    alt: "Git logo",
-    description: "Git",
-    shadow: "bg-orange-700",
-    color: "text-[#F1502F]",
-  },
-  {
-    icon: SiGithub,
-    alt: "Github logo",
-    description: "Github",
-    shadow: "bg-orange-600",
-    color: "text-white",
-  },
-  {
-    icon: SiGitlab,
-    alt: "Gitlab logo",
-    description: "Gitlab",
-    shadow: "bg-orange-600",
-    color: "text-[#FC6D26]",
-  },
-  {
-    icon: SiVercel,
-    alt: "Vercel logo",
-    description: "Vercel",
-    shadow: "bg-gray-800",
-    color: "text-white",
-  },
-  {
-    icon: SiDigitalocean,
-    alt: "DigitalOcean logo",
-    description: "DigitalOcean",
-    shadow: "bg-blue-600",
-    color: "text-[#0080FF]",
-  },
-  {
-    icon: SiSupabase,
-    alt: "Supabase logo",
-    description: "Supabase",
-    shadow: "bg-green-600",
-    color: "text-[#3ECF8E]",
-  },
-  {
     icon: SiN8N,
     alt: "n8n logo",
     description: "n8n",
@@ -185,5 +150,40 @@ export const toolsStack: StackItem[] = [
     description: "Make",
     shadow: "bg-purple-600",
     color: "text-[#B025D4]",
+  },
+  {
+    icon: SiGit,
+    alt: "Git logo",
+    description: "Git",
+    shadow: "bg-orange-700",
+    color: "text-[#F1502F]",
+  },
+  {
+    icon: SiVercel,
+    alt: "Vercel logo",
+    description: "Vercel",
+    shadow: "bg-gray-800",
+    color: "text-white",
+  },
+  {
+    icon: SiGitlab,
+    alt: "Gitlab logo",
+    description: "Gitlab",
+    shadow: "bg-orange-600",
+    color: "text-[#FC6D26]",
+  },
+  {
+    icon: SiSupabase,
+    alt: "Supabase logo",
+    description: "Supabase",
+    shadow: "bg-green-600",
+    color: "text-[#3ECF8E]",
+  },
+  {
+    icon: SiDigitalocean,
+    alt: "DigitalOcean logo",
+    description: "DigitalOcean",
+    shadow: "bg-blue-600",
+    color: "text-[#0080FF]",
   },
 ];
