@@ -52,6 +52,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Entrance animations translate elements sideways; clip (unlike hidden) keeps
+   them from widening the page without creating a scroll container, so fixed
+   elements stay anchored on mobile browsers */
+html,
+body {
+  overflow-x: clip;
+}
+
 /* CTA Button Animation */
 
 @property --gradient-angle {
