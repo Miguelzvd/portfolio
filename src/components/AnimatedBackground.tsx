@@ -12,7 +12,6 @@ export const AnimatedBackground = () => {
 
       {/* Gradient orbs */}
       <div className="orb orb-primary" />
-      <div className="orb orb-accent" />
       <div className="orb orb-secondary" />
     </div>
   );

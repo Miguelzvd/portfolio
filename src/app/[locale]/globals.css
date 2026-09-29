@@ -136,7 +136,8 @@ html[data-intro="active"] .brand-text {
   transition: opacity 0.4s ease 0.1s;
 }
 
-/* Background orbs: transform-only keyframes run on the compositor thread */
+/* Background orbs: each drifts gently within its own corner so they never
+   overlap; transform-only keyframes run on the compositor thread */
 
 .orb {
   position: absolute;
@@ -152,10 +153,10 @@ html[data-intro="active"] .brand-text {
   height: 38rem;
   background: radial-gradient(
     circle,
-    color-mix(in oklab, var(--color-primary) 18%, transparent) 0%,
+    color-mix(in oklab, var(--color-primary) 14%, transparent) 0%,
     transparent 70%
   );
-  animation: orb-drift-primary 26s ease-in-out infinite alternate;
+  animation: orb-drift-primary 45s ease-in-out infinite alternate;
 }
 
 .orb-secondary {
@@ -165,23 +166,10 @@ html[data-intro="active"] .brand-text {
   height: 34rem;
   background: radial-gradient(
     circle,
-    color-mix(in oklab, var(--color-secondary) 10%, transparent) 0%,
+    color-mix(in oklab, var(--color-secondary) 8%, transparent) 0%,
     transparent 70%
   );
-  animation: orb-drift-secondary 32s ease-in-out infinite alternate;
-}
-
-.orb-accent {
-  top: 35%;
-  left: 40%;
-  width: 28rem;
-  height: 28rem;
-  background: radial-gradient(
-    circle,
-    color-mix(in oklab, var(--color-primary) 12%, transparent) 0%,
-    transparent 70%
-  );
-  animation: orb-drift-accent 22s ease-in-out infinite alternate;
+  animation: orb-drift-secondary 55s ease-in-out infinite alternate;
 }
 
 @keyframes orb-drift-primary {
@@ -189,10 +177,10 @@ html[data-intro="active"] .brand-text {
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(45vw, 30vh, 0) scale(1.2);
+    transform: translate3d(6vw, 4vh, 0) scale(1.08);
   }
   100% {
-    transform: translate3d(15vw, 60vh, 0) scale(0.9);
+    transform: translate3d(2vw, 8vh, 0) scale(0.96);
   }
 }
 
@@ -201,22 +189,10 @@ html[data-intro="active"] .brand-text {
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(-40vw, -35vh, 0) scale(1.15);
+    transform: translate3d(-5vw, -6vh, 0) scale(1.06);
   }
   100% {
-    transform: translate3d(-15vw, -65vh, 0) scale(0.95);
-  }
-}
-
-@keyframes orb-drift-accent {
-  0% {
-    transform: translate3d(0, 0, 0) scale(0.9);
-  }
-  50% {
-    transform: translate3d(-30vw, 20vh, 0) scale(1.25);
-  }
-  100% {
-    transform: translate3d(25vw, -25vh, 0) scale(1);
+    transform: translate3d(-8vw, -2vh, 0) scale(0.97);
   }
 }
 
