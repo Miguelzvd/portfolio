@@ -42,7 +42,7 @@
   "Projects": {
     "title": "Projects",
     "subtitle": "A showcase of my recent work and contributions to meaningful digital solutions.",
-    "jovemPotiguarDescription": "Jovem Potiguar is an initiative of the Ministry of Labor and Employment, the Government of the State of Rio Grande do Norte and the Federal Institute of Education, Science and Technology of Rio Grande do Norte to offer initial and continuing education courses for young people between 16 and 35 years old, focusing on citizenship development and the promotion of creative life projects.",
+    "organizaaiDescription": "Organizaai is an AI-powered personal finance platform that works through WhatsApp and the web. Users log expenses, cash flow, and investments by simply sending a message and track everything in a dashboard, with instant reports and insights.",
     "cineVaultDescription": "cine-vault is a web application designed for movie and series enthusiasts, providing an easy and organized way to save, track, and manage your favorite content. If you're someone who always forgets to watch a movie or series, or you want to track which episodes you've watched.",
     "viewProject": "View Project",
     "stack": "Stack",

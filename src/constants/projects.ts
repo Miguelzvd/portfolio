@@ -1,10 +1,13 @@
 import {
-  SiReact,
-  SiChakraui,
-  SiDjango,
-  SiTailwindcss,
   SiDocker,
-  SiVite,
+  SiDrizzle,
+  SiFastify,
+  SiNextdotjs,
+  SiPostgresql,
+  SiReact,
+  SiRedis,
+  SiSupabase,
+  SiTailwindcss,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -27,44 +30,69 @@ export interface Stack {
   shadow: string;
 }
 
+const tailwindStack: Stack = {
+  icon: SiTailwindcss,
+  alt: "Tailwind CSS",
+  name: "Tailwind CSS",
+  description: "Tailwind CSS",
+  color: "text-[#2298BD]",
+  shadow: "bg-cyan-700",
+};
+
 export const getProjects = (t: (key: string) => string): Project[] => [
   {
-    id: "jovem-potiguar",
-    title: "Jovem Potiguar",
-    image: "/images/projects/jovem_potiguar.png",
+    id: "organizaai",
+    title: "Organizaai",
+    image: "/images/projects/organizaai-dashboard.png",
     stacks: [
       {
-        icon: SiVite,
-        alt: "Vite logo",
-        name: "Vite",
-        description: "Vite",
-        shadow:
-          "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
-        color: "text-[#FFC62E]",
+        icon: SiNextdotjs,
+        alt: "Next.js",
+        name: "Next.js",
+        description: "Next.js",
+        color: "text-white",
+        shadow: "bg-neutral-700",
       },
       {
-        icon: SiReact,
-        alt: "ReactJS",
-        name: "ReactJS",
-        description: "ReactJS",
-        color: "text-[#61DAFB]",
-        shadow: "bg-cyan-600",
+        icon: SiFastify,
+        alt: "Fastify",
+        name: "Fastify",
+        description: "Fastify",
+        color: "text-white",
+        shadow: "bg-neutral-700",
+      },
+      tailwindStack,
+      {
+        icon: SiSupabase,
+        alt: "Supabase",
+        name: "Supabase",
+        description: "Supabase",
+        color: "text-[#3ECF8E]",
+        shadow: "bg-green-600",
       },
       {
-        icon: SiChakraui,
-        alt: "Chakra UI",
-        name: "Chakra UI",
-        description: "Chakra UI",
-        color: "text-[#4FD1C7]",
-        shadow: "bg-teal-600",
+        icon: SiPostgresql,
+        alt: "PostgreSQL",
+        name: "PostgreSQL",
+        description: "PostgreSQL",
+        color: "text-[#2298BD]",
+        shadow: "bg-cyan-700",
       },
       {
-        icon: SiDjango,
-        alt: "Django",
-        name: "Django",
-        description: "Django",
-        color: "text-[#008E5D]",
-        shadow: "bg-green-800",
+        icon: SiDrizzle,
+        alt: "Drizzle ORM",
+        name: "Drizzle ORM",
+        description: "Drizzle ORM",
+        color: "text-[#C5B358]",
+        shadow: "bg-amber-600",
+      },
+      {
+        icon: SiRedis,
+        alt: "Redis",
+        name: "Redis",
+        description: "Redis",
+        color: "text-[#DC382D]",
+        shadow: "bg-red-700",
       },
       {
         icon: SiDocker,
@@ -75,8 +103,8 @@ export const getProjects = (t: (key: string) => string): Project[] => [
         shadow: "bg-[#2496ED]",
       },
     ],
-    link: "https://jovempotiguar.sine.rn.gov.br/",
-    description: t("jovemPotiguarDescription"),
+    link: "https://www.organizaai.app/",
+    description: t("organizaaiDescription"),
   },
   {
     id: "cine-vault",
@@ -91,88 +119,9 @@ export const getProjects = (t: (key: string) => string): Project[] => [
         color: "text-[#61DAFB]",
         shadow: "bg-cyan-600",
       },
-      {
-        icon: SiTailwindcss,
-        alt: "Tailwind CSS",
-        name: "Tailwind CSS",
-        description: "Tailwind CSS",
-        color: "text-[#2298BD]",
-        shadow: "bg-cyan-700",
-      },
+      tailwindStack,
     ],
     link: "https://cine-vault-prod.vercel.app/",
     description: t("cineVaultDescription"),
-  },
-];
-
-export const projects: Project[] = [
-  {
-    id: "jovem-potiguar",
-    title: "Jovem Potiguar",
-    image: "/images/projects/jovem_potiguar.png",
-    stacks: [
-      {
-        icon: SiVite,
-        alt: "Vite logo",
-        name: "Vite",
-        description: "Vite",
-        shadow:
-          "bg-gradient-to-br from-purple-700 via-purple-500 to-yellow-400 bg-clip-padding",
-        color: "text-[#FFC62E]",
-      },
-      {
-        icon: SiReact,
-        alt: "ReactJS",
-        name: "ReactJS",
-        description: "ReactJS",
-        color: "text-[#61DAFB]",
-        shadow: "bg-cyan-600",
-      },
-      {
-        icon: SiChakraui,
-        alt: "Chakra UI",
-        name: "Chakra UI",
-        description: "Chakra UI",
-        color: "text-[#4FD1C7]",
-        shadow: "bg-teal-600",
-      },
-      {
-        icon: SiDjango,
-        alt: "Django",
-        name: "Django",
-        description: "Django",
-        color: "text-[#008E5D]",
-        shadow: "bg-green-800",
-      },
-    ],
-    link: "https://jovempotiguar.sine.rn.gov.br/",
-    description:
-      "Jovem Potiguar is an initiative of the Ministry of Labor and Employment, the Government of the State of Rio Grande do Norte and the Federal Institute of Education, Science and Technology of Rio Grande do Norte to offer initial and continuing education courses for young people between 16 and 35 years old, focusing on citizenship development and the promotion of creative life projects.",
-  },
-  {
-    id: "cine-vault",
-    title: "cine-vault",
-    image: "/images/projects/cine_vault.png",
-    stacks: [
-      {
-        icon: SiReact,
-        alt: "ReactJS",
-        name: "ReactJS",
-        description: "ReactJS",
-        color: "text-[#61DAFB]",
-        shadow: "bg-cyan-600",
-      },
-      {
-        icon: SiTailwindcss,
-        alt: "Tailwind CSS",
-        name: "Tailwind CSS",
-        description: "Tailwind CSS",
-        color: "text-[#2298BD]",
-        shadow: "bg-cyan-700",
-      },
-    ],
-    link: "https://cine-vault-prod.vercel.app/",
-    description:
-      "cine-vault is a web application designed for movie and series enthusiasts, providing an easy and organized way to save, track, and manage your favorite content. If you're someone who always forgets to watch a movie or series, or you want to track which episodes you've watched.",
   },
 ];

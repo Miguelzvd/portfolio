@@ -42,7 +42,7 @@
   "Projects": {
     "title": "Projetos",
     "subtitle": "Uma vitrine do meu trabalho recente e contribuições para soluções digitais significativas.",
-    "jovemPotiguarDescription": "O Jovem Potiguar é uma iniciativa do Ministério do Trabalho e Emprego, do Governo do Estado do Rio Grande do Norte e do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte para oferecer cursos de educação inicial e continuada para jovens entre 16 e 35 anos, focando no desenvolvimento da cidadania e na promoção de projetos de vida criativos.",
+    "organizaaiDescription": "Organizaai é uma plataforma de gestão financeira com inteligência artificial que funciona pelo WhatsApp e pela web. O usuário registra gastos, fluxo de caixa e investimentos com uma simples mensagem e acompanha tudo em um dashboard, com relatórios e insights gerados na hora.",
     "cineVaultDescription": "cine-vault é uma aplicação web projetada para entusiastas de filmes e séries, fornecendo uma maneira fácil e organizada de salvar, acompanhar e gerenciar seu conteúdo favorito. Se você é alguém que sempre esquece de assistir um filme ou série, ou quer acompanhar quais episódios assistiu.",
     "viewProject": "Ver Projeto",
     "stack": "Stack",

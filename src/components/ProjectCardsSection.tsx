@@ -45,7 +45,13 @@ export const ProjectCardsSection = () => {
                 }}
                 className="w-full lg:w-1/2"
               >
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-gray-600 transition-all duration-500">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t("viewProject")}: ${project.title}`}
+                  className="relative block rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-gray-600 transition-all duration-500"
+                >
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                   />
@@ -58,12 +64,13 @@ export const ProjectCardsSection = () => {
                         fill
                         className="object-cover"
                         sizes="(max-width: 1024px) 100vw, 50vw"
+                        quality={90}
                       />
                       {/* Inner shadow overlay */}
                       <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.3)]" />
                     </div>
                   </div>
-                </div>
+                </a>
               </motion.div>
 
               {/* Content Section - Right on Desktop */}

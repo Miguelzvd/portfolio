@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Toaster } from "sonner";
+import { IntroStateScript } from "@/components/IntroStateScript";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,9 +16,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-// Runs before first paint so the intro splash never flashes on repeat visits.
-const INTRO_STATE_SCRIPT = `try{var d=document.documentElement;var played=sessionStorage.getItem("intro-played");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;d.dataset.intro=played||reduce?"done":"active"}catch(e){}`;
 
 export const metadata: Metadata = {
   title: "miguel.dev",
@@ -38,9 +36,14 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className="dark"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: INTRO_STATE_SCRIPT }} />
+        <IntroStateScript />
       </head>
       <body
         suppressHydrationWarning
