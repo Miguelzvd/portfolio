@@ -102,18 +102,15 @@
   },
   "Timeline": {
     "computerEngineering": "Engenharia da Computação",
-    "graduation": "Universidade Potiguar - Graduação",
-    "androidDevelopment": "Desenvolvimento de App Android para Saúde e Gestantes",
+    "unp": "Universidade Potiguar",
+    "androidApp": "App Android para Saúde e Gestantes",
     "universityProject": "Projeto Universitário",
-    "sineSystem": "Sistema Nacional de Emprego (SINE)",
+    "sine": "Sistema Nacional de Emprego (SINE)",
     "internship": "Estágio",
-    "softwareEngineerFuncitern": "Engenheiro de Software na FUNCITERN",
-    "softwareEngineerUnimed": "Engenheiro de Software Full-Stack na Unimed",
-    "jovemPotiguarPlatform": "Plataforma Jovem Potiguar (Projeto)",
-    "suasSystem": "Sistema SUAS (Projeto)",
-    "prpSystem": "Sistema PRP (Projeto)",
-    "present": "presente",
-    "finished": "concuído",
-    "inProgress": "em andamento"
+    "softwareEngineer": "Engenheiro de Software",
+    "funcitern": "FUNCITERN",
+    "fullStackEngineer": "Engenheiro de Software Full-Stack",
+    "unimed": "Unimed",
+    "current": "Atual"
   }
 }

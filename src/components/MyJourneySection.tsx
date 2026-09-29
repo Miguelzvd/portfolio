@@ -1,206 +1,175 @@
 "use client";
 
-import { getTimelineEvents } from "@/constants/timeline";
-import Timeline from "./ui/Timeline";
-import Section from "./ui/Section";
-import { useIsDesktop } from "@/hooks/useMediaQuery";
+import { useRef, useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  type Variants,
+} from "framer-motion";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { getTimelineEvents, type TimelineEvent } from "@/constants/timeline";
+import Timeline, { PRIMARY_GLOW } from "./ui/Timeline";
+import Section from "./ui/Section";
 
-type TimelineEvent =
-  | {
-      year: string;
-      description: string;
-      context: string;
-      event_status?: undefined;
-    }
-  | {
-      year: string;
-      event_status: string;
-      description: string;
-      context: string;
-    };
+const FIRST_DOT_REM = 2;
+const DOT_GAP_REM = 7;
+const LINE_SPEED_REM_PER_S = 12;
 
-export const MyJourneySection = () => {
-  const isDesktop = useIsDesktop();
-  const t = useTranslations("Timeline");
-  const timelineEvents = getTimelineEvents(t);
+const dotOffsetRem = (index: number) => FIRST_DOT_REM + index * DOT_GAP_REM;
 
-  const LeftContent = ({
-    event,
-    index,
-  }: {
-    event: TimelineEvent;
-    index: number;
-  }) => (
-    <>
-      <Timeline.EventDot index={index} />
-      <Timeline.EventLine index={index}>
-        <Timeline.EventYear className="absolute bottom-2">
-          {event.year}
+const mobileCardVariants: Variants = {
+  hidden: { opacity: 0, x: 16, transition: { duration: 0.2 } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { delay: 0.1, duration: 0.45, ease: [0.25, 0.4, 0.25, 1] },
+  },
+};
 
-          {event.event_status && (
-            <>
-              <br />
-              <span className="text-sm text-gray-500">
-                {event.event_status}
-              </span>
-            </>
-          )}
-        </Timeline.EventYear>
-      </Timeline.EventLine>
+const JourneyCard = ({
+  event,
+  currentLabel,
+}: {
+  event: TimelineEvent;
+  currentLabel: string;
+}) => (
+  <article
+    className={`rounded-xl border bg-white/3 p-4 transition-[border-color,box-shadow] duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 ${
+      event.isCurrent ? "border-primary/30" : "border-white/10"
+    }`}
+  >
+    <div className="flex items-center gap-2 text-xs font-semibold text-primary">
+      <span>{event.year}</span>
+      {event.isCurrent && (
+        <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[0.65rem] uppercase tracking-wider">
+          {currentLabel}
+        </span>
+      )}
+    </div>
+    <h3 className="mt-1 text-base font-semibold text-white">{event.title}</h3>
+    <p className="text-sm text-gray-400">{event.subtitle}</p>
+  </article>
+);
 
-      <Timeline.EventDescription className="text-left">
-        {event.description}
-      </Timeline.EventDescription>
-    </>
-  );
-
-  const RightContent = ({
-    event,
-    index,
-  }: {
-    event: TimelineEvent;
-    index: number;
-  }) => (
-    <>
-      <Timeline.EventDescription className="text-right">
-        {event.description}
-      </Timeline.EventDescription>
-      <Timeline.EventLine index={index}>
-        <Timeline.EventYear className="absolute bottom-2">
-          {event.year}
-
-          {event.event_status && (
-            <>
-              <br />
-              <span className="text-sm text-gray-500">
-                {event.event_status}
-              </span>
-            </>
-          )}
-        </Timeline.EventYear>
-      </Timeline.EventLine>
-      <Timeline.EventDot index={index} />
-    </>
-  );
-
-  const DesktopTimeline = () => {
-    const totalDuration = 0.4 + timelineEvents.length * 0.4;
-
-    return (
-      <Timeline.Root>
-        <Timeline.Line totalDuration={totalDuration} />
-
-        {timelineEvents.map((event, index) => {
-          const isLeft = index % 2 === 0;
-          const topSpacing = 2 + index * 4;
-
-          return (
-            <Timeline.Event
-              className="mt-5"
-              key={index}
-              position={isLeft ? "left" : "right"}
-              top={`${topSpacing}`}
-              index={index}
-            >
-              <Timeline.EventContent>
-                {isLeft ? (
-                  <LeftContent event={event} index={index} />
-                ) : (
-                  <RightContent event={event} index={index} />
-                )}
-              </Timeline.EventContent>
-            </Timeline.Event>
-          );
-        })}
-      </Timeline.Root>
-    );
-  };
-
-  const MobileTimeline = () => {
-    return (
-      <div className="space-y-2">
-        {timelineEvents.map((event, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.1,
-              ease: [0.25, 0.4, 0.25, 1],
-            }}
-            className="flex items-start gap-4"
-          >
-            {/* Dot and line */}
-            <div className="flex flex-col items-center">
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.1 + 0.2,
-                  ease: [0.34, 1.56, 0.64, 1],
-                }}
-                className="w-4 h-4 rounded-full bg-secondary/90 flex-shrink-0 shadow-lg shadow-secondary/50"
-              />
-              {index < timelineEvents.length - 1 && (
-                <motion.div
-                  initial={{ height: 0 }}
-                  whileInView={{ height: "5rem" }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1 + 0.3,
-                    ease: "easeOut",
-                  }}
-                  className="w-0.5 bg-primary/50 mt-2"
-                />
-              )}
-            </div>
-
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1 + 0.3,
-              }}
-              className="flex-1"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                <span className="text-sm font-medium text-primary">
-                  {event.year}
-                  {event.event_status && (
-                    <span className="ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-                      {event.event_status}
-                    </span>
-                  )}
-                </span>
-              </div>
-
-              <h3 className="text-base font-medium mb-1">
-                {event.description}
-              </h3>
-
-              {event.context && (
-                <p className="text-sm text-gray-600">{event.context}</p>
-              )}
-            </motion.div>
-          </motion.div>
-        ))}
-      </div>
-    );
-  };
+const DesktopTimeline = ({
+  events,
+  currentLabel,
+}: {
+  events: TimelineEvent[];
+  currentLabel: string;
+}) => {
+  const lineHeightRem = dotOffsetRem(events.length - 1);
 
   return (
-    <Section.Content>
-      {isDesktop ? <DesktopTimeline /> : <MobileTimeline />}
+    <Timeline.Root className="pb-12">
+      <Timeline.Line
+        height={`${lineHeightRem}rem`}
+        duration={lineHeightRem / LINE_SPEED_REM_PER_S}
+      />
+
+      {events.map((event, index) => {
+        const offsetRem = dotOffsetRem(index);
+
+        return (
+          <Timeline.Event
+            key={event.year}
+            side={index % 2 === 0 ? "right" : "left"}
+            top={`${offsetRem}rem`}
+            revealAt={offsetRem / LINE_SPEED_REM_PER_S}
+            isCurrent={event.isCurrent}
+          >
+            <JourneyCard event={event} currentLabel={currentLabel} />
+          </Timeline.Event>
+        );
+      })}
+    </Timeline.Root>
+  );
+};
+
+// Line tip and dot reveal both track the same viewport "reading line" at 60%
+// height, so a dot lights exactly when the line reaches its center.
+const MobileTimelineItem = ({
+  event,
+  isLast,
+  currentLabel,
+}: {
+  event: TimelineEvent;
+  isLast: boolean;
+  currentLabel: string;
+}) => {
+  const dotRef = useRef<HTMLDivElement>(null);
+  const segmentRef = useRef<HTMLSpanElement>(null);
+  const [isLit, setIsLit] = useState(false);
+
+  const { scrollYProgress: dotProgress } = useScroll({
+    target: dotRef,
+    offset: ["start 60%", "end 60%"],
+  });
+  const { scrollYProgress: segmentProgress } = useScroll({
+    target: segmentRef,
+    offset: ["start 60%", "end 60%"],
+  });
+
+  useMotionValueEvent(dotProgress, "change", (progress) =>
+    setIsLit(progress >= 0.5)
+  );
+
+  return (
+    <motion.li
+      initial="hidden"
+      animate={isLit ? "visible" : "hidden"}
+      className="relative"
+    >
+      {!isLast && (
+        <motion.span
+          ref={segmentRef}
+          className="absolute -left-6.25 -bottom-13 top-7 w-0.5 origin-top rounded-full bg-primary"
+          style={{ scaleY: segmentProgress, boxShadow: PRIMARY_GLOW }}
+        />
+      )}
+      <div ref={dotRef} className="absolute -left-8 top-5">
+        <Timeline.Dot revealAt={0} isCurrent={event.isCurrent} />
+      </div>
+      <motion.div variants={mobileCardVariants}>
+        <JourneyCard event={event} currentLabel={currentLabel} />
+      </motion.div>
+    </motion.li>
+  );
+};
+
+const MobileTimeline = ({
+  events,
+  currentLabel,
+}: {
+  events: TimelineEvent[];
+  currentLabel: string;
+}) => (
+  <ol className="space-y-6 pl-8">
+    {events.map((event, index) => (
+      <MobileTimelineItem
+        key={event.year}
+        event={event}
+        isLast={index === events.length - 1}
+        currentLabel={currentLabel}
+      />
+    ))}
+  </ol>
+);
+
+export const MyJourneySection = () => {
+  const t = useTranslations("Timeline");
+  const events = getTimelineEvents(t);
+  const currentLabel = t("current");
+
+  return (
+    <Section.Content className="w-full items-center">
+      <div className="hidden lg:block">
+        <DesktopTimeline events={events} currentLabel={currentLabel} />
+      </div>
+      <div className="w-full max-w-md lg:hidden">
+        <MobileTimeline events={events} currentLabel={currentLabel} />
+      </div>
     </Section.Content>
   );
 };

@@ -58,7 +58,6 @@ export const ProjectCardsSection = () => {
                         fill
                         className="object-cover"
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        unoptimized
                       />
                       {/* Inner shadow overlay */}
                       <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.3)]" />

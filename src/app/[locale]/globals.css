@@ -113,6 +113,96 @@ html {
   animation: fade-in 0.8s ease forwards;
 }
 
+/* Background orbs: transform-only keyframes run on the compositor thread */
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orb-primary {
+  top: -10rem;
+  left: -8rem;
+  width: 38rem;
+  height: 38rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-primary) 18%, transparent) 0%,
+    transparent 70%
+  );
+  animation: orb-drift-primary 26s ease-in-out infinite alternate;
+}
+
+.orb-secondary {
+  bottom: -12rem;
+  right: -10rem;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-secondary) 10%, transparent) 0%,
+    transparent 70%
+  );
+  animation: orb-drift-secondary 32s ease-in-out infinite alternate;
+}
+
+.orb-accent {
+  top: 35%;
+  left: 40%;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-primary) 12%, transparent) 0%,
+    transparent 70%
+  );
+  animation: orb-drift-accent 22s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-primary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(45vw, 30vh, 0) scale(1.2);
+  }
+  100% {
+    transform: translate3d(15vw, 60vh, 0) scale(0.9);
+  }
+}
+
+@keyframes orb-drift-secondary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-40vw, -35vh, 0) scale(1.15);
+  }
+  100% {
+    transform: translate3d(-15vw, -65vh, 0) scale(0.95);
+  }
+}
+
+@keyframes orb-drift-accent {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.9);
+  }
+  50% {
+    transform: translate3d(-30vw, 20vh, 0) scale(1.25);
+  }
+  100% {
+    transform: translate3d(25vw, -25vh, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    animation: none;
+  }
+}
+
 .gradient-rotate:hover {
   animation: rotate-gradient 2s linear infinite;
   transform: scale(1);

@@ -102,18 +102,15 @@
   },
   "Timeline": {
     "computerEngineering": "Computer Engineering",
-    "graduation": "Universidade Potiguar - Graduation",
-    "androidDevelopment": "Android App Development for Health and Pregnant Women",
+    "unp": "Universidade Potiguar",
+    "androidApp": "Android App for Health and Pregnant Women",
     "universityProject": "University Project",
-    "sineSystem": "National Employment System (SINE)",
+    "sine": "National Employment System (SINE)",
     "internship": "Internship",
-    "softwareEngineerFuncitern": "Software Engineer at FUNCITERN",
-    "softwareEngineerUnimed": "Full-Stack Software Engineer at Unimed",
-    "jovemPotiguarPlatform": "Jovem Potiguar Platform (Project)",
-    "suasSystem": "SUAS System (Project)",
-    "prpSystem": "PRP System (Project)",
-    "present": "present",
-    "finished": "finished",
-    "inProgress": "in progress"
+    "softwareEngineer": "Software Engineer",
+    "funcitern": "FUNCITERN",
+    "fullStackEngineer": "Full-Stack Software Engineer",
+    "unimed": "Unimed",
+    "current": "Current"
   }
 }
