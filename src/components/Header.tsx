@@ -5,6 +5,33 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { motion } from "framer-motion";
+import { LogoMark } from "./ui/LogoMark";
+
+const BrandName = ({
+  isIntroTarget = false,
+  onClick,
+}: {
+  isIntroTarget?: boolean;
+  onClick?: () => void;
+}) => (
+  <a
+    href="#about-me"
+    onClick={onClick}
+    aria-label="Miguelzvd.dev"
+    className="flex items-baseline text-xl font-bold text-white"
+  >
+    {/* Shifted so the M's leg ends (not its loop/foot flourishes) sit on the text baseline */}
+    <LogoMark
+      id={isIntroTarget ? "brand-mark" : undefined}
+      className={`mr-[-0.06em] h-[1em] w-auto shrink-0 translate-y-[0.121em] ${
+        isIntroTarget ? "brand-mark" : ""
+      }`}
+    />
+    <span aria-hidden="true" className={isIntroTarget ? "brand-text" : ""}>
+      iguelzvd.dev
+    </span>
+  </a>
+);
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +69,7 @@ export const Header = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <div className="hidden sm:block text-xl font-bold">Miguelzvd.dev</div>
+          <BrandName isIntroTarget />
 
           <nav className="hidden sm:flex gap-8 font-medium">
             {menuItems.map((item) => (
@@ -90,9 +117,7 @@ export const Header = () => {
                    }`}
       >
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
-          <h2 className="text-xl font-bold bg-gradient-to-r from-white/30 to-white bg-clip-text text-transparent">
-            Miguelzvd.dev
-          </h2>
+          <BrandName onClick={handleLinkClick} />
           <button
             onClick={() => setIsOpen(false)}
             className="p-2 hover:bg-white/10 rounded-lg transition-all hover:scale-110"

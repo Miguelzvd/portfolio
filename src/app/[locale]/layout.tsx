@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Runs before first paint so the intro splash never flashes on repeat visits.
+const INTRO_STATE_SCRIPT = `try{var d=document.documentElement;var played=sessionStorage.getItem("intro-played");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;d.dataset.intro=played||reduce?"done":"active"}catch(e){}`;
+
 export const metadata: Metadata = {
   title: "miguel.dev",
   description: "Personal developer portfolio",
@@ -35,7 +38,10 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark">
+    <html lang={locale} className="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: INTRO_STATE_SCRIPT }} />
+      </head>
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

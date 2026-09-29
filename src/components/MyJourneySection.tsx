@@ -89,6 +89,24 @@ const DesktopTimeline = ({
 
 // Line tip and dot reveal both track the same viewport "reading line" at 60%
 // height, so a dot lights exactly when the line reaches its center.
+const READING_LINE_OFFSET = ["start 60%", "end 60%"] as const;
+
+const MobileTimelineSegment = () => {
+  const segmentRef = useRef<HTMLSpanElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: segmentRef,
+    offset: [...READING_LINE_OFFSET],
+  });
+
+  return (
+    <motion.span
+      ref={segmentRef}
+      className="absolute -left-6.25 -bottom-13 top-7 w-0.5 origin-top rounded-full bg-primary"
+      style={{ scaleY: scrollYProgress, boxShadow: PRIMARY_GLOW }}
+    />
+  );
+};
+
 const MobileTimelineItem = ({
   event,
   isLast,
@@ -99,19 +117,14 @@ const MobileTimelineItem = ({
   currentLabel: string;
 }) => {
   const dotRef = useRef<HTMLDivElement>(null);
-  const segmentRef = useRef<HTMLSpanElement>(null);
   const [isLit, setIsLit] = useState(false);
 
-  const { scrollYProgress: dotProgress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: dotRef,
-    offset: ["start 60%", "end 60%"],
-  });
-  const { scrollYProgress: segmentProgress } = useScroll({
-    target: segmentRef,
-    offset: ["start 60%", "end 60%"],
+    offset: [...READING_LINE_OFFSET],
   });
 
-  useMotionValueEvent(dotProgress, "change", (progress) =>
+  useMotionValueEvent(scrollYProgress, "change", (progress) =>
     setIsLit(progress >= 0.5)
   );
 
@@ -121,13 +134,7 @@ const MobileTimelineItem = ({
       animate={isLit ? "visible" : "hidden"}
       className="relative"
     >
-      {!isLast && (
-        <motion.span
-          ref={segmentRef}
-          className="absolute -left-6.25 -bottom-13 top-7 w-0.5 origin-top rounded-full bg-primary"
-          style={{ scaleY: segmentProgress, boxShadow: PRIMARY_GLOW }}
-        />
-      )}
+      {!isLast && <MobileTimelineSegment />}
       <div ref={dotRef} className="absolute -left-8 top-5">
         <Timeline.Dot revealAt={0} isCurrent={event.isCurrent} />
       </div>

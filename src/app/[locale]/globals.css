@@ -113,6 +113,29 @@ html {
   animation: fade-in 0.8s ease forwards;
 }
 
+/* Intro splash: data-intro is set by an inline script before first paint */
+
+html:not([data-intro="active"]) .intro-splash {
+  display: none;
+}
+
+html[data-intro="active"] {
+  overflow: hidden;
+}
+
+html[data-intro="active"] .animate-fade-in {
+  animation-play-state: paused;
+}
+
+html[data-intro="active"] .brand-mark,
+html[data-intro="active"] .brand-text {
+  opacity: 0;
+}
+
+.brand-text {
+  transition: opacity 0.4s ease 0.1s;
+}
+
 /* Background orbs: transform-only keyframes run on the compositor thread */
 
 .orb {

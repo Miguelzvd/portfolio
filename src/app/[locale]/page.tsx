@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { AnimatedSections } from "@/components/AnimatedSections";
 import HeroSection from "@/components/HeroSection";
+import { IntroSplash } from "@/components/IntroSplash";
 
 export default async function Home() {
   const tJourney = await getTranslations("Journey");
@@ -31,6 +32,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col justify-between items-center min-h-screen p-8 pb-12 gap-16 font-[family-name:var(--font-geist-sans)] md:px-20 lg:px-40 xl:px-60 relative">
+      <IntroSplash />
       <AnimatedBackground />
       <BackToTopButton />
 
