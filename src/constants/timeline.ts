@@ -16,7 +16,7 @@ export const getTimelineEvents = (t: (key: string) => string) => [
   },
   {
     year: "2024 - 2026",
-    event_status: t("present"),
+    event_status: t("finished"),
     description: t("softwareEngineerFuncitern"),
     context: t("softwareEngineerFuncitern"),
   },
@@ -34,9 +34,15 @@ export const getTimelineEvents = (t: (key: string) => string) => [
   },
   {
     year: "2025 - 2026",
-    event_status: t("inProgress"),
+    event_status: t("finished"),
     description: t("suasSystem"),
     context: t("softwareEngineerFuncitern"),
+  },
+  {
+    year: "2026",
+    event_status: t("present"),
+    description: t("softwareEngineerUnimed"),
+    context: t("softwareEngineerUnimed"),
   },
 ];
 

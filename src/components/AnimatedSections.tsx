@@ -1,9 +1,8 @@
 "use client";
 
-import { Github, Linkedin } from "lucide-react";
 import { MyJourneySection } from "@/components/MyJourneySection";
 import { ProjectCardsSection } from "@/components/ProjectCardsSection";
-import { FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaLinkedin } from "react-icons/fa";
 import { StackCardsGroup } from "@/components/StackCardsGroup";
 import { ContactForm } from "@/components/ContactForm";
 import Section from "@/components/ui/Section";
@@ -92,7 +91,7 @@ export function AnimatedSections({
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
             >
-              <Github color="black" />
+              <FaGithub color="black" size={30} />
             </a>
 
             <a
@@ -112,7 +111,7 @@ export function AnimatedSections({
               rel="noopener noreferrer"
               aria-label="Linkedin Profile"
             >
-              <Linkedin color="black" />
+              <FaLinkedin color="black" size={30} />
             </a>
           </div>
           <ContactForm />

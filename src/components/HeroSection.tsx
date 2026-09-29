@@ -25,14 +25,12 @@ export default async function HeroSection() {
     profession: t("profession"),
     title: t("title"),
     subtitle: t("subtitle"),
-    passionateAbout: t("passionateAbout"),
-    frontendProjects: t("frontendProjects"),
-    focusedOn: t("focusedOn"),
-    usability: t("usability"),
+    experienceIntro: t("experienceIntro"),
+    technicalLeadership: t("technicalLeadership"),
     and: t("and"),
-    accessibility: t("accessibility"),
-    for: t("for"),
-    publicService: t("publicService"),
+    aiIntegration: t("aiIntegration"),
+    toDrive: t("toDrive"),
+    efficiencyGains: t("efficiencyGains"),
     workAims: t("workAims"),
     to: t("to"),
     simplifyProcesses: t("simplifyProcesses"),
@@ -69,14 +67,12 @@ export default async function HeroSection() {
         <p>
           {translations.subtitle}{" "}
           <HighlightedText>{translations.title}</HighlightedText>{" "}
-          {translations.passionateAbout}{" "}
-          <HighlightedText>{translations.frontendProjects}</HighlightedText>{" "}
-          {translations.focusedOn}
-          <HighlightedText> {translations.usability}</HighlightedText>{" "}
+          {translations.experienceIntro}{" "}
+          <HighlightedText>{translations.technicalLeadership}</HighlightedText>{" "}
           {translations.and}{" "}
-          <HighlightedText> {translations.accessibility}</HighlightedText>{" "}
-          {translations.for}{" "}
-          <HighlightedText>{translations.publicService}</HighlightedText>.{" "}
+          <HighlightedText>{translations.aiIntegration}</HighlightedText>{" "}
+          {translations.toDrive}{" "}
+          <HighlightedText>{translations.efficiencyGains}</HighlightedText>.{" "}
           {translations.workAims} {translations.to}{" "}
           <HighlightedText>{translations.simplifyProcesses}</HighlightedText>{" "}
           {translations.and} {translations.improveAccess}{" "}
