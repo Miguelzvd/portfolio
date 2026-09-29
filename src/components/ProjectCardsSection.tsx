@@ -15,7 +15,7 @@ export const ProjectCardsSection = () => {
   const gradients = ["from-primary/20 via-secondary/10 to-transparent"];
 
   return (
-    <Section.Content className="space-y-16">
+    <Section.Content className="space-y-16 overflow-x-clip">
       {projects.map((project, projectIndex) => {
         const gradient = gradients[projectIndex % gradients.length];
         const isEven = projectIndex % 2 === 0;
